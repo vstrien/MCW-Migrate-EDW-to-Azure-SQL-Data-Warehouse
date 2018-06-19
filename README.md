@@ -6,7 +6,7 @@ Coho, a retail company focusing on consumer electronics, is modernizing their da
 
 - Database Administrators
 - Database Developers 
-- Data Archite
+- Data Architects
 
 # Abstract
 
