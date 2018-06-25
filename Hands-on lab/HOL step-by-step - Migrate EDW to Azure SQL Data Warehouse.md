@@ -83,6 +83,7 @@ Coho has asked you to migrate an existing on-premises SQL Server data warehouse 
 ## Requirements
 
 1.  Microsoft Azure subscription
+2.  Complete the pre-lab setup to deploy the \"on-premises\" environment https://github.com/Microsoft/MCW-Migrate-EDW-to-Azure-SQL-Data-Warehouse/blob/master/Hands-on%20lab/Before%20the%20lab.md
 
 
 ## Exercise 1: Configure Azure Services
@@ -98,11 +99,13 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
 3.  Click **Create** on the SQL Server blade. Specify the following information, and click **Create**.
 
-    -   Server name: ***specify a unique name* **
+    -   Server name: *Specify a unique name*
 
     -   Server admin login: **demouser**
 
     -   Password: **Demo\@pass123**
+
+    -   Subscription: *Your subscription*
 
     -   Resource group: **Create new -** **CohoDataFactory**
 
@@ -136,8 +139,10 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     -   Version: **V2**
 
-    -   Location: ***Location near you***\
-    \
+    -   Location: ***Location near you***
+
+    The Data Factory location is where the metadata of the data factory is stored and where the triggering of the pipeline is initiated from. Meanwhile, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services. This behavior is realized through the globally available Integration Runtime to ensure data compliance, efficiency, and reduced network egress costs.
+
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image17.png)
 
 4.  After the Data Factory deployment completes, navigate to the Data Factory and click the Author & Monitor tile.
@@ -152,13 +157,15 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     -   Name: **Azure-SSIS**
 
-    -   Location: ***Location near you***
+    -   Location: ***The same location you created your logical SQL Server***
 
     -   Node size: **Standard\_D1\_v2 (1 Core(s), 3584MB)**
 
     -   Node Number: **1**
 
     -   Edition: **Standard**
+
+    The Integration Runtime Location defines the location of its back-end compute, and essentially the location where the data movement, activity dispatching, and SSIS package execution are performed. The Integration Runtime location can be different from the location of the Data Factory it belongs to. For your location, select the location of your integration runtime. Only supported locations are displayed. We recommend that you select the same location as your SQL Server logical server to host SSISDB.
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image20.png)
 
@@ -202,7 +209,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     -   Account kind: **Storage (general purpose v1)**
 
-    -   Location: ***Location near you***
+    -   Location: ***Same location you created your logical SQL Server in***
 
     -   Replication: **Locally-redundant storage (LRS)**
 
@@ -243,7 +250,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
     -   Server name: ***Choose a unique server name**
     -   Server admin login: **demouser**
     -   Password: **Demo\@pass123**
-    -   Location: **Same location as you used previously**
+    -   Location: **Same location you created your logical SQL Server in**
     -   Allow azure services: **checked** 
    
         ![The following fields are circled on the New server blade: Server name (cohodw); Server admin login (demouser); Password (hidden); Location (South Central US); and Allow azure services to acces server (check box selected).](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image31.png) |  |
@@ -293,7 +300,7 @@ The first four steps of this task walk you through creating an organizational ac
 
     -   Resource group: **Use existing** **CohoDWRG**
 
-    -   Location: ***Choose the same location as your other resources***
+    -   Location: ***Same location you created your logical SQL Server in***
 
     -   Pricing tier: **S0 Standard**
 
@@ -315,7 +322,7 @@ The first four steps of this task walk you through creating an organizational ac
 
     ![In the Access keys blade, The Storage account name field is edwstor0. Both the name and the copy button are circled. Under Name, the key1 key and its copy button are circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image37.png)
 
-4.  From the **SQLCohoDW** virtual machine, open **Internet Explorer**, and connect to the **Azure Portal**
+4.  From the **SQLCohoDW** virtual machine that you created before the lab, open **Internet Explorer**, and connect to the **Azure Portal**.
 
 5.  Navigate to your **CohoDWRG** resource group. Then, click on the cohodw logical SQL Server that hosts your Azure SQL Data Warehouse.
 
