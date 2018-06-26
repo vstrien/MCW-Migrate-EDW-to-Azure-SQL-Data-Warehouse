@@ -32,13 +32,13 @@ In this exercise, you will deploy the source environment for this lab. The sourc
 
     ![](images/Setup/image4.png)
 
-6.  On the Settings blade, change the Auto-shutdown time zone to reflect your current time zone. Then, click **OK**.
+6.  On the Settings blade, select **RDP (3389)** in the **Select public inbound ports** dropdown and change the Auto-shutdown time zone to reflect your current time zone. Then, click **OK**.
 
-    ![In the Settings blade Auto-shutdown section, Enable auto-shutdown is set to On, Shutdown time is 7:00:00 PM, and Time zone is Central Time (US and Canada).](images/Setup/image5.png)
+    ![In the Settings blade Auto-shutdown section, Enable auto-shutdown is set to On, Shutdown time is 7:00:00 PM, and Time zone is your current local time zone.](images/2018-06-25-18-44-33.png)
 
 7.  On the SQL Server settings blade, enable SQL Authentication, and click **OK**.
 
-    ![](images/Setup/image6.png)
+    ![Toggle the SQL Authentication to enabled](images/Setup/image6.png)
 
 8.  On the Summary blade, review your settings. Then, click **Create**.
 
@@ -89,7 +89,7 @@ In this exercise, you will deploy the source environment for this lab. The sourc
 
 3.  Click **Create** on the SQL Database blade. Specify the following information, and click **Create**.
 
-    -   Database name: **cohoOLTP **
+    -   Database name: **cohoOLTP**
 
     -   Subscription: **Your subscription**
 

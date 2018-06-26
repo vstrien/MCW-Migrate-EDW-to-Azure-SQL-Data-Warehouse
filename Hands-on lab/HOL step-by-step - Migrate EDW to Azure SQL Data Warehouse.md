@@ -324,6 +324,8 @@ The first four steps of this task walk you through creating an organizational ac
 
 4.  From the **SQLCohoDW** virtual machine that you created before the lab, open **Internet Explorer**, and connect to the **Azure Portal**.
 
+    If you do not have a SQLCohoDW virtual machine, you should verify that you have completed the pre-requite steps in the correct subscription:  https://github.com/Microsoft/MCW-Migrate-EDW-to-Azure-SQL-Data-Warehouse/blob/master/Hands-on%20lab/Before%20the%20lab.md
+
 5.  Navigate to your **CohoDWRG** resource group. Then, click on the cohodw logical SQL Server that hosts your Azure SQL Data Warehouse.
 
     ![In the Resource group name section, cohodw is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image38.png)
@@ -342,7 +344,7 @@ The first four steps of this task walk you through creating an organizational ac
 
     From File Explorer, open the **C:\\LabFiles\\CreateDataLoader.sql** script in SQL Server Management Studio
 
-10. Connect to your Azure SQL Data Warehouse using SQL Server Authentication and the **demouser** account and password
+10. Connect to your Azure SQL Data Warehouse using SQL Server Authentication and the **demouser** account and password **Demo\@pass123**
 
     ![The Connect to Server dialog box displays. ](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image41.png)
 
@@ -385,7 +387,7 @@ Coho is relying on you to migrate the data warehouse to Azure SQL Data Warehouse
            c.[user_type_id], 
            y.[is_user_defined], 
            y.[name]
-    FROM sys.tables?? t JOIN sys.columns c ON t.[object_id] = c.[object_id]
+    FROM sys.tables t JOIN sys.columns c ON t.[object_id] = c.[object_id]
                        JOIN sys.types y ON c.[user_type_id] = y.[user_type_id]
     WHERE y.[name] IN ('geography', 'geometry', 'hierarchyid', 'image', 'ntext',
     'numeric', 'sql_variant', 'sysname', 'text', 'timestamp', 'uniqueidentifier', 'xml')
