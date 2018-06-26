@@ -508,7 +508,7 @@ This exercise is focused on migrating the data from your existing data warehouse
 
 2.  Open a command prompt and navigate to the **C:\\Program Files (x86)\\Microsoft SDKs\\Azure\\AzCopy** folder.
 
-3.  Update the following command with your storage account name and key, and execute it to begin copying your data files to Azure (all of the text is a single command).
+3.  Update the following command with the storage account name and key that you saved in Exercise 1, Task 6, Step 3 and execute it to begin copying your data files to Azure (all of the text is a single command).
 
     ```
     AzCopy /Source:"C:\Migration" /Dest:https://<YourStorageAccount>.blob.core.windows.net/migration /DestKey:<YourStorageAccountKey> /pattern:*.txt /NC:2
@@ -527,6 +527,8 @@ This exercise is focused on migrating the data from your existing data warehouse
 6.  Execute the following to create a database scoped credential you will use to store the access key to the migration storage account
 
     ```
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Demo@pass123';
+
     CREATE DATABASE SCOPED CREDENTIAL MigrationCredential
     WITH IDENTITY = '<YourStorageAccountName>' , SECRET = '<YourStorageAccountKey>'
     ```
@@ -575,7 +577,7 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
 1.  From your **SQLcohoDW** virtual machine, navigate to the Azure portal.
 
-2.  Navigate to your **SSISDB** database. This database was created by Azure Data Factory when you provisioned your Azure-SSIS Integration Runtime.
+2.  Navigate to the **CohoDataFactory** resource group and open your **SSISDB** database. This database was created by Azure Data Factory when you provisioned your Azure-SSIS Integration Runtime.
 
 3.  Click on the Set server firewall button
 
@@ -595,7 +597,7 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
 7.  On the **Connection Properties** tab, select the **SSISDB** database then click **Connect**.
 
-    ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image65.png)
+    ![](images/2018-06-25-19-33-38.png)
 
 8.  Expand Integration Services Catalogs, right-click it and choose **Create Folder...**
 
