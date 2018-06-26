@@ -24,7 +24,7 @@ In this exercise, you will deploy the source environment for this lab. The sourc
 
     -   Subscription: ***Your subscription***
 
-    -   Resource Group: **Create new** **OnPremisesEnvironment**
+    -   Resource Group: **Create new** - **CohoOnPremEnvironment**
 
     -   Location: ***Choose a location near you***
 
