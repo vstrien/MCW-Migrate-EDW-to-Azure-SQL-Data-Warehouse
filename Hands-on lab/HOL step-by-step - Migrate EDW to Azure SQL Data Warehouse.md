@@ -126,7 +126,8 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
 1.  Browse to the Azure Portal and authenticate at <https://portal.azure.com/>
 
-2.  Click **+Create a resource** and type **Data Factory** in the search box. Choose **Data Factory** from the results\
+2.  Click **+Create a resource** and type **Data Factory** in the search box. Choose **Data Factory** from the results.
+
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image16.png)
 
 3.  Click **Create** on the Data Factory blade. Specify the following information, and click **Create**.
@@ -655,7 +656,7 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
     TRUNCATE TABLE dbo.FactResellerSales_STAGE
     ```
 
-3.  From the Azure portal, navigate to your Azure Data Factory and click the **Author & Monitor** tile.
+3.  Launch the Chrome browser, and navigate to the Azure portal. From the Azure portal, navigate to the CohoDataFactory resource group, open your Azure Data Factory and click the **Author & Monitor** tile.
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image77.png)
 

@@ -54,12 +54,23 @@ In this exercise, you will deploy the source environment for this lab. The sourc
 
     ![In the Everything section, IE Ehanced Security Configuration, which is set to Off, is selected.](images/Setup/image9.png)
 
-
 3.  Install the Azure PowerShell command-line tools from:
 
     <https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids>
 
-4.  Open **File Explorer,** and create two new folders called **C:\\LabFiles, C:\\Migration**
+4.  Open **Windows PowerShell ISE**, copy and paste the following code into the script window and execute it by clicking the green button. The picture below shows the code properly pasted into the script window. Verify that your code does not have any extraneous line wrapping. 
+
+    ```
+    $Path = $env:TEMP; 
+    $Installer = "chrome_installer.exe"
+    Invoke-WebRequest "http://dl.google.com/chrome/install/375.126/chrome_installer.exe" -OutFile $Path\$Installer
+    Start-Process -FilePath $Path\$Installer -Args "/silent /install" -Verb RunAs -Wait
+    Remove-Item $Path\$Installer
+    ```
+
+    ![](images/2018-06-26-09-57-15.png)
+
+5.  Open **File Explorer,** and create two new folders called **C:\\LabFiles, C:\\Migration**
 
 5.  Download the Student Files from <http://cloudworkshop.blob.core.windows.net/migrate-edw/StudentFiles-06-2018.zip>, and extract the files to **C:\\LabFiles**
 
@@ -77,7 +88,7 @@ In this exercise, you will deploy the source environment for this lab. The sourc
 
 9.  Click **Execute** to restore the database
 
-    ![Screenshot of the Execute button.](images/Setup/image11.png)
+    ![Screenshot of the Execute button.](images/Setup/image11.png) 
 
 ### Task 3: Deploy an Azure SQL Database
 
