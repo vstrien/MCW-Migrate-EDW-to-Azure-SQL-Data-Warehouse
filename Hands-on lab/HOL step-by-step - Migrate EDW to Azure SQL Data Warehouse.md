@@ -467,7 +467,7 @@ Coho is relying on you to migrate the data warehouse to Azure SQL Data Warehouse
 
     ![Screenshot of the Execute button.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image55.png)
 
-11. Execute the following query to verify that your tables were created. There should be 38 rows returned
+11. Execute the following query to verify that your tables were created. There should be 33 rows returned
 
     ```
     SELECT * FROM sys.tables
@@ -481,7 +481,7 @@ This exercise is focused on migrating the data from your existing data warehouse
 
 1.  Connect to your **SQLCohoDW** virtual machine.
 
-2.  Open the **C:\\LabFiles\\bcp\_commands.txt** file. These are the bcp commands for each of the tables you need to migrate. The line below is an example. Notice the bcp commands all use the -C 65001 parameter. This indicates the output will be in UTF-8 which is required by Polybase. This code page is only an option with bcp.exe that ships with SQL Server 2016 tools. If you are using an older version of bcp, you will have an additional step to convert to UTF-8.
+2.  Open the **C:\\LabFiles\\bcp\_commands.txt** file. These are the bcp commands for each of the tables you need to migrate. The line below is an example. Notice the bcp commands all use the -C 65001 parameter. This indicates the output will be in UTF-8 which is required by Polybase. This code page is only an option with bcp.exe that ships with SQL Server 2016 and later tools. If you are using an older version of bcp, you will have an additional step to convert to UTF-8.
 
     ```
     bcp "select [ScenarioKey],REPLACE([ScenarioName],'|','||') from [CohoDW].[dbo].[DimScenario]" queryout "C:\Migration/dbo.DimScenario.txt" -q -c -C 65001 -t "|" -r "\n" -S localhost -T
@@ -525,7 +525,7 @@ This exercise is focused on migrating the data from your existing data warehouse
 
 5.  Open SQL Server Management Studio, and connect to the **CohoDW** database of your SQL Data Warehouse using the **dataloader** account
 
-6.  Execute the following to create a database scoped credential you will use to store the access key to the migration storage account
+6.  Execute the following to create a database scoped credential you will use to store the access key to the migration storage account.
 
     ```
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Demo@pass123';
@@ -549,14 +549,13 @@ This exercise is focused on migrating the data from your existing data warehouse
     CREATE EXTERNAL FILE FORMAT MigrationFiles WITH(FORMAT_TYPE = DelimitedText,
     FORMAT_OPTIONS (FIELD_TERMINATOR = '|'));
     ```
-9. 
- Open the **C:\\LabFiles\\CreateExternalTables.sql** file in SQL Server Management Studio and verify that you are connected to your Azure SQL Data Warehouse **CohoDW** database
+9.  Open the **C:\\LabFiles\\CreateExternalTables.sql** file in SQL Server Management Studio and verify that you are connected to your Azure SQL Data Warehouse **CohoDW** database.
 
 10. This file contains all of the external table definitions for our tables and directly leverages the external data source and external file format we created above. Click **Execute** to create the external tables.
 
     ![Screenshot of the Execute button.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image55.png)
 
-11. Run the following code to verify that 33 tables were created (your query should return 34 rows)
+11. Run the following code to verify that 33 tables were created.
 
     ```
     SELECT * FROM SYS.TABLES WHERE is_external = 1
@@ -618,7 +617,7 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image69.png)
 
-13. On the Select Destination window, make sure the server name of your SSISDB database server is set correctly, use demouser and Demo\@pass123 for authentication, click Connect to verify your credentials, then click Next.
+13. On the Select Destination window, make sure the server name of your SSISDB database server is set correctly, use demouser and Demo\@pass123 for authentication, click **Connect** to verify your credentials, then click Next.
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image70.png)
 
@@ -684,7 +683,7 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image83.png)
 
-10. Click the **Trigger** button and select **Trigger Now** to test you pipeline. If the Pipeline Run window opens, click **Finish** to continue.
+10. Click the **Trigger** button at the top of your pipeline pane and select **Trigger Now** to test you pipeline. If the Pipeline Run window opens, click **Finish** to continue.
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image84.png)
 
@@ -700,7 +699,7 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image87.png)
 
-14. Change the name to **15minuteTrigger**, set the type to **Tumbling Window**, set the recurrence to **Every Minute**, **Every 15 Minutes**, select an end date of one full day from now. Then click **Next** and then click **Finish**.
+14. Change the name to **15minuteTrigger**, set the type to **Tumbling Window**, set the recurrence to **Every Minute**, **Every 15 Minutes**, select an end date of one full day from now and verify that **Activated** is checked. Then click **Next** and then click **Finish**.
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image88.png)
 
@@ -878,7 +877,7 @@ In this exercise, you will setup integration with Power BI Desktop
 
 4.  On the Get Data window, select **Azure** from the list on the left. Then, choose Azure Analysis Services database, and click **Connect**
 
-    ![In the Get Data Window, in the left pane, Azure is selected. In the right pane, Azure Analysis Services database (Beta) is selected. At the bottom, the Connect button is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image121.png)
+    ![In the Get Data Window, in the left pane, Azure is selected. In the right pane, Azure Analysis Services database (Beta) is selected. At the bottom, the Connect button is selected.](images/2018-06-26-18-21-40.png)
 
 5.  If you get a Preview connector warning, click **Continue**
 
@@ -890,17 +889,17 @@ In this exercise, you will setup integration with Power BI Desktop
 
 7.  Login with your Active Directory Azure Portal credentials
 
-8.  In the Fields blade in the dark grey side bar to the right, expand the **Geography,** and check the box next to **Country Region Name**. This will automatically launch the map visualization, because PowerBI is smart enough to understand this is geographic data.
+8.  In the Fields blade in the dark grey side bar to the right, expand the **DimGeography** dimension and check the box next to **CountryRegionCode**. This will automatically launch the map visualization, because Power BI is smart enough to understand this is geographic data.
 
-    ![In the Power BI window, in the left pane, a world map displays with dots on it. In the right pane, two more panes display: Visualizations, and Fields. In the Visualizations pane, the World graph icon is selected. Under Location, Country Region Name displays. In the right, Fields pane, Geograpny is expanded, and below it, the Country Region Name is check box is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image124.png)
+    ![In the Power BI window, in the left pane, a world map displays with dots on it. In the right pane, two more panes display: Visualizations, and Fields. In the Visualizations pane, the World graph icon is selected. Under Location, CountryRegionCode displays. In the right, Fields pane, DimGeograpny is expanded, and below it, the CountryRegionCode is check box is selected.](images/2018-06-26-18-34-00.png)
 
-9.  The circles that PowerBI adds to the map are simply every country in which Coho had sales. Let's add the sales amount to this to make the map a little more interesting. Add the **Sales Amount** from the **Internet Sales** table by putting a check next to it. The circles on the map will change in size to reflect the sum of all sales in that particular country.
+9.  The circles that PowerBI adds to the map are simply every country in which Coho had sales. Let's add the sales amount to this to make the map a little more interesting. Add the **SalesAmount** from the **FactInternetSales** table by putting a check next to it. The circles on the map will change in size to reflect the sum of all sales in that particular country.
 
-    ![In the Power BI window, in the left pane, a world map displays with varying-sized dots on it. Larger dots are over North America and Australia. In the right Fields pane, the Sales Amount check box is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image125.png)
+    ![In the Power BI window, in the left pane, a world map displays with varying-sized dots on it. Larger dots are over North America and Australia. In the right Fields pane, the SalesAmount check box is selected.](images/2018-06-26-18-37-09.png)
 
-10. We want to see a little more specific detail around what these circles actually mean, so let\'s add a legend to identify the countries. Drag the **Country Region Name** under **Legend**.
+10. We want to see a little more specific detail around what these circles actually mean, so let\'s add a legend to identify the countries. Drag the **EnglishCountryRegionName** field under **Legend**.
 
-    ![In the Power BI window, in the left pane, the world map displays, this time with dots that vary by size and color. In the fields pane, under Geography, the Country Region Name field is circled, and the check box is selected. An arrow points from here to the same Country Region Name field in the Visualizations pane, under Legend. A callout arrow points from the ](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image126.png)
+    ![In the Power BI window, in the left pane, the world map displays, this time with dots that vary by size and color. In the fields pane, under DimGeography, the EnglishCountryRegionName field is circled, and the check box is selected. An arrow points from here to the same EnglishCountryRegionName field in the Visualizations pane, under Legend.](images/2018-06-26-18-41-49.png)
 
 11. Click the **Save** button in the top left of your screen, name your report **Sales by country,** and click **Save**
 
