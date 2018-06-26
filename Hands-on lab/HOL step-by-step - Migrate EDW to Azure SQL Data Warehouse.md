@@ -371,9 +371,9 @@ Coho is relying on you to migrate the data warehouse to Azure SQL Data Warehouse
 
 ### Task 1: Validate schema and data
 
-1.  In the Azure portal, navigate to your **CohoOnPremEnvironment** resource group, then connect to the **SQLCohoDW** virtual machine
+1.  In the Azure portal, navigate to your **CohoOnPremEnvironment** resource group, then connect to the **SQLCohoDW** virtual machine. If you are still connected you may use the same connection.
 
-2.  Launch SQL Server Management Studio, connect to the local **SQLCohoDW** instance with the demouser account and open a **New Query** window
+2.  Launch SQL Server Management Studio, connect to the local **SQLCohoDW** instance with the demouser account and the Demo@pass123 password then open a **New Query** window
 
     ![Screenshot of the New Query button](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image46.png)
 
@@ -429,7 +429,7 @@ Coho is relying on you to migrate the data warehouse to Azure SQL Data Warehouse
 
     ![The Connect to Server dialog box displays with the following field settings: Server name, cohodw.database.windows.net; Authentication, SQL Server Authentication; Login, demouser.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image41.png)
 
-2.  On your Azure SQL Data Warehouse, expand **databases**, select the **CohoDW** database followed by selecting the **New Query** button
+2.  On your Azure SQL Data Warehouse, expand **databases**, select the **CohoDW** database followed by selecting the **New Query** button. We use this query window to run our script to generate the schema later.
 
 3.  Under your SQLCohoDW instance of SQL Server, right click your local copy of CohoDW, and select **Tasks -\> Generate Scripts** to launch the Generate and Publish Scripts wizard
 
@@ -453,15 +453,15 @@ Coho is relying on you to migrate the data warehouse to Azure SQL Data Warehouse
 
     -   Execute a Find and Replace on your script to replace all occurrences of "ON \[PRIMARY\]" with "" to remove them from the script
 
-        ![In the Find field, On Primary is typed.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image52.png)
+        ![In the Find field, On Primary is typed.](images/2018-06-26-14-53-28.png)
 
     -   Execute a Find and Replace on your script to replace all occurrences of "USE \[" with "\--USE \[" to comment out those lines
 
-        ![Use \[ is typed in the Find field, and \--USE \[ is typed in the Replace field.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image53.png)
+        ![Use \[ is typed in the Find field, and \--USE \[ is typed in the Replace field.](images/2018-06-26-14-55-42.png)
 
-    -   Execute a Find and Replace on your script to replace all occurrences of "SET ANSI\_PADDING" with "\--SET ANSI\_PADDING" to comment out those lines
+    -   Comment out the leading GO statement.
 
-        ![Set ANSI\_PADDING is typed in the Find field, and \--Set ANSI\_PADDING is typed in the Replace field.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image54.png)
+        ![The leading GO statement of the script is commented out.](images/2018-06-26-15-07-23.png)
 
 10. Run the script by clicking the **Execute** button. This will use the default options to create tables, Clustered Columnstore Indexing and ROUNDROBIN distribution.
 
