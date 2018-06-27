@@ -784,7 +784,7 @@ In this exercise, you will configure backup, restore for Analysis Services, and 
 
         ![Fields in the Connect to Server dialog box are set to the previously defined settings.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image102.png)
 
-        > Note that if you are using your own organizational account instead of the one we created earlier in the lab then you will put that in for the user name.
+        > Note that if you are using your own organizational account instead of the one we created earlier in the lab then you will put that in for the user name. You may also need to update the authentication type depending on the requirements of your organization (for example, if you use multi-factor autentication)
 
     The User name setting should be in the form \<name\>@\<your-domain\>. If you do not know your domain name, you can get it by navigating to the Azure Portal and hovering over your login information in the upper right corner of your browser window.
 
@@ -821,9 +821,9 @@ In this exercise, you will configure backup, restore for Analysis Services, and 
 
     ![In Object Explorer, coho-data-model is selected, and from its right-click menu, Process Database is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image110.png)
 
-5.  Click OK on the Process Data window
+5.  Change the **Mode** to **Process Full** and then click **OK** on the Process Data window
 
-    ![The Process Database window displays.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image111.png)
+    ![The Process Database window displays.](images/2018-06-26-19-17-14.png)
 
 6.  Close the Process Data window
 
