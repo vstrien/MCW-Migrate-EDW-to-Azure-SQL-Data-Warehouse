@@ -50,7 +50,6 @@ This whiteboard design session will look at the process of migrating an on-premi
 Attendees will learn how to plan a data warehouse migration as well as:
 
 -   How to prepare and migrate data warehouse schema and data
-
 -   How to configure a BI solution in Azure
 
 ## Step 1: Review the customer case study 
@@ -58,7 +57,9 @@ Attendees will learn how to plan a data warehouse migration as well as:
 **Outcome** 
 
 Analyze your customer’s needs.
-Time frame: 15 minutes 
+
+Timeframe: 15 minutes 
+
 Directions: With all participants in the session, the facilitator/SME presents an overview of the customer case study along with technical tips. 
 1.  Meet your table participants and trainer 
 2.  Read all of the directions for steps 1–3 in the student guide 
@@ -78,8 +79,6 @@ The current reporting system is also quite limited. After the data loads have co
 **Current Coho EDW architecture**
 
 ![The Current Coho EDW architecture consists of an on-premises data warehouse that pulls data from a variety of on-premises data sources. A 3rd-party data processing company receives a dataset from Coho every day and supplements and aggregates the data with additional customer data. Updated sales data is periodically pulled from the warehouse but not on a consistent basis. Users receive static reports that are generated directly from the warehouse and analytics users query their own analytics database via Excel.](images/Whiteboarddesignsessionstudentguide-MigrateEDWtoAzureSQLDataWarehouseimages/media/image2.png)
-
-
 
 ### Customer needs 
 
@@ -112,7 +111,6 @@ The current reporting system is also quite limited. After the data loads have co
 8.  It looks like Azure SQL Database supports columnstore tables for warehouse workloads like ours. When would we choose Azure SQL Database over Azure SQL Data Warehouse?
 
  
-
 ### Infographic for common scenarios
 
 **Azure SQL Data Warehouse**
@@ -136,7 +134,7 @@ The current reporting system is also quite limited. After the data loads have co
 **Outcome** 
 Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format. 
 
-Time frame: 60 minutes
+Timeframe: 60 minutes
 
 **Business needs**
 
@@ -150,11 +148,11 @@ Directions: With all participants at your table, respond to the following questi
 
 _Plan a data warehouse migration_
 
-- **Data preparation**: Coho needs to validate its database compatibility. Develop a high-level checklist of all of the steps necessary to validate compatibility including any tools you might use.
+1. **Data preparation**: Coho needs to validate its database compatibility. Develop a high-level checklist of all of the steps necessary to validate compatibility including any tools you might use.
 
--  **Data warehouse sizing:** Determine the appropriate sizing/performance configuration for the data warehouse.
+2.  **Data warehouse sizing:** Determine the appropriate sizing/performance configuration for the data warehouse.
 
--  **Migration process:** Design a secure migration process that minimizes downtime. Your migration process should include the following:
+3. **Migration process:** Design a secure migration process that minimizes downtime. Your migration process should include the following:
 
     a.  Recommendations for migrating and validating schema
 
@@ -164,13 +162,13 @@ _Plan a data warehouse migration_
 
     d.  Architectural considerations that may be necessary for running on SQL Data Warehouse
 
--  **Post migration steps:** Define any post migration steps that should be run to prepare the database.
+4. **Post migration steps:** Define any post migration steps that should be run to prepare the database.
 
--  **Diagram the solution**
+5. **Diagram the solution**
 
 _Data warehouse integration_
 
--  **Plan**: Identify integration points:
+1. **Plan**: Identify integration points:
 
     a.  How will data from the warehouse be integrated with data in HDInsight?
 
@@ -180,13 +178,13 @@ _Data warehouse integration_
 
     d.  How do they lift and shift SSIS packages for execution in Azure?
 
--  **Connecting with existing systems**: Provide the configuration details for setting up connectivity back to on-premises data sources.
+2. **Connecting with existing systems**: Provide the configuration details for setting up connectivity back to on-premises data sources.
 
--  **Diagram the solution**
+3. **Diagram the solution**
 
 _Self-service BI_
 
--  **Describe self-service BI:**
+1. **Describe self-service BI:**
 
     a.  How does the solution meet the mobile requirements?
 
@@ -194,7 +192,7 @@ _Self-service BI_
 
     c.  We are trying to minimize costs. How many licenses would we need to purchase?
 
--  **Provide the following configuration details:**
+2. **Provide the following configuration details:**
 
     a.  How will this solution connect back to the on-premises data sources?
 
@@ -203,15 +201,15 @@ _Self-service BI_
     c.  What impact will this solution have on the performance of the Azure SQL Data Warehouse?**\
         **
 
--  **Diagram the solution**
+3. **Diagram the solution**
 
 **Prepare**
 
 Directions: With all participants at your table: 
 
-1.  Identify any customer needs that are not addressed with the proposed solution. 
-2.  Identify the benefits of your solution. 
-3.  Determine how you will respond to the customer’s objections. 
+1.  Identify any customer needs that are not addressed with the proposed solution
+2.  Identify the benefits of your solution
+3.  Determine how you will respond to the customer’s objections
 
 Prepare a 15-minute chalk-talk style presentation to the customer. 
 
@@ -222,25 +220,25 @@ Prepare a 15-minute chalk-talk style presentation to the customer.
  
 Present a solution to the target customer audience in a 15-minute chalk-talk format.
 
-Time frame: 30 minutes
+Timeframe: 30 minutes
 
 **Presentation** 
 
 Directions:
-1.  Pair with another table.
-2.  One table is the Microsoft team and the other table is the customer.
-3.  The Microsoft team presents their proposed solution to the customer.
-4.  The customer makes one of the objections from the list of objections.
-5.  The Microsoft team responds to the objection.
-6.  The customer team gives feedback to the Microsoft team. 
-7.  Tables switch roles and repeat Steps 2–6.
+1.  Pair with another table
+2.  One table is the Microsoft team and the other table is the customer
+3.  The Microsoft team presents their proposed solution to the customer
+4.  The customer makes one of the objections from the list of objections
+5.  The Microsoft team responds to the objection
+6.  The customer team gives feedback to the Microsoft team.
+7.  Tables switch roles and repeat Steps 2–6
 
 
 ##  Wrap-up 
 
-Time frame: 15 minutes
+Timeframe: 15 minutes
 
--   Tables reconvene with the larger group to hear a SME share the preferred solution for the case study
+Directions: Tables reconvene with the larger group to hear the facilitator/SME share the preferred solution for the case study.
 
 ##  Additional references
 
