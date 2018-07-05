@@ -146,7 +146,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image17.png)
 
-4.  After the Data Factory deployment completes, navigate to the Data Factory and click the Author & Monitor tile.
+4.  After the Data Factory deployment completes, navigate to the Data Factory and click the Author & Monitor tile
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image18.png)
 
@@ -196,7 +196,8 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
 ### Task 3: Create an Azure SQL Data Warehouse
 
-1.  Click **+Create a resource** and type **SQL Data Warehouse** in the search box. Choose **SQL Data Warehouse** from the results.\
+1.  Click **+Create a resource** and type **SQL Data Warehouse** in the search box. Choose **SQL Data Warehouse** from the results.
+
     ![In the Azure Portal, in the left pane, New is called out (1). In the next pane, SQL Data Warehouse is called out (2). In the third pane, Everything is selected. In the fourth pane, the search field is set to SQL Data Warehouse, and below, under Name, SQL Data Warehouse is circled and called out (3).](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image29.png)
 
 2.  Click **Create** on the SQL Data Warehouse blade. Specify the following information. Then, click the **Server** tile.
@@ -227,7 +228,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
 1.  Browse to the Azure Portal and authenticate at <https://portal.azure.com/>
 
-2.  Click **+Create a resource** and type **Storage account** in the search box. Choose **Storage account** from the results
+2.  Click **+Create a resource** and type **Storage account** in the search box. Choose **Storage account** from the results.
 
     ![In the Azure Portal, in the left pane, New is called out (1). In the next pane, Storage account is called out (2). In the third pane, Everything is selected. In the fourth pane, Storage account is typed in to the search field. Under Name, Storage account is circled and called out (3).](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image24.png)
 
@@ -247,8 +248,9 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     -   Secure transfer required: **Disabled**
 
-    -   Resource group: **Use existing** - **CohoDWRG**\
-    \
+    -   Resource group: **Use existing** - **CohoDWRG**
+    
+    
     ![](images/2018-06-26-13-25-13.png)
 
 4.  Navigate to the new storage account, and click **Blobs**
@@ -313,17 +315,17 @@ The first four steps of this task walk you through creating an organizational ac
 
 ### Task 6: Prepare Environment and Create Migration Accounts
 
-1.  In the Azure Portal navigate to your **CohoDWRG** resource group, and click on your storage account.
+1.  In the Azure Portal navigate to your **CohoDWRG** resource group, and click on your storage account
 
 2.  In the Storage account blade, and under settings, click on **Access keys**
 
     ![In the Storage account blade, under Settings, Access keys is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image36.png)
 
-3.  Copy the **storage account name** and access **key1**. and paste into notepad for later use.
+3.  Copy the **storage account name** and access **key1**. and paste into notepad for later use
 
     ![In the Access keys blade, The Storage account name field is edwstor0. Both the name and the copy button are circled. Under Name, the key1 key and its copy button are circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image37.png)
 
-4.  From the **SQLCohoDW** virtual machine that you created before the lab, open a browser window, and connect to the **Azure Portal**.
+4.  From the **SQLCohoDW** virtual machine that you created before the lab, open a browser window, and connect to the **Azure Portal**
 
     If you do not have a SQLCohoDW virtual machine, you should verify that you have completed the pre-requite steps in the correct subscription:  https://github.com/Microsoft/MCW-Migrate-EDW-to-Azure-SQL-Data-Warehouse/blob/master/Hands-on%20lab/Before%20the%20lab.md
 
@@ -349,15 +351,15 @@ The first four steps of this task walk you through creating an organizational ac
 
     ![The Connect to Server dialog box displays. ](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image41.png)
 
-11. Verify you are connected to the **master** database.
+11. Verify you are connected to the **master** database
 
     ![In the SQL Server window, master is selected in the drop-down menu.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image42.png)
 
-12. Highlight the first two commands of the script, and click the **Execute** button.
+12. Highlight the first two commands of the script, and click the **Execute** button
 
     ![In the SQL Server window, in the Script pane, the Create Login and Create User commands are selected. On the SQL Server command bar, the Execute button is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image43.png)
 
-13. Change the database context to **cohoDW**.
+13. Change the database context to **cohoDW**
 
     ![In the SQL Server window, the database drop-down field is now set to cohoDW.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image44.png)
 
@@ -587,15 +589,15 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image62.png)
 
-5.  Go back to the SSISDB overview blade, copy the **Server name** and paste it into Notepad for later use.
+5.  Go back to the SSISDB overview blade, copy the **Server name** and paste it into Notepad for later use
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image63.png)
 
-6.  Open SQL Server Management Studio, and click the **Connect** button in Object Explorer. Paste the server name you just copied into the server name field, use **demouser** for the login and **Demo\@pass123** for the password. Then click **Options \>\>**.
+6.  Open SQL Server Management Studio, and click the **Connect** button in Object Explorer. Paste the server name you just copied into the server name field, use **demouser** for the login and **Demo\@pass123** for the password. Then click on **Options \>\>**.
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image64.png)
 
-7.  On the **Connection Properties** tab, select the **SSISDB** database then click **Connect**.
+7.  On the **Connection Properties** tab, select the **SSISDB** database then click **Connect**
 
     ![](images/2018-06-25-19-33-38.png)
 
@@ -603,7 +605,7 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image66.png)
 
-9.  Name your folder \"Azure-SSIS\" and click **OK**.
+9.  Name your folder \"Azure-SSIS\" and click **OK**
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image67.png)
 
@@ -613,15 +615,15 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image68.png)
 
-12. Click **OK** on the warning message.
+12. Click **OK** on the warning message
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image69.png)
 
-13. On the Select Destination window, make sure the server name of your SSISDB database server is set correctly, use demouser and Demo\@pass123 for authentication, click **Connect** to verify your credentials, then click Next.
+13. On the Select Destination window, make sure the server name of your SSISDB database server is set correctly, use demouser and Demo\@pass123 for authentication, click **Connect** to verify your credentials, then click Next
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image70.png)
 
-14. Package validation will show you warnings regarding the connection. Click **Next** to continue.
+14. Package validation will show you warnings regarding the connection. Click **Next** to continue
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image71.png)
 
@@ -629,7 +631,7 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image72.png)
 
-16. Expand the **Projects** folder, the **DataLoad** project, the **Packages** folder, then right-click the **Package.dtsx** file and choose **Configure**.
+16. Expand the **Projects** folder, the **DataLoad** project, the **Packages** folder, then right-click the **Package.dtsx** file and choose **Configure**
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image73.png)
 
@@ -647,35 +649,35 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
 ### Task 2: Schedule the SSIS Package
 
-1.  Open SQL Server Management Studio and connect to your SQL Data Warehouse.
+1.  Open SQL Server Management Studio and connect to your SQL Data Warehouse
 
-2.  Execute the following to clean up the staging table that are being loaded by our SSIS package.
+2.  Execute the following to clean up the staging table that are being loaded by our SSIS package
 
     ```
     TRUNCATE TABLE dbo.FactResellerSales_STAGE
     ```
 
-3.  Launch the Chrome browser, and navigate to the Azure portal. From the Azure portal, navigate to the CohoDataFactory resource group, open your Azure Data Factory and click the **Author & Monitor** tile.
+3.  Launch the Chrome browser, and navigate to the Azure portal. From the Azure portal, navigate to the CohoDataFactory resource group, open your Azure Data Factory and click the **Author & Monitor** tile
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image77.png)
 
-4.  Click the edit button on the left side of the Data Factory portal.
+4.  Click the edit button on the left side of the Data Factory portal
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image78.png)
 
-5.  Click the **+** symbol and select **Pipeline**.
+5.  Click the **+** symbol and select **Pipeline**
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image79.png)
 
-6.  Expand **General**, then drag the **Execute SSIS Package** activity onto the canvas.
+6.  Expand **General**, then drag the **Execute SSIS Package** activity onto the canvas
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image80.png)
 
-7.  Change the name of your activity to Load stage tables.
+7.  Change the name of your activity to Load stage tables
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image81.png)
 
-8.  Switch to the setting tab, set the Azure SSIS IR to **Azure-SSIS**, change your logging level to **Verbose**, and set your package path to **Azure-SSIS/DataLoad/Package.dtsx**.
+8.  Switch to the setting tab, set the Azure SSIS IR to **Azure-SSIS**, change your logging level to **Verbose**, and set your package path to **Azure-SSIS/DataLoad/Package.dtsx**
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image82.png)
 
@@ -687,15 +689,15 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image84.png)
 
-11. In the upper right hand corner you should see a notification bell, click the bell to see the current status of your pipeline.
+11. In the upper right hand corner you should see a notification bell, click the bell to see the current status of your pipeline
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image85.png)
 
-12. To schedule your Pipeline, click the trigger button again, this time select **New/Edit**.
+12. To schedule your Pipeline, click the trigger button again, this time select **New/Edit**
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image86.png)
 
-13. On the Add Trigger window, click Choose trigger then select +New.
+13. On the Add Trigger window, click Choose trigger then select +New
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image87.png)
 
@@ -703,7 +705,7 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image88.png)
 
-15. Click the **Publish All** button to save your changes.
+15. Click the **Publish All** button to save your changes
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image89.png)
 
@@ -855,7 +857,7 @@ In this exercise, you will setup integration with Power BI Desktop
 
     ![In the Microsoft Power BI Setup wizard, on the Destination Folder page, the Next button is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image116.png)
 
-8.  Make sure the Create a desktop shortcut box is checked, and select **Install**.
+8.  Make sure the Create a desktop shortcut box is checked, and select **Install**
 
     ![On the Ready to install page, the Create desktop shortcut check box is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image117.png)
 
@@ -871,7 +873,7 @@ In this exercise, you will setup integration with Power BI Desktop
 
     ![In the Analysis Services blade, Overview is selected. In the Essentials section, the Server name is circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image119.png)
 
-3.  From within Power BI, click the **Get Data** button.
+3.  From within Power BI, click the **Get Data** button
 
     ![The Get Data button is selected on the Power BI Desktop.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image120.png)
 
