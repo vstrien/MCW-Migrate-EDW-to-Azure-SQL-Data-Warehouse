@@ -198,8 +198,8 @@ _Self-service BI_
 
     b.  How will users be licensed/given access to Power BI?
 
-    c.  What impact will this solution have on the performance of the Azure SQL Data Warehouse?**\
-        **
+    c.  What impact will this solution have on the performance of the Azure SQL Data Warehouse?
+    
 
 3. **Diagram the solution**
 
