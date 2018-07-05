@@ -1,6 +1,29 @@
-# Migrate EDW to Azure SQL Data Warehouse setup
+![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
 
-## Before the hands-on lab
+<div class="MCWHeader1">
+Migrate EDW to Azure SQL Data Warehouse
+</div>
+
+<div class="MCWHeader2">
+Before the hands-on lab setup guide
+</div>
+
+<div class="MCWHeader3">
+May 2018
+</div>
+
+
+Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
+
+Microsoft may have patents, patent applications, trademarks, copyrights, or other intellectual property rights covering subject matter in this document. Except as expressly provided in any written license agreement from Microsoft, the furnishing of this document does not give you any license to these patents, trademarks, copyrights, or other intellectual property.
+
+The names of manufacturers, products, or URLs are provided for informational purposes only and Microsoft makes no representations and warranties, either expressed, implied, or statutory, regarding these manufacturers or the use of the products with any Microsoft technologies. The inclusion of a manufacturer or product does not imply endorsement of Microsoft of the manufacturer or product. Links may be provided to third party sites. Such sites are not under the control of Microsoft and Microsoft is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Microsoft is not responsible for webcasting or any other form of transmission received from any linked site. Microsoft is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement of Microsoft of the site or the products contained therein.
+
+© 2018 Microsoft Corporation. All rights reserved.
+
+Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
+
+## Migrate EDW to Azure SQL Data Warehouse before the hands-on lab set up guide
 
 In this exercise, you will deploy the source environment for this lab. The source environment is designed to represent the existing on-premises environment you will migrate to Azure SQL Data Warehouse.
 
@@ -36,7 +59,7 @@ In this exercise, you will deploy the source environment for this lab. The sourc
 
     ![In the Settings blade Auto-shutdown section, Enable auto-shutdown is set to On, Shutdown time is 7:00:00 PM, and Time zone is your current local time zone.](images/2018-06-25-18-44-33.png)
 
-7.  On the SQL Server settings blade, enable SQL Authentication, and click **OK**.
+7.  On the SQL Server settings blade, enable SQL Authentication, and click **OK**
 
     ![Toggle the SQL Authentication to enabled](images/Setup/image6.png)
 
@@ -124,3 +147,4 @@ In this exercise, you will deploy the source environment for this lab. The sourc
 
          ![](images/Setup/image13.png)
 
+You should follow all steps provided _before_ performing the Hands-on lab.
