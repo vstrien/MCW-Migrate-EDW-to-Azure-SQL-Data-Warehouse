@@ -27,13 +27,9 @@ In this hands-on lab you will migrate an existing on-premises enterprise data wa
 ## Azure services and related products 
 
 - Azure SQL Data Warehouse
-
 - Azure Data Factory v2
-
 - Azure Analysis Services
-
 - Azure Storage
-
 - Power BI
 
 
