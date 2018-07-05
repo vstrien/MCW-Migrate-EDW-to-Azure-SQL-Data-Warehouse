@@ -64,25 +64,25 @@ Thank you for taking time to support the whiteboard design sessions as a trainer
 
 An amazing trainer:
 
--   Creates a safe environment in which learning can take place.
+-   Creates a safe environment in which learning can take place
 
--   Stimulates the participant's thinking.
+-   Stimulates the participant's thinking
 
--   Involves the participant in the learning process.
+-   Involves the participant in the learning process
 
--   Manages the learning process (on time, on topic, and adjusting to benefit participants).
+-   Manages the learning process (on time, on topic, and adjusting to benefit participants)
 
--   Ensures individual participant accountability.
+-   Ensures individual participant accountability
 
--   Ties it all together for the participant.
+-   Ties it all together for the participant
 
--   Provides insight and experience to the learning process.
+-   Provides insight and experience to the learning process
 
--   Effectively leads the whiteboard design session discussion.
+-   Effectively leads the whiteboard design session discussion
 
--   Monitors quality and appropriateness of participant deliverables.
+-   Monitors quality and appropriateness of participant deliverables
 
--   Effectively leads the feedback process.
+-   Effectively leads the feedback process
 
 ## Whiteboard design session flow 
 
@@ -90,7 +90,7 @@ Each whiteboard design session uses the following flow:
 
 **Step 1: Review the customer case study (15 minutes)**
 
-Outcome: Analyze your customer's needs
+Outcome: Analyze your customer's needs.
 
 -   Customer's background, situation, needs and technical requirements
 
@@ -100,7 +100,7 @@ Outcome: Analyze your customer's needs
 
 **Step 2: Design a proof of concept solution (60 minutes)**
 
-Outcome: Prepare to present a solution for your target customer audience
+Outcome: Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format.
 
 -   Determine your target customer audience
 
@@ -112,7 +112,7 @@ Outcome: Prepare to present a solution for your target customer audience
 
 **Step 3: Present the solution (30 minutes)**
 
-Outcome: Present solution to your customer
+Outcome: Present solution to your customer.
 
 -   Present solution
 
@@ -179,7 +179,9 @@ Attendees will learn how to plan a data warehouse migration as well as:
 **Outcome** 
 
 Analyze your customer’s needs.
-Time frame: 15 minutes 
+
+Timeframe: 15 minutes 
+
 Directions: With all participants in the session, the facilitator/SME presents an overview of the customer case study along with technical tips. 
 1.  Meet your table participants and trainer 
 2.  Read all of the directions for steps 1–3 in the student guide 
@@ -257,7 +259,7 @@ The current reporting system is also quite limited. After the data loads have co
 **Outcome** 
 Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format. 
 
-Time frame: 60 minutes
+Timeframe: 60 minutes
 
 **Business needs**
 
@@ -271,11 +273,11 @@ Directions: With all participants at your table, respond to the following questi
 
 _Plan a data warehouse migration_
 
-- **Data preparation**: Coho needs to validate its database compatibility. Develop a high-level checklist of all of the steps necessary to validate compatibility including any tools you might use.
+1. **Data preparation**: Coho needs to validate its database compatibility. Develop a high-level checklist of all of the steps necessary to validate compatibility including any tools you might use.
 
--  **Data warehouse sizing:** Determine the appropriate sizing/performance configuration for the data warehouse.
+2. **Data warehouse sizing:** Determine the appropriate sizing/performance configuration for the data warehouse.
 
--  **Migration process:** Design a secure migration process that minimizes downtime. Your migration process should include the following:
+3. **Migration process:** Design a secure migration process that minimizes downtime. Your migration process should include the following:
 
     a.  Recommendations for migrating and validating schema
 
@@ -285,13 +287,13 @@ _Plan a data warehouse migration_
 
     d.  Architectural considerations that may be necessary for running on SQL Data Warehouse
 
--  **Post migration steps:** Define any post migration steps that should be run to prepare the database.
+4. **Post migration steps:** Define any post migration steps that should be run to prepare the database.
 
--  **Diagram the solution**
+5. **Diagram the solution**
 
 _Data warehouse integration_
 
--  **Plan**: Identify integration points:
+1. **Plan**: Identify integration points:
 
     a.  How will data from the warehouse be integrated with data in HDInsight?
 
@@ -301,13 +303,13 @@ _Data warehouse integration_
 
     d.  How do they lift and shift SSIS packages for execution in Azure?
 
--  **Connecting with existing systems**: Provide the configuration details for setting up connectivity back to on-premises data sources.
+2. **Connecting with existing systems**: Provide the configuration details for setting up connectivity back to on-premises data sources.
 
--  **Diagram the solution**
+3. **Diagram the solution**
 
 _Self-service BI_
 
--  **Describe self-service BI:**
+1. **Describe self-service BI:**
 
     a.  How does the solution meet the mobile requirements?
 
@@ -315,7 +317,7 @@ _Self-service BI_
 
     c.  We are trying to minimize costs. How many licenses would we need to purchase?
 
--  **Provide the following configuration details:**
+2. **Provide the following configuration details:**
 
     a.  How will this solution connect back to the on-premises data sources?
 
@@ -324,7 +326,7 @@ _Self-service BI_
     c.  What impact will this solution have on the performance of the Azure SQL Data Warehouse?**\
         **
 
--  **Diagram the solution**
+3. **Diagram the solution**
 
 **Prepare**
 
@@ -343,24 +345,24 @@ Prepare a 15-minute chalk-talk style presentation to the customer.
  
 Present a solution to the target customer audience in a 15-minute chalk-talk format.
 
-Time frame: 30 minutes
+Timeframe: 30 minutes
 
 **Presentation** 
 
 Directions:
-1.  Pair with another table.
-2.  One table is the Microsoft team and the other table is the customer.
-3.  The Microsoft team presents their proposed solution to the customer.
-4.  The customer makes one of the objections from the list of objections.
-5.  The Microsoft team responds to the objection.
-6.  The customer team gives feedback to the Microsoft team. 
-7.  Tables switch roles and repeat Steps 2–6.
+1.  Pair with another table
+2.  One table is the Microsoft team and the other table is the customer
+3.  The Microsoft team presents their proposed solution to the customer
+4.  The customer makes one of the objections from the list of objections
+5.  The Microsoft team responds to the objection
+6.  The customer team gives feedback to the Microsoft team.
+7.  Tables switch roles and repeat Steps 2–6
 
 ##  Wrap-up 
 
-Time frame: 15 minutes
+Timeframe: 15 minutes
 
--   Tables reconvene with the larger group to hear a SME share the preferred solution for the case study
+Directions: Tables reconvene with the larger group to hear the facilitator/SME share the preferred solution for the case study.
 
 ##  Additional references
 |    |            |
@@ -381,47 +383,43 @@ Time frame: 15 minutes
 
 ## Step 1: Review the customer case study
 
--   Check in with your table participants to introduce yourself as the trainer.
+-   Check in with your table participants to introduce yourself as the trainer
 
 -   Ask, "What questions do you have about the customer case study?"
 
--   Briefly review the steps and timeframes of the whiteboard design session.
+-   Briefly review the steps and timeframes of the whiteboard design session
 
--   Ready, set, go! Let the table participants begin.
+-   Ready, set, go! Let the table participants begin
 
 ## Step 2: Design a proof of concept solution
 
--   Check in with your tables to ensure that they are transitioning from step to step on time.
+-   Check in with your tables to ensure that they are transitioning from step to step on time
 
--   Provide some feedback on their responses to the business needs and design.
+-   Provide some feedback on their responses to the business needs and design
 
-    -   Try asking questions first that will lead the participants to discover the answers on their own.
+    -   Try asking questions first that will lead the participants to discover the answers on their own
 
--   Provide feedback for their responses to the customer's objections.
+-   Provide feedback for their responses to the customer's objections
 
-    -   Try asking questions first that will lead the participants to discover the answers on their own.
+    -   Try asking questions first that will lead the participants to discover the answers on their own
 
 ## Step 3: Present the solution
 
--   Determine which table will be paired with your table before Step 3 begins.
+-   Determine which table will be paired with your table before Step 3 begins
 
--   For the first round, assign one table as the Microsoft team and the other table as the customer.
+-   For the first round, assign one table as the Microsoft team and the other table as the customer
 
--   Have the Microsoft team present their solution to the customer team.
+-   Have the Microsoft team present their solution to the customer team
 
-    -   Have the customer team provide one objection for the Microsoft team to respond to.
+    -   Have the customer team provide one objection for the Microsoft team to respond to
 
-    -   The presentation and objections should be no longer than 10-minutes.
+    -   The presentation and objections should be no longer than 15-minutes
 
--   Have participants on the customer team give feedback to the Microsoft team.
-
-    -   The feedback should be no longer than 5 minutes.
-
-    -   If needed, the trainer may also provide feedback.
+    -   If needed, the trainer may also provide feedback
 
 ## Wrap-up
 
--   Have the table participants reconvene with the larger session group to hear a SME share the following preferred solution.
+   -   Have the table participants reconvene with the larger session group to hear the facilitator/SME share the following preferred solution
 
 ##  Preferred target audience
 
