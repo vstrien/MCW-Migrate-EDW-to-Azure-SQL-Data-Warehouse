@@ -24,7 +24,7 @@ This whiteboard design session will look at the process of migrating an on-premi
 
 In this hands-on lab you will migrate an existing on-premises enterprise data warehouse to the cloud. We will investigate the current data warehouse to identify any incompatibilities, we will export the data from the on-premises data warehouse and transfer it to Azure Blob Storage. We will then load the data into the warehouse using Polybase. Finally we will integrate the warehouse by migrating ETL to Azure Data Factory and supporting ad-hoc access by implementing Azure Analysis Services.
 
-## Azure Services Used 
+## Azure services and related products 
 
 - Azure SQL Data Warehouse
 
@@ -36,3 +36,9 @@ In this hands-on lab you will migrate an existing on-premises enterprise data wa
 
 - Power BI
 
+
+## Azure solutions
+*This is an internal reference and will be updated by project PM.*
+
+## Related references
+- [MCW](https://github.com/Microsoft/MCW)
