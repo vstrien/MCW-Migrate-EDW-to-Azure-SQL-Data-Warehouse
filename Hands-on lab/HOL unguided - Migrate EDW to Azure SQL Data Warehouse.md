@@ -130,22 +130,22 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
 #### Tasks to complete
 
-1.  Create a logical SQL Server to host the SSISDB database used by the SSIS Integrated Runtime.
+1.  Create a logical SQL Server to host the SSISDB database used by the SSIS Integrated Runtime
 
 #### Exit criteria
 
--   A logical SQL Server deployed to one of the regions supported by the Integration Runtime.
+-   A logical SQL Server deployed to one of the regions supported by the Integration Runtime
 
 ### Task 2: Create an Azure Data Factory v2
 
 #### Tasks to complete
 
-1.  Create a Data Factory v2.
-2.  Configure the SSIS Integrated Runtime.
+1.  Create a Data Factory v2
+2.  Configure the SSIS Integrated Runtime
 
 #### Exit criteria
 
--   An Azure Data Factory v2 instance configured to use the SSIS Integration Runtime.
+-   An Azure Data Factory v2 instance configured to use the SSIS Integration Runtime
 
 ### Task 3: Create an Azure Storage Account
 
@@ -159,7 +159,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
 #### Exit criteria
 
--   A Storage Account in the same region as your SQL Server virtual machine with a container to hold data being migrated.
+-   A Storage Account in the same region as your SQL Server virtual machine with a container to hold data being migrated
 
 ### Task 4: Create an Azure SQL Data Warehouse
 
@@ -187,15 +187,15 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
 #### Tasks to complete
 
-1.  Open firewall ports on all SQL Databases and Azure SQL Data Warehouse to allow access to the SQLcohoDW virtual machine.
+1.  Open firewall ports on all SQL Databases and Azure SQL Data Warehouse to allow access to the SQLcohoDW virtual machine
 
 1.  Use the **C:\\LabFiles\\CreateDataLoader.sql** script to create a data loader account that uses the large resource class on your Azure SQL Data Warehouse
 
 #### Exit criteria
 
--   Firewall ports open for SQLcohoDW on all SQL Databases and Azure SQL Data Warehouse.
+-   Firewall ports open for SQLcohoDW on all SQL Databases and Azure SQL Data Warehouse
 
--   User account that in largerc resource class on your Azure SQL Data Warehouse.
+-   User account that in largerc resource class on your Azure SQL Data Warehouse
 
 ## Exercise 2: Data and schema preparation
 
@@ -205,29 +205,29 @@ Coho is relying on you to migrate the data warehouse to Azure SQL Data Warehouse
 
 #### Tasks to complete
 
-1.  Validate the CohoDW schema has no data incompatibility or data length issues.
+1.  Validate the CohoDW schema has no data incompatibility or data length issues
 
-2.  Script out any tables with potential issues.
+2.  Script out any tables with potential issues
 
-3.  Resolve any data length issues you find in the table definition by verifying you will not truncate any data and altering the table.
+3.  Resolve any data length issues you find in the table definition by verifying you will not truncate any data and altering the table
 
 #### Exit criteria
 
--   All schema incompatibilities, and data length issues have been addressed.
+-   All schema incompatibilities, and data length issues have been addressed
 
 ### Task 2: Prepare Azure SQL Data Warehouse and migrate schema
 
 #### Tasks to complete
 
-1.  Script out all tables in CohoDW.
+1.  Script out all tables in CohoDW
 
-2.  Correct any code that is not compatible with SQL Data Warehouse.
+2.  Correct any code that is not compatible with SQL Data Warehouse
 
-3.  Create the tables in Azure SQL Data Warehouse.
+3.  Create the tables in Azure SQL Data Warehouse
 
 #### Exit criteria
 
--   All 33 tables successfully created in the SQL Data Warehouse.
+-   All 33 tables successfully created in the SQL Data Warehouse
 
 ## Exercise 3: Migrate the data to Azure SQL Data Warehouse
 
@@ -275,29 +275,29 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
 #### Tasks to complete
 
-1.  Deploy **C:\\LabFiles\\DataLoad.ispac** SSIS project to Data Factory v2.
+1.  Deploy **C:\\LabFiles\\DataLoad.ispac** SSIS project to Data Factory v2
 
-1.  Reconfigure the package connection strings to point to your cohoOLTP database as a source and your SQL Data Warehouse as a destination.
+2.  Reconfigure the package connection strings to point to your cohoOLTP database as a source and your SQL Data Warehouse as a destination
 
 #### Exit criteria
 
--   The DataLoad.ispac SSIS project should be deployed. 
+-   The DataLoad.ispac SSIS project should be deployed.
 
--   The package should run successfully without error.
+-   The package should run successfully without error
 
 ### Task 2: Schedule the SSIS Package
 
 #### Tasks to complete
 
-1.  Create a pipeline to run the SSIS package.
+1.  Create a pipeline to run the SSIS package
 
-1.  Configure the pipeline to run every 15 minutes.
+2.  Configure the pipeline to run every 15 minutes
 
 #### Exit criteria
 
--   The pipeline executes the package without error.
+-   The pipeline executes the package without error
 
--   The pipeline is scheduled to run every 15 minutes.
+-   The pipeline is scheduled to run every 15 minutes
 
 ## Exercise 5: Create an Analysis Services Model
 
