@@ -101,7 +101,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 ## Abstract and learning objectives
 
-This whiteboard design session will look at the process of migrating an on-premises data warehouse to Azure SQL Data Warehouse. The design session will cover data and schema preparation, data loading, optimizing the data distribution, and building a solution to support ad-hoc queries.
+In this hands-on lab you will migrate an existing on-premises enterprise data warehouse to the cloud. We will investigate the current data warehouse to identify any incompatibilities, we will export the data from the on-premises data warehouse and transfer it to Azure Blob Storage. We will then load the data into the warehouse using Polybase. Finally we will integrate the warehouse by migrating ETL to Azure Data Factory and supporting ad-hoc access by implementing Azure Analysis Services.
 
 Attendees will learn how to plan a data warehouse migration as well as:
 
