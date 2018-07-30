@@ -23,6 +23,17 @@ The names of manufacturers, products, or URLs are provided for informational pur
 
 Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
 
+**Contents**
+
+<!-- TOC -->
+
+- [Migrate EDW to Azure SQL Data Warehouse before the hands-on lab set up guide](#migrate-edw-to-azure-sql-data-warehouse-before-the-hands-on-lab-set-up-guide)
+    - [Task 1: Deploy the source environment](#task-1-deploy-the-source-environment)
+    - [Task 2: Configure the SQL Server](#task-2-configure-the-sql-server)
+    - [Task 3: Deploy an Azure SQL Database](#task-3-deploy-an-azure-sql-database)
+
+<!-- /TOC -->
+
 ## Migrate EDW to Azure SQL Data Warehouse before the hands-on lab set up guide
 
 In this exercise, you will deploy the source environment for this lab. The source environment is designed to represent the existing on-premises environment you will migrate to Azure SQL Data Warehouse.
