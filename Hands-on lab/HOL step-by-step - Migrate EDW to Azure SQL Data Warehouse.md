@@ -168,7 +168,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     The Integration Runtime Location defines the location of its back-end compute, and essentially the location where the data movement, activity dispatching, and SSIS package execution are performed. The Integration Runtime location can be different from the location of the Data Factory it belongs to. For your location, select the location of your integration runtime. Only supported locations are displayed. We recommend that you select the same location as your SQL Server logical server to host SSISDB.
 
-    ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image20.png)
+    ![Screenshot of the Integration Runtime Setup](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image20.png "Integration Runtime Setup")
 
 7.  On the second Integration Runtime Setup window, select the following options, click **Test Connection** and then click **Next**.
 
@@ -184,21 +184,21 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     -   Catalog Database Service Tier: **S1**
 
-    ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image21.png)
+    ![Screenshot of the Integration Runtime Setup](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image21.png "Integration Runtime Setup")
 
 8.  On the final Integration Runtime Setup window, set **Maximum Parallel Executions Per Node = 1**, then click **Finish**.
 
-    ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image22.png)
+    ![Screenshot of the Integration Runtime Setup](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image22.png "Integration Runtime Setup")
 
 9.  The Integration Runtime can take 20-30 minutes to deploy and start. You do not need to wait on it to complete and may continue with the lab. The status will change from Starting to Running when it is complete.
 
-    ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image23.png)
+    ![Connections tab showing new Integration Runtime status as starting](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image23.png "Integration Runtime status is starting")
 
 ### Task 3: Create an Azure SQL Data Warehouse
 
 1.  Click **+Create a resource** and type **SQL Data Warehouse** in the search box. Choose **SQL Data Warehouse** from the results.
 
-    ![In the Azure Portal, in the left pane, New is called out (1). In the next pane, SQL Data Warehouse is called out (2). In the third pane, Everything is selected. In the fourth pane, the search field is set to SQL Data Warehouse, and below, under Name, SQL Data Warehouse is circled and called out (3).](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image29.png)
+    ![Screenshot of the Azure Marketplace with SQL Data Warehouse selected](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image29.png "Choose SQL Data Warehouse from the Azure Marketplace")
 
 2.  Click **Create** on the SQL Data Warehouse blade. Specify the following information. Then, click the **Server** tile.
 
@@ -206,7 +206,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
     -   Resource group: **Create new** - **CohoDWRG**
     -   Select source: **Blank database**                                             
     
-         ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image30.png) |  |
+         ![Screenshot of the SQL Data Warehouse settings blade](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image30.png "SQL Data Warehouse configuration settings")
 
 3.  On the Server blade, select **Create a new server**. Specify the following options, and click **Select**.
     -   Server name: ***Choose a unique server name**
@@ -215,12 +215,12 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
     -   Location: **Same location you created your logical SQL Server in**
     -   Allow azure services: **checked** 
    
-        ![The following fields are circled on the New server blade: Server name (cohodw); Server admin login (demouser); Password (hidden); Location (South Central US); and Allow azure services to acces server (check box selected).](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image31.png) |  |
+        ![The following fields are circled on the New server blade: Server name (cohodw); Server admin login (demouser); Password (hidden); Location (South Central US); and Allow azure services to acces server (check box selected).](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image31.png "New server configuration settings")
 
 
 4.  Select the Performance tier tile, set the performance to **400 DWU,** and click **Apply**
 
-    ![In the Configure Performance blade, The Scale your system sliding scale is at DW400.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image32.png)
+    ![In the Configure Performance blade, The Scale your system sliding scale is at DW400.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image32.png "Configure performance")
 
 5.  On the SQL Data Warehouse blade, click **Create**
 
@@ -230,7 +230,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
 2.  Click **+Create a resource** and type **Storage account** in the search box. Choose **Storage account** from the results.
 
-    ![In the Azure Portal, in the left pane, New is called out (1). In the next pane, Storage account is called out (2). In the third pane, Everything is selected. In the fourth pane, Storage account is typed in to the search field. Under Name, Storage account is circled and called out (3).](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image24.png)
+    ![Select Storage account from the Azure Marketplace](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image24.png "Choose Storage account from the Azure Marketplace")
 
 3.  Click **Create** on the Storage account blade. Specify the following information, and click **Create**.
 
@@ -251,19 +251,19 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
     -   Resource group: **Use existing** - **CohoDWRG**
     
     
-    ![](images/2018-06-26-13-25-13.png)
+    ![Screenshot of the create storage configuration options](images/2018-06-26-13-25-13.png "Create storage account")
 
 4.  Navigate to the new storage account, and click **Blobs**
 
-    ![In the Azure Portal, in the left pane, Overview is selected. In the Essentials section, under Services, Blobs is circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image26.png)
+    ![In the Azure Portal, in the left pane, Overview is selected. In the Essentials section, under Services, Blobs is circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image26.png "Click the blobs tile")
 
 5.  On the Blob service blade, click the **+Container** button
 
-    ![The container button is circled on the Blob Service blade.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image27.png)
+    ![The container button is circled on the Blob Service blade.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image27.png "Click the add container button")
 
 6.  On the New container blade type **migration** for the name. Then, click **OK**
 
-    ![In the Blob Service blade, Migration is typed in the Name field. Public access level is set to Private.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image28.png)
+    ![In the Blob Service blade, Migration is typed in the Name field. Public access level is set to Private.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image28.png "Type migration for the new container name")
 
 ### Task 5: Create Analysis Services
 
@@ -271,11 +271,11 @@ The first four steps of this task walk you through creating an organizational ac
 
 1.  From the Azure Portal, open Azure Active Directory
 
-    ![Screenshot of the Azure Active Directory button.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image33.png)
+    ![Screenshot of the Azure Active Directory button.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image33.png "Azure Active Directory")
 
 2.  Click **Users** from the menu
 
-    ![Screenshot of the All users button.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image34.png)
+    ![Screenshot of the Users button.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image34.png "Click users from the menu")
 
 3.  Click the **+New user** button, and create a user using the following configuration
 
@@ -291,7 +291,7 @@ The first four steps of this task walk you through creating an organizational ac
 
 5.  Click **+Create a resource** and type **Analysis Services** in the search box. Choose **Analysis Services** from the results
 
-    ![From the left menu, New is selected. Under Marketplace, Everything is selected. In the Everything blade, Analysis Service is typed in the search field, and under Name, Analysis Service is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image35.png)
+    ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image35.png)
 
 6.  Click **Create** on the Analysis Services information blade
 
