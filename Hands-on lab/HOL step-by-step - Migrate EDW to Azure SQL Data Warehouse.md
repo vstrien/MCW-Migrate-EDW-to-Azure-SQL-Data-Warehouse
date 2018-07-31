@@ -291,7 +291,7 @@ The first four steps of this task walk you through creating an organizational ac
 
 5.  Click **+Create a resource** and type **Analysis Services** in the search box. Choose **Analysis Services** from the results
 
-    ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image35.png)
+    ![Select Analysis Services from the Azure Marketplace](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image35.png "Choose Analysis Services from the Azure Marketplace")
 
 6.  Click **Create** on the Analysis Services information blade
 
@@ -319,29 +319,29 @@ The first four steps of this task walk you through creating an organizational ac
 
 2.  In the Storage account blade, and under settings, click on **Access keys**
 
-    ![In the Storage account blade, under Settings, Access keys is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image36.png)
+    ![In the Storage account blade, under Settings, Access keys is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image36.png "Choose acess keys from the menu")
 
 3.  Copy the **storage account name** and access **key1**. and paste into notepad for later use
 
-    ![In the Access keys blade, The Storage account name field is edwstor0. Both the name and the copy button are circled. Under Name, the key1 key and its copy button are circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image37.png)
+    ![In the Access keys blade, The Storage account name field is edwstor0. Both the name and the copy button are circled. Under Name, the key1 key and its copy button are circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image37.png "Copy the storage account name and key1")
 
 4.  From the **SQLCohoDW** virtual machine that you created before the lab, open a browser window, and connect to the **Azure Portal**
 
     If you do not have a SQLCohoDW virtual machine, you should verify that you have completed the pre-requite steps in the correct subscription:  https://github.com/Microsoft/MCW-Migrate-EDW-to-Azure-SQL-Data-Warehouse/blob/master/Hands-on%20lab/Before%20the%20lab.md
 
-5.  Navigate to your **CohoDWRG** resource group. Then, click on the cohodw logical SQL Server that hosts your Azure SQL Data Warehouse.
+5.  Navigate to your **CohoDWRG** resource group. Then, click on the logical SQL Server that hosts your Azure SQL Data Warehouse.
 
-    ![In the Resource group name section, cohodw is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image38.png)
+    ![In the Resource group name section, the logical SQL Server is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image38.png "Select the logical SQL server that hosts your data warehouse")
 
 6.  In the settings blade, click on **Firewall and Virtual Networks**
 
 7.  In the cohodw - Firewall blade, click the **+Add client IP** button. Then, click the **Save** button.
 
-    ![In the Firewall settings blade, the Add client IP and the Save buttons are circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image39.png)
+    ![In the Firewall settings blade, the Add client IP and the Save buttons are circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image39.png "Add the client IP to the firewall whitelist")
 
 8.  Back in the **CohoDWRG** resource group, select the **CohoDW** data warehouse, and copy the server name
 
-    ![In the SQL Database blade, in the Essentials section, the Server name cohodw.database.windows.net is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image40.png)
+    ![In the SQL Database blade, in the Essentials section, the server name is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image40.png "Copy the server name of your logical SQL server")
 
 9.  Next, we want to create a special account to perform our data load operations. This account will be added to the largerc resource class. By default, all accounts are initially in the smallrc resource class. Adding the account to the largerc resource class allows the account to consume more memory during query execution which will be more efficient for operations such as data loads and maintenance tasks.
 
@@ -349,23 +349,23 @@ The first four steps of this task walk you through creating an organizational ac
 
 10. Connect to your Azure SQL Data Warehouse using SQL Server Authentication and the **demouser** account and password **Demo\@pass123**
 
-    ![The Connect to Server dialog box displays. ](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image41.png)
+    ![The Connect to Server dialog box displays. ](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image41.png "Connect to your SQL Server using SQL Authentication and the demouser credentials")
 
 11. Verify you are connected to the **master** database
 
-    ![In the SQL Server window, master is selected in the drop-down menu.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image42.png)
+    ![In the SQL Server window, master is selected in the database drop-down menu.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image42.png "Connect to the master database")
 
 12. Highlight the first two commands of the script, and click the **Execute** button
 
-    ![In the SQL Server window, in the Script pane, the Create Login and Create User commands are selected. On the SQL Server command bar, the Execute button is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image43.png)
+    ![In the SQL Server window, in the Script pane, the Create Login and Create User commands are selected. On the SQL Server command bar, the Execute button is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image43.png "Create the dataloader login and user")
 
 13. Change the database context to **cohoDW**
 
-    ![In the SQL Server window, the database drop-down field is now set to cohoDW.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image44.png)
+    ![In the SQL Server window, the database drop-down field is now set to cohoDW.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image44.png "Connect to the CohoDW database")
 
 14. Highlight the remaining lines of the script, and click the **Execute** button
 
-    ![In the SQL Server window, the database drop-down field is still set to cohoDW, and the remaining lines of script - Create User, Grant Control on Database, and Exec, are circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image45.png)
+    ![In the SQL Server window, the database drop-down field is still set to cohoDW, and the remaining lines of script - Create User, Grant Control on Database, and Exec, are circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image45.png "Grant access and add user to the xlargerc resource class")
 
 ## Exercise 2: Data and schema preparation
 
@@ -377,7 +377,7 @@ Coho is relying on you to migrate the data warehouse to Azure SQL Data Warehouse
 
 2.  Launch SQL Server Management Studio, connect to the local **SQLCohoDW** instance with the demouser account and the Demo@pass123 password then open a **New Query** window
 
-    ![Screenshot of the New Query button](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image46.png)
+    ![Screenshot of the New Query button](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image46.png "New query")
 
 3.  Run the following query to check for data incompatibility and potential data length issues
 
@@ -404,11 +404,11 @@ Coho is relying on you to migrate the data warehouse to Azure SQL Data Warehouse
 
 4.  The output of the query shows the table and column, but not the reason for the incompatibility. To gain more insight into the reason you can script the table out by expanding the CohoDW database in Object Explorer, right-click the table, select Script Table as -\> CREATE To -\> New Query Editor Window.
 
-    ![On the left pane of the Object Explorer, dbo.Dataset.org is selected. In its right-click sub-menu, Script Table as is selected. In it\'s sub-menu, CREATE to is selected, and on its sub-menu, New Query Editor Window is circled. In the right pane, the New Query Editor Window displays with output.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image47.png)
+    ![On the left pane of the Object Explorer, dbo.Dataset.org is selected. In its right-click sub-menu, Script Table as is selected. In it\'s sub-menu, CREATE to is selected, and on its sub-menu, New Query Editor Window is circled. In the right pane, the New Query Editor Window displays with output.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image47.png "Generate a script for the DatabaseLog table")
 
 5.  From the script of the table, you can see that the 'TSQL' column of the 'DataLog' table has a data type nvarchar(4000) equivalent to 8000 bytes which means that the data may potential exceed the maximum data size
 
-    ![In the New Query Editor Script for the table, the following line is circled: \[TSQL\] \[navchar\](4000) NOT NULL](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image48.png)
+    ![In the New Query Editor Script for the table, the following line is circled: \[TSQL\] \[navchar\](4000) NOT NULL](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image48.png "DatabaseLog table defenition")
 
 6.  Before we fix this column, we must validate that none of the data would be truncated. Check the maximum actual data size with the following query.
 
