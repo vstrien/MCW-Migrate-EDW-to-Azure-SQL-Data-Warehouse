@@ -78,7 +78,7 @@ Coho has asked you to migrate an existing on-premises SQL Server data warehouse 
 
 ## Solution architecture
 
-![An image of the solution architecture that depicts a simulated on-premises environment hosting SQL Server with paths for data to be uploaded to Azure Blob Storage and schema transferred to Azure SQL Datawarehouse. Finally, data is shown transferred to a computer running Power BI.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image2.png)
+![An image of the solution architecture that depicts a simulated on-premises environment hosting SQL Server with paths for data to be uploaded to Azure Blob Storage and schema transferred to Azure SQL Datawarehouse. Finally, data is shown transferred to a computer running Power BI.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image2.png "Solution architecture")
 
 ## Requirements
 
@@ -95,7 +95,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 1.  Browse to the Azure Portal and authenticate at <https://portal.azure.com/>
 
 2.  Click **+Create a resource** and type **Logical SQL Server** in the search box. Choose **SQL server (logical server)** from the results.\
-    ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image14.png)
+    ![Screenshot of choosing SQL server logical server from the Azure Marketplace](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image14.png "Choosing SQL server logical server from the Azure Marketplace")
 
 3.  Click **Create** on the SQL Server blade. Specify the following information, and click **Create**.
 
@@ -120,7 +120,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
         -   ***West US 2***
         -   ***UK South***
 
-        ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image15.png)
+        ![Screenshot of the configuration options for the SQL server logical server](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image15.png "SQL Server logical server configuration options")
 
 ### Task 2: Create an Azure Data Factory v2
 
@@ -128,7 +128,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
 2.  Click **+Create a resource** and type **Data Factory** in the search box. Choose **Data Factory** from the results.
 
-    ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image16.png)
+    ![Screenshot of choosing Data Factory from the Azure Marketplace](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image16.png "Choose Data Factory from the Azure Marketplace")
 
 3.  Click **Create** on the Data Factory blade. Specify the following information, and click **Create**.
 
@@ -144,15 +144,15 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     The Data Factory location is where the metadata of the data factory is stored and where the triggering of the pipeline is initiated from. Meanwhile, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services. This behavior is realized through the globally available Integration Runtime to ensure data compliance, efficiency, and reduced network egress costs.
 
-    ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image17.png)
+    ![Screenshot of the configuration options for the new Data Factory](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image17.png "Data Factory configuration options")
 
 4.  After the Data Factory deployment completes, navigate to the Data Factory and click the Author & Monitor tile
 
-    ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image18.png)
+    ![Screenshot of the Data Factory Author and Monitor tile in the Azure Portal](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image18.png "Select the Author and Monitor tile")
 
 5.  Select the **Configure SSIS Integration Runtime**
 
-    ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image19.png)
+    ![Screenshot of the Configure SSIS Integration Runtime tile](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image19.png "Choose the Configure SSIS Integration Runtime tile")
 
 6.  On the first Integration Runtime Setup window, select the following options and then click **Next**.
 
