@@ -101,18 +101,13 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 ## Abstract and learning objectives
 
-In this hands-on lab you will migrate an existing on-premises enterprise data warehouse to the cloud. We will investigate the current data warehouse to identify any incompatibilities, we will export the data from the on-premises data warehouse and transfer it to Azure Blob Storage. We will then load the data into the warehouse using Polybase. Finally we will integrate the warehouse by migrating ETL to Azure Data Factory and supporting ad-hoc access by implementing Azure Analysis Services.
+In this hands-on lab you will migrate an existing on-premises enterprise data warehouse to the cloud. You will investigate the current data warehouse to identify any incompatibilities, export the data from the on-premises data warehouse, and transfer it to an Azure Blob Storage. You will then load the data into the warehouse using Polybase. Finally, you will integrate the warehouse by migrating ETL to Azure Data Factory and supporting ad-hoc access by implementing Azure Analysis Services. 
 
-Attendees will learn how to plan a data warehouse migration as well as:
-
--   How to prepare and migrate data warehouse schema and data
-
--   How to configure a BI solution in Azure
+At the end of this hands-on lab, you will be better able to plan and implement a migration of your existing on-premises enterprise data warehouse to Azure SQL Data Warehouse and integrating it with both cloud-based and on-premises services and data sources.
 
 ## Overview
 
-Coho has asked you to migrate an existing on-premises SQL Server data warehouse to Azure SQL Data Warehouse. To build out a viable solution that can replace the existing functionality of the on-premises system, you will need to setup and configure an Azure SQL Data Warehouse, validate and migrate the existing data warehouse schema and data to Azure SQL Data Warehouse. You will analyze different table distribution methods and their performance impact on performance of the warehouse. You will then configure an Azure Analysis Services data model to allow ad-hoc access to the data via Power BI.
-
+Coho, a retail company focusing on consumer electronics, is modernizing their data architecture. Critical to this effort is migrating their existing enterprise data warehouse to the cloud for better integration with their cloud native customer 360 project and self-service business intelligence for their people in the field.
 
 ## Solution architecture
 
