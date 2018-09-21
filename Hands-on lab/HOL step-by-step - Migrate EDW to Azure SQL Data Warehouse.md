@@ -10,7 +10,7 @@ Hands-on lab step-by-step
 </div>
 
 <div class="MCWHeader3">
-May 2018
+September 2018
 </div>
 
 
@@ -32,31 +32,31 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Overview](#overview)
     - [Solution architecture](#solution-architecture)
     - [Requirements](#requirements)
-    - [Exercise 1: Configure Azure Services](#exercise-1-configure-azure-services)
-        - [Task 1: Create a logical SQL Server to host SSISDB](#task-1-create-a-logical-sql-server-to-host-ssisdb)
-        - [Task 2: Create an Azure Data Factory v2](#task-2-create-an-azure-data-factory-v2)
-        - [Task 3: Create an Azure SQL Data Warehouse](#task-3-create-an-azure-sql-data-warehouse)
-        - [Task 4: Create an Azure Storage Account](#task-4-create-an-azure-storage-account)
-        - [Task 5: Create Analysis Services](#task-5-create-analysis-services)
-        - [Task 6: Prepare Environment and Create Migration Accounts](#task-6-prepare-environment-and-create-migration-accounts)
-    - [Exercise 2: Data and schema preparation](#exercise-2-data-and-schema-preparation)
-        - [Task 1: Validate schema and data](#task-1-validate-schema-and-data)
-        - [Task 2: Prepare Azure SQL Data Warehouse and migrate schema](#task-2-prepare-azure-sql-data-warehouse-and-migrate-schema)
-    - [Exercise 3: Migrate the data to Azure SQL Data Warehouse](#exercise-3-migrate-the-data-to-azure-sql-data-warehouse)
-        - [Task 1: Exporting the data from your current data warehouse](#task-1-exporting-the-data-from-your-current-data-warehouse)
-        - [Task 2: Transfer your data to Azure](#task-2-transfer-your-data-to-azure)
-    - [Exercise 4: Migrate an SSIS Package to Data Factory v2](#exercise-4-migrate-an-ssis-package-to-data-factory-v2)
-        - [Task 1: Deploy SSIS Package to Data Factory](#task-1-deploy-ssis-package-to-data-factory)
-        - [Task 2: Schedule the SSIS Package](#task-2-schedule-the-ssis-package)
-    - [Exercise 5: Create an Analysis Services Model](#exercise-5-create-an-analysis-services-model)
-        - [Task 1: Configure Analysis Services backup](#task-1-configure-analysis-services-backup)
-        - [Task 2: Restore Analysis Services backup](#task-2-restore-analysis-services-backup)
-        - [Task 3: Update Analysis Services connections](#task-3-update-analysis-services-connections)
-    - [Exercise 6: Visualize data with Power BI Desktop](#exercise-6-visualize-data-with-power-bi-desktop)
-        - [Task 1: Install Power BI Desktop](#task-1-install-power-bi-desktop)
-        - [Task 2: Query data with Power BI Desktop](#task-2-query-data-with-power-bi-desktop)
+    - [Exercise 1: Configure Azure Services](#exercise-1--configure-azure-services)
+        - [Task 1: Create a logical SQL Server to host SSISDB](#task-1--create-a-logical-sql-server-to-host-ssisdb)
+        - [Task 2: Create an Azure Data Factory v2](#task-2--create-an-azure-data-factory-v2)
+        - [Task 3: Create an Azure SQL Data Warehouse](#task-3--create-an-azure-sql-data-warehouse)
+        - [Task 4: Create an Azure Storage Account](#task-4--create-an-azure-storage-account)
+        - [Task 5: Create Analysis Services](#task-5--create-analysis-services)
+        - [Task 6: Prepare Environment and Create Migration Accounts](#task-6--prepare-environment-and-create-migration-accounts)
+    - [Exercise 2: Data and schema preparation](#exercise-2--data-and-schema-preparation)
+        - [Task 1: Validate schema and data](#task-1--validate-schema-and-data)
+        - [Task 2: Prepare Azure SQL Data Warehouse and migrate schema](#task-2--prepare-azure-sql-data-warehouse-and-migrate-schema)
+    - [Exercise 3: Migrate the data to Azure SQL Data Warehouse](#exercise-3--migrate-the-data-to-azure-sql-data-warehouse)
+        - [Task 1: Exporting the data from your current data warehouse](#task-1--exporting-the-data-from-your-current-data-warehouse)
+        - [Task 2: Transfer your data to Azure](#task-2--transfer-your-data-to-azure)
+    - [Exercise 4: Migrate an SSIS Package to Data Factory v2](#exercise-4--migrate-an-ssis-package-to-data-factory-v2)
+        - [Task 1: Deploy SSIS Package to Data Factory](#task-1--deploy-ssis-package-to-data-factory)
+        - [Task 2: Schedule the SSIS Package](#task-2--schedule-the-ssis-package)
+    - [Exercise 5: Create an Analysis Services Model](#exercise-5--create-an-analysis-services-model)
+        - [Task 1: Configure Analysis Services backup](#task-1--configure-analysis-services-backup)
+        - [Task 2: Restore Analysis Services backup](#task-2--restore-analysis-services-backup)
+        - [Task 3: Update Analysis Services connections](#task-3--update-analysis-services-connections)
+    - [Exercise 6: Visualize data with Power BI Desktop](#exercise-6--visualize-data-with-power-bi-desktop)
+        - [Task 1: Install Power BI Desktop](#task-1--install-power-bi-desktop)
+        - [Task 2: Query data with Power BI Desktop](#task-2--query-data-with-power-bi-desktop)
     - [After the hands-on Lab](#after-the-hands-on-lab)
-        - [Task 1: Cleanup resource groups](#task-1-cleanup-resource-groups)
+        - [Task 1: Cleanup resource groups](#task-1--cleanup-resource-groups)
 
 <!-- /TOC -->
 

@@ -9,7 +9,7 @@ Before the hands-on lab setup guide
 </div>
 
 <div class="MCWHeader3">
-May 2018
+September 2018
 </div>
 
 
@@ -28,9 +28,9 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 <!-- TOC -->
 
 - [Migrate EDW to Azure SQL Data Warehouse before the hands-on lab set up guide](#migrate-edw-to-azure-sql-data-warehouse-before-the-hands-on-lab-set-up-guide)
-    - [Task 1: Deploy the source environment](#task-1-deploy-the-source-environment)
-    - [Task 2: Configure the SQL Server](#task-2-configure-the-sql-server)
-    - [Task 3: Deploy an Azure SQL Database](#task-3-deploy-an-azure-sql-database)
+    - [Task 1: Deploy the source environment](#task-1--deploy-the-source-environment)
+    - [Task 2: Configure the SQL Server](#task-2--configure-the-sql-server)
+    - [Task 3: Deploy an Azure SQL Database](#task-3--deploy-an-azure-sql-database)
 
 <!-- /TOC -->
 
