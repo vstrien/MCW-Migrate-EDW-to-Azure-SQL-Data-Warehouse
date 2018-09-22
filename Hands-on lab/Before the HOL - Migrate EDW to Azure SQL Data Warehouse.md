@@ -40,7 +40,7 @@ In this exercise, you will deploy the source environment for this lab. The sourc
 
 ### Task 1: Deploy the source environment
 
-1.  Browse to the Azure Portal at <https://portal.azure.com>
+1.  Browse to the Azure Portal at <https://portal.azure.com> and provision a Windows Server 2016 with SQL 2016 SP2 developer VM with following settings.
 
 2.  Click **+Create a resource,** and type **SQL Server 2016** in the search box. Choose the latest service pack version of **Free License: SQL Server 2016 SP2 Developer on Windows Server 2016** from the search results. ![](images/Setup/image3.png)
 
@@ -50,7 +50,7 @@ In this exercise, you will deploy the source environment for this lab. The sourc
 
     -   Name: **SQLcohoDW**
 
-    -   VM disk type: **SSD**
+    -   VM disk type: **Premium SSD**
 
     -   User name: **demouser**
 
@@ -64,15 +64,12 @@ In this exercise, you will deploy the source environment for this lab. The sourc
 
 5.  On the size blade, choose **D2s\_v3**. If this option is not available in your chosen region, choose DS2\_V2.
 
-    ![](images/Setup/image4.png)
-
+ 
 6.  On the Settings blade, select **RDP (3389)** in the **Select public inbound ports** dropdown and change the Auto-shutdown time zone to reflect your current time zone. Then, click **OK**.
 
-    ![In the Settings blade Auto-shutdown section, Enable auto-shutdown is set to On, Shutdown time is 7:00:00 PM, and Time zone is your current local time zone.](images/2018-06-25-18-44-33.png)
-
+ 
 7.  On the SQL Server settings blade, enable SQL Authentication, and click **OK**
 
-    ![Toggle the SQL Authentication to enabled](images/Setup/image6.png)
 
 8.  On the Summary blade, review your settings. Then, click **Create**.
 
@@ -80,7 +77,6 @@ In this exercise, you will deploy the source environment for this lab. The sourc
 
 1.  Login to the **SQLcochoDW** virtual machine you created in the previous task
 
-    ![Screenshot of the SQLcochoDW button.](images/Setup/image7.png)
 
 2.  From Server Manager, click on **Local Server** select **IE Enhanced Security Configuration,** and set it to **Off**
 
@@ -156,6 +152,6 @@ In this exercise, you will deploy the source environment for this lab. The sourc
 
     -   Pricing tier: **S1**
 
-         ![](images/Setup/image13.png)
+    
 
 You should follow all steps provided _before_ performing the Hands-on lab.

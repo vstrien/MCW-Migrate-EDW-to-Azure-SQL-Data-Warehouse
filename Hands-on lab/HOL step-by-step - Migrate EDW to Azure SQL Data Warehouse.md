@@ -202,7 +202,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
     -   Resource group: **Create new** - **CohoDWRG**
     -   Select source: **Blank database**                                             
     
-         ![Screenshot of the SQL Data Warehouse settings blade](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image30.png "SQL Data Warehouse configuration settings")
+    ![Screenshot of the SQL Data Warehouse settings blade](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image30.png "SQL Data Warehouse configuration settings")
 
 3.  On the Server blade, select **Create a new server**. Specify the following options, and click **Select**.
     -   Server name: ***Choose a unique server name**
@@ -211,9 +211,6 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
     -   Location: **Same location you created your logical SQL Server in**
     -   Allow azure services: **checked** 
    
-        ![The following fields are circled on the New server blade: Server name (cohodw); Server admin login (demouser); Password (hidden); Location (South Central US); and Allow azure services to acces server (check box selected).](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image31.png "New server configuration settings")
-
-
 4.  Select the Performance tier tile, set the performance to **400 DWU,** and click **Apply**
 
     ![In the Configure Performance blade, The Scale your system sliding scale is at DW400.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image32.png "Configure performance")
@@ -245,9 +242,10 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
     -   Secure transfer required: **Disabled**
 
     -   Resource group: **Use existing** - **CohoDWRG**
+
+
     
-    
-    ![Screenshot of the create storage configuration options](images/2018-06-26-13-25-13.png "Create storage account")
+   ![Screenshot of the storage account settings blade](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image030.png)
 
 4.  Navigate to the new storage account, and click **Blobs**
 
@@ -309,6 +307,8 @@ The first four steps of this task walk you through creating an organizational ac
 
     -   Storage key expiration: **Never**
 
+    ![Select Analysis Services](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image0030.png)
+
 ### Task 6: Prepare Environment and Create Migration Accounts
 
 1.  In the Azure Portal navigate to your **CohoDWRG** resource group, and click on your storage account
@@ -323,13 +323,13 @@ The first four steps of this task walk you through creating an organizational ac
 
 4.  From the **SQLCohoDW** virtual machine that you created before the lab, open a browser window, and connect to the **Azure Portal**
 
-    If you do not have a SQLCohoDW virtual machine, you should verify that you have completed the pre-requite steps in the correct subscription:  https://github.com/Microsoft/MCW-Migrate-EDW-to-Azure-SQL-Data-Warehouse/blob/master/Hands-on%20lab/Before%20the%20lab.md
+    If you do not have a SQLCohoDW virtual machine, you should verify that you have completed the pre-requite steps in the correct subscription:  
 
 5.  Navigate to your **CohoDWRG** resource group. Then, click on the logical SQL Server that hosts your Azure SQL Data Warehouse.
 
     ![In the Resource group name section, the logical SQL Server is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image38.png "Select the logical SQL server that hosts your data warehouse")
 
-6.  In the settings blade, click on **Firewall and Virtual Networks**
+6.  In the security blade, click on **Firewall and Virtual Networks**
 
 7.  In the cohodw - Firewall blade, click the **+Add client IP** button. Then, click the **Save** button.
 
@@ -497,7 +497,7 @@ This exercise is focused on migrating the data from your existing data warehouse
 
     > Note: In a production environment, you would likely make some effort to parallelize the execution of the various bcp commands. For larger tables, you also might parallelize the export from a single table.
 
-6.  Navigate to the **C:\\Migration** folder. If the commands completed successfully, you will have **33 files**
+6.  Navigate to the **C:\\Migration** folder. If the commands completed successfully, you will have **33 files**. Please review the files thoroughly to make sure you have all the files generated.
 
     ![In File Explorer, at the bottom, 33 items is called out.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image58.png "Verify the correct number of files was generated")
 
@@ -523,7 +523,7 @@ This exercise is focused on migrating the data from your existing data warehouse
 
 5.  Open SQL Server Management Studio, and connect to the **CohoDW** database of your SQL Data Warehouse using the **dataloader** account
 
-6.  Execute the following to create a database scoped credential you will use to store the access key to the migration storage account.
+6.  Execute the following to create a database scoped credential you will use to store the access key to the migration storage account. Make sure the password is correct that you provided earlier.
 
     ```
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Demo@pass123';
@@ -577,9 +577,7 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
 2.  Navigate to the **CohoDataFactory** resource group and open your **SSISDB** database. This database was created by Azure Data Factory when you provisioned your Azure-SSIS Integration Runtime.
 
-3.  Click on the Set server firewall button
-
-    ![In the Azure Portal, on the SSISDB blade, the Set server firewall button is circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image61.png "Set server firewall")
+3.  Click on the Set server firewall button. Go to security area and select **Firewalls and Virtual Networks**
 
 4.  Click the **+Add client IP** button, then click **Save**.
 
@@ -736,7 +734,6 @@ In this exercise, you will configure backup, restore for Analysis Services, and 
 
     -   Location: ***The same location you have been using for this lab***
 
-        ![Fields in the Create storage account blade are set to the previously defined settings.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image94.png "Create storage account")
 
 5.  Choose the storage account you just created to open the Containers blade. Click **+Container** to create a new container, type **backups** for the name, and click **OK**
 
