@@ -495,7 +495,7 @@ This exercise is focused on migrating the data from your existing data warehouse
 
     ![In the Command Prompt window, the command C:\\LabFiles\\bcp\_commands.bat displays.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image57.png "Execute the bcp_command.bat file")
 
-    > Note: In a production environment, you would likely make some effort to parallelize the execution of the various bcp commands. For larger tables, you also might parallelize the export from a single table.
+    > **Note:** In a production environment, you would likely make some effort to parallelize the execution of the various bcp commands. For larger tables, you also might parallelize the export from a single table.
 
 6.  Navigate to the **C:\\Migration** folder. If the commands completed successfully, you will have **33 files**. Please review the files thoroughly to make sure you have all the files generated.
 

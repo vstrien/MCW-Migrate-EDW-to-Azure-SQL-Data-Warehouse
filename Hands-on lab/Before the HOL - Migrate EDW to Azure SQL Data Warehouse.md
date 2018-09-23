@@ -42,7 +42,9 @@ In this exercise, you will deploy the source environment for this lab. The sourc
 
 1.  Browse to the Azure Portal at <https://portal.azure.com> and provision a Windows Server 2016 with SQL 2016 SP2 developer VM with following settings.
 
-2.  Click **+Create a resource,** and type **SQL Server 2016** in the search box. Choose the latest service pack version of **Free License: SQL Server 2016 SP2 Developer on Windows Server 2016** from the search results. ![](images/Setup/image3.png)
+2.  Click **+Create a resource,** and type **SQL Server 2016** in the search box. Choose the latest service pack version of **Free License: SQL Server 2016 SP2 Developer on Windows Server 2016** from the search results. 
+
+    !["Search dialog with SQL Server 2016 displayed."](images/Setup/image3.png "Search Dialog")
 
 3.  Click the **Create** button to begin deployment of the SQL Server
 
@@ -98,7 +100,7 @@ In this exercise, you will deploy the source environment for this lab. The sourc
     Remove-Item $Path\$Installer
     ```
 
-    ![](images/2018-06-26-09-57-15.png)
+    !["PowerShell ISE displayed with the execute button highlighted"](images/2018-06-26-09-57-15.png "PowerShell ISE")
 
 5.  Open **File Explorer,** and create two new folders called **C:\\LabFiles, C:\\Migration**
 
@@ -124,9 +126,9 @@ In this exercise, you will deploy the source environment for this lab. The sourc
 
 1.  Browse to the Azure Portal and authenticate at <https://portal.azure.com/>
 
-2.  Click **+Create a resource** and type **SQL Database** in the search box. Choose **SQL Database** from the results\
-    \
-    ![](images/Setup/image12.png)
+2.  Click **+Create a resource** and type **SQL Database** in the search box. Choose **SQL Database** from the results
+    
+    !["Search dialog with SQL Database highlighted"](images/Setup/image12.png "Search dialog")
 
 3.  Click **Create** on the SQL Database blade. Specify the following information, and click **Create**.
 
