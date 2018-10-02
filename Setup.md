@@ -57,7 +57,7 @@ In this exercise, you will deploy the source environment for this lab. The sourc
 
     ![In the Server Manager menu, Local Server is selected.](images/Setup/image8.png)
 
-    ![In the Everything section, IE Ehanced Security Configuration, which is set to Off, is selected.](images/Setup/image9.png)
+    ![In the Everything section, IE Enhanced Security Configuration, which is set to Off, is selected.](images/Setup/image9.png)
 
 
 3.  Install the Azure PowerShell command-line tools from:
