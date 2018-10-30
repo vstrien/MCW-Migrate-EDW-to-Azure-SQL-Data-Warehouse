@@ -355,11 +355,11 @@ In this exercise, you will setup integration with Power BI Desktop.
 
 1.  Connect Power BI to your Analysis Services instance.
 
-2.  Create a report that shows the total sales by country on map.
+2.  Create a report that shows the total sales by country/region on map.
 
 #### Exit criteria
 
--   Power BI report that shows the total sales by country on a map.
+-   Power BI report that shows the total sales by country/region on a map.
 
 ## After the hands-on lab 
 
