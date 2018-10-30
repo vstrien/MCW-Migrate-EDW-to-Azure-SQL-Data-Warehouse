@@ -184,7 +184,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
 8.  On the final Integration Runtime Setup window, set **Maximum Parallel Executions Per Node = 1**, then click **Finish**.
 
-    ![Screenshot of the Integration Runtime Setup.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image22.png)
+    ![Screenshot of the Integration Runtime Setup.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image22.png) 
 
 9.  The Integration Runtime can take 20-30 minutes to deploy and start. You do not need to wait on it to complete and may continue with the lab. The status will change from Starting to Running when it is complete.
 
