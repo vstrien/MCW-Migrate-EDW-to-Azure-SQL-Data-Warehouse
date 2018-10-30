@@ -9,7 +9,7 @@ Before the hands-on lab setup guide
 </div>
 
 <div class="MCWHeader3">
-May 2018
+September 2018
 </div>
 
 
@@ -28,29 +28,39 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 <!-- TOC -->
 
 - [Migrate EDW to Azure SQL Data Warehouse before the hands-on lab set up guide](#migrate-edw-to-azure-sql-data-warehouse-before-the-hands-on-lab-set-up-guide)
-    - [Task 1: Deploy the source environment](#task-1-deploy-the-source-environment)
-    - [Task 2: Configure the SQL Server](#task-2-configure-the-sql-server)
-    - [Task 3: Deploy an Azure SQL Database](#task-3-deploy-an-azure-sql-database)
+    - [Requirements](#requirements)
+    - [Before the hands-on lab](#before-the-hands-on-lab)
+        - [Task 1: Deploy the source environment](#task-1-deploy-the-source-environment)
+        - [Task 2: Configure the SQL Server](#task-2-configure-the-sql-server)
+        - [Task 3: Deploy an Azure SQL Database](#task-3-deploy-an-azure-sql-database)
 
 <!-- /TOC -->
 
-## Migrate EDW to Azure SQL Data Warehouse before the hands-on lab set up guide
+# Migrate EDW to Azure SQL Data Warehouse before the hands-on lab set up guide
+
+## Requirements
+
+1.  Microsoft Azure subscription
+
+## Before the hands-on lab
 
 In this exercise, you will deploy the source environment for this lab. The source environment is designed to represent the existing on-premises environment you will migrate to Azure SQL Data Warehouse.
 
 ### Task 1: Deploy the source environment
 
-1.  Browse to the Azure Portal at <https://portal.azure.com>
+1.  Browse to the Azure Portal at <https://portal.azure.com> and provision a Windows Server 2016 with SQL 2016 SP2 developer VM with following settings.
 
-2.  Click **+Create a resource,** and type **SQL Server 2016** in the search box. Choose the latest service pack version of **Free License: SQL Server 2016 SP2 Developer on Windows Server 2016** from the search results. ![](images/Setup/image3.png)
+2.  Click **+Create a resource,** and type **SQL Server 2016** in the search box. Choose the latest service pack version of **Free License: SQL Server 2016 SP2 Developer on Windows Server 2016** from the search results. 
 
-3.  Click the **Create** button to begin deployment of the SQL Server
+    ![Search dialog with SQL Server 2016 displayed.](images/Setup/image3.png "Search Dialog")
+
+3.  Click the **Create** button to begin deployment of the SQL Server.
 
 4.  On the Basics blade, use the following configurations:
 
     -   Name: **SQLcohoDW**
 
-    -   VM disk type: **SSD**
+    -   VM disk type: **Premium SSD**
 
     -   User name: **demouser**
 
@@ -60,29 +70,21 @@ In this exercise, you will deploy the source environment for this lab. The sourc
 
     -   Resource Group: **Create new** - **CohoOnPremEnvironment**
 
-    -   Location: ***Choose a location near you***
+    -   Location: ***Choose a location near you***.
 
 5.  On the size blade, choose **D2s\_v3**. If this option is not available in your chosen region, choose DS2\_V2.
-
-    ![](images/Setup/image4.png)
-
+ 
 6.  On the Settings blade, select **RDP (3389)** in the **Select public inbound ports** dropdown and change the Auto-shutdown time zone to reflect your current time zone. Then, click **OK**.
-
-    ![In the Settings blade Auto-shutdown section, Enable auto-shutdown is set to On, Shutdown time is 7:00:00 PM, and Time zone is your current local time zone.](images/2018-06-25-18-44-33.png)
-
-7.  On the SQL Server settings blade, enable SQL Authentication, and click **OK**
-
-    ![Toggle the SQL Authentication to enabled](images/Setup/image6.png)
+ 
+7.  On the SQL Server settings blade, enable SQL Authentication, and click **OK**.
 
 8.  On the Summary blade, review your settings. Then, click **Create**.
 
 ### Task 2: Configure the SQL Server
 
-1.  Login to the **SQLcochoDW** virtual machine you created in the previous task
+1.  Login to the **SQLcochoDW** virtual machine you created in the previous task.
 
-    ![Screenshot of the SQLcochoDW button.](images/Setup/image7.png)
-
-2.  From Server Manager, click on **Local Server** select **IE Enhanced Security Configuration,** and set it to **Off**
+2.  From Server Manager, click on **Local Server** select **IE Enhanced Security Configuration,** and set it to **Off**.
 
     ![In the Server Manager menu, Local Server is selected.](images/Setup/image8.png)
 
@@ -102,17 +104,17 @@ In this exercise, you will deploy the source environment for this lab. The sourc
     Remove-Item $Path\$Installer
     ```
 
-    ![](images/2018-06-26-09-57-15.png)
+    ![PowerShell ISE displayed with the execute button highlighted.](images/2018-06-26-09-57-15.png "PowerShell ISE")
 
-5.  Open **File Explorer,** and create two new folders called **C:\\LabFiles, C:\\Migration**
+5.  Open **File Explorer,** and create two new folders called **C:\\LabFiles, C:\\Migration**.
 
-5.  Download the Student Files from <http://cloudworkshop.blob.core.windows.net/migrate-edw/StudentFiles-06-2018.zip>, and extract the files to **C:\\LabFiles**
+5.  Download the Student Files from <http://cloudworkshop.blob.core.windows.net/migrate-edw/StudentFiles-06-2018.zip>, and extract the files to **C:\\LabFiles**.
 
     ![The Extract Zipped folders window displays. In the Browse field, C:\\LabFiles\\ displays.](images/Setup/image10.png)
 
-6.  Launch **SQL Server Management Studio,** and connect to the SQLcohoDW instance
+6.  Launch **SQL Server Management Studio,** and connect to the SQLcohoDW instance.
 
-7.  Open a **New Query** window, and cut/paste the following code into the window
+7.  Open a **New Query** window, and cut/paste the following code into the window:
 
     ```
     RESTORE DATABASE CohoDW FROM DISK = 'C:\LabFiles\CohoDW.bak' 
@@ -120,19 +122,19 @@ In this exercise, you will deploy the source environment for this lab. The sourc
        , MOVE 'CohoDW_Log' TO 'F:\Log\CohoDW_Log.ldf'
     ```
 
-9.  Click **Execute** to restore the database
+9.  Click **Execute** to restore the database.
 
     ![Screenshot of the Execute button.](images/Setup/image11.png) 
 
 ### Task 3: Deploy an Azure SQL Database
 
-1.  Browse to the Azure Portal and authenticate at <https://portal.azure.com/>
+1.  Browse to the Azure Portal and authenticate at: <https://portal.azure.com/>.
 
-2.  Click **+Create a resource** and type **SQL Database** in the search box. Choose **SQL Database** from the results\
-    \
-    ![](images/Setup/image12.png)
+2.  Click **+Create a resource** and type **SQL Database** in the search box. Choose **SQL Database** from the results.
+    
+    ![Search dialog with SQL Database highlighted.](images/Setup/image12.png "Search dialog")
 
-3.  Click **Create** on the SQL Database blade. Specify the following information, and click **Create**.
+3.  Click **Create** on the SQL Database blade. Specify the following information, and click **Create**:
 
     -   Database name: **cohoOLTP**
 
@@ -144,18 +146,16 @@ In this exercise, you will deploy the source environment for this lab. The sourc
 
     -   Server: ***Create a new server***
 
-        -   Server name: ***Choose a unique name***
+        -   Server name: ***Choose a unique name***.
 
         -   Server admin login: **demouser**
 
         -   Password: **Demo\@pass123**
 
-        -   Location: ***The same location you used for your other resources***
+        -   Location: ***The same location you used for your other resources***.
 
         -   Allow azure services to access server: ***checked***
 
-    -   Pricing tier: **S1**
+    -   Pricing tier: **S1**    
 
-         ![](images/Setup/image13.png)
-
-You should follow all steps provided _before_ performing the Hands-on lab.
+You should follow all steps provided *before* performing the Hands-on lab.
