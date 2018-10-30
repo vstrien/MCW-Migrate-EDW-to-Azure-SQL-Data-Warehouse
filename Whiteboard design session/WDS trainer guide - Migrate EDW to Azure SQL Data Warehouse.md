@@ -1,4 +1,4 @@
-![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
+![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png)
 
 
 <div class="MCWHeader1">
@@ -64,25 +64,25 @@ Thank you for taking time to support the whiteboard design sessions as a trainer
 
 An amazing trainer:
 
--   Creates a safe environment in which learning can take place
+-   Creates a safe environment in which learning can take place.
 
--   Stimulates the participant's thinking
+-   Stimulates the participant's thinking.
 
--   Involves the participant in the learning process
+-   Involves the participant in the learning process.
 
--   Manages the learning process (on time, on topic, and adjusting to benefit participants)
+-   Manages the learning process (on time, on topic, and adjusting to benefit participants).
 
--   Ensures individual participant accountability
+-   Ensures individual participant accountability.
 
--   Ties it all together for the participant
+-   Ties it all together for the participant.
 
--   Provides insight and experience to the learning process
+-   Provides insight and experience to the learning process.
 
--   Effectively leads the whiteboard design session discussion
+-   Effectively leads the whiteboard design session discussion.
 
--   Monitors quality and appropriateness of participant deliverables
+-   Monitors quality and appropriateness of participant deliverables.
 
--   Effectively leads the feedback process
+-   Effectively leads the feedback process.
 
 ## Whiteboard design session flow 
 
@@ -90,7 +90,9 @@ Each whiteboard design session uses the following flow:
 
 **Step 1: Review the customer case study (15 minutes)**
 
-Outcome: Analyze your customer's needs.
+**Outcome**
+
+Analyze your customer's needs.
 
 -   Customer's background, situation, needs and technical requirements
 
@@ -100,19 +102,23 @@ Outcome: Analyze your customer's needs.
 
 **Step 2: Design a proof of concept solution (60 minutes)**
 
-Outcome: Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format.
+**Outcome**
 
--   Determine your target customer audience
+Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format.
 
--   Determine customer's business needs to address your solution
+-   Determine your target customer audience.
 
--   Design and diagram your solution
+-   Determine customer's business needs to address your solution.
 
--   Prepare to present your solution
+-   Design and diagram your solution.
+
+-   Prepare to present your solution.
 
 **Step 3: Present the solution (30 minutes)**
 
-Outcome: Present solution to your customer.
+**Outcome**
+
+Present solution to your customer:
 
 -   Present solution
 
@@ -128,7 +134,7 @@ Outcome: Present solution to your customer.
 
 Before conducting your first whiteboard design session:
 
--   Read the Attendee guide (including the case study) and Trainer guide
+-   Read the Student guide (including the case study) and Trainer guide.
 
 -   Become familiar with all key points and activities.
 
@@ -172,17 +178,19 @@ At the end of this whiteboard design session, you will be better able to plan an
 
 ## Step 1: Review the customer case study 
 
-**Outcome** 
+**Outcome**
 
-Analyze your customer’s needs.
+Analyze your customer's needs.
 
-Timeframe: 15 minutes 
+Timeframe: 15 minutes
 
-Directions: With all participants in the session, the facilitator/SME presents an overview of the customer case study along with technical tips. 
-1.  Meet your table participants and trainer 
-2.  Read all of the directions for steps 1–3 in the student guide 
-3.  As a table team, review the following customer case study
+Directions: With all participants in the session, the facilitator/SME presents an overview of the customer case study along with technical tips.
 
+1.  Meet your table participants and trainer.
+
+2.  Read all of the directions for steps 1-3 in the student guide.
+
+3.  As a table team, review the following customer case study.
 
 ### Customer situation
 
@@ -197,8 +205,6 @@ The current reporting system is also quite limited. After the data loads have co
 **Current Coho EDW architecture**
 
 ![The Current Coho EDW architecture consists of an on-premises data warehouse that pulls data from a variety of on-premises data sources. A 3rd-party data processing company receives a dataset from Coho every day and supplements and aggregates the data with additional customer data. Updated sales data is periodically pulled from the warehouse but not on a consistent basis. Users receive static reports that are generated directly from the warehouse and analytics users query their own analytics database via Excel.](images/Whiteboarddesignsessionstudentguide-MigrateEDWtoAzureSQLDataWarehouseimages/media/image2.png)
-
-
 
 ### Customer needs 
 
@@ -230,8 +236,6 @@ The current reporting system is also quite limited. After the data loads have co
 
 8.  It looks like Azure SQL Database supports columnstore tables for warehouse workloads like ours. When would we choose Azure SQL Database over Azure SQL Data Warehouse?
 
- 
-
 ### Infographic for common scenarios
 
 **Azure SQL Data Warehouse**
@@ -240,7 +244,8 @@ The current reporting system is also quite limited. After the data loads have co
 
 **Azure Analysis Services**
 
-![Screenshot of the Azure Analysis Services diagram. At this time, we are unable to capture all of the information in the diagram. Future versions of this course should address this.](images/Whiteboarddesignsessionstudentguide-MigrateEDWtoAzureSQLDataWarehouseimages/media/image4.png)
+![Screenshot of the Azure Analysis Services diagram. The diagram uses icons to illustrate the following features: Dynamic scalability;
+Scale-out performance, ability to combine data from multiple data sources; Integrate with Data Factory; Leverage existing tabular data models.](images/Whiteboarddesignsessionstudentguide-MigrateEDWtoAzureSQLDataWarehouseimages/media/image4.png)
 
 **Azure Data Factory**
 
@@ -252,22 +257,25 @@ The current reporting system is also quite limited. After the data loads have co
 
 ## Step 2: Design a proof of concept solution
 
-**Outcome** 
-Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format. 
+**Outcome**
+
+Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format.
 
 Timeframe: 60 minutes
 
 **Business needs**
 
-Directions: With all participants at your table, answer the following questions and list the answers on a flip chart. 
-1.  Who should you present this solution to? Who is your target customer audience? Who are the decision makers? 
+Directions:  With all participants at your table, answer the following questions and list the answers on a flip chart:
+
+1.  Who should you present this solution to? Who is your target customer audience? Who are the decision makers?
+
 2.  What customer business needs do you need to address with your solution?
 
-**Design** 
+**Design**
 
-Directions: With all participants at your table, respond to the following questions on a flip chart.
+Directions: With all participants at your table, respond to the following questions on a flip chart:
 
-_Plan a data warehouse migration_
+*Plan a data warehouse migration*
 
 1. **Data preparation**: Coho needs to validate its database compatibility. Develop a high-level checklist of all of the steps necessary to validate compatibility including any tools you might use.
 
@@ -287,7 +295,7 @@ _Plan a data warehouse migration_
 
 5. **Diagram the solution**
 
-_Data warehouse integration_
+*Data warehouse integration*
 
 1. **Plan**: Identify integration points:
 
@@ -303,7 +311,7 @@ _Data warehouse integration_
 
 3. **Diagram the solution**
 
-_Self-service BI_
+*Self-service BI*
 
 1. **Describe self-service BI:**
 
@@ -319,40 +327,47 @@ _Self-service BI_
 
     b.  How will users be licensed/given access to Power BI?
 
-    c.  What impact will this solution have on the performance of the Azure SQL Data Warehouse?**\
-        **
+    c.  What impact will this solution have on the performance of the Azure SQL Data Warehouse?
 
 3. **Diagram the solution**
 
 **Prepare**
 
-Directions: With all participants at your table: 
+Directions: With all participants at your table:
 
-1.  Identify any customer needs that are not addressed with the proposed solution
-2.  Identify the benefits of your solution
-3.  Determine how you will respond to the customer’s objections
+1.  Identify any customer needs that are not addressed with the proposed solution.
 
-Prepare a 15-minute chalk-talk style presentation to the customer. 
+2.  Identify the benefits of your solution.
 
+3.  Determine how you will respond to the customer's objections.
+
+Prepare a 15-minute chalk-talk style presentation to the customer.
 
 ## Step 3: Present the solution
 
 **Outcome**
- 
+
 Present a solution to the target customer audience in a 15-minute chalk-talk format.
 
 Timeframe: 30 minutes
 
-**Presentation** 
+**Presentation**
 
 Directions:
-1.  Pair with another table
-2.  One table is the Microsoft team and the other table is the customer
-3.  The Microsoft team presents their proposed solution to the customer
-4.  The customer makes one of the objections from the list of objections
-5.  The Microsoft team responds to the objection
+
+1.  Pair with another table.
+
+2.  One table is the Microsoft team and the other table is the customer.
+
+3.  The Microsoft team presents their proposed solution to the customer.
+
+4.  The customer makes one of the objections from the list of objections.
+
+5.  The Microsoft team responds to the objection.
+
 6.  The customer team gives feedback to the Microsoft team.
-7.  Tables switch roles and repeat Steps 2–6
+
+7.  Tables switch roles and repeat Steps 2-6.
 
 ##  Wrap-up 
 
@@ -373,49 +388,47 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 | Azure Analysis Services  | <https://docs.microsoft.com/en-us/azure/analysis-services/analysis-services-overview>   |
 | Power BI Gateway - Enterprise in-depth   | <https://powerbi.microsoft.com/en-us/documentation/powerbi-gateway-enterprise-indepth/>   |
 
-
-
 # Migrate EDW to Azure SQL Data Warehouse whiteboard design session trainer guide
 
 ## Step 1: Review the customer case study
 
--   Check in with your table participants to introduce yourself as the trainer
+-   Check in with your table participants to introduce yourself as the trainer.
 
 -   Ask, "What questions do you have about the customer case study?"
 
--   Briefly review the steps and timeframes of the whiteboard design session
+-   Briefly review the steps and timeframes of the whiteboard design session.
 
--   Ready, set, go! Let the table participants begin
+-   Ready, set, go! Let the table participants begin.
 
 ## Step 2: Design a proof of concept solution
 
--   Check in with your tables to ensure that they are transitioning from step to step on time
+-   Check in with your tables to ensure that they are transitioning from step to step on time.
 
--   Provide some feedback on their responses to the business needs and design
+-   Provide some feedback on their responses to the business needs and design.
 
-    -   Try asking questions first that will lead the participants to discover the answers on their own
+    -   Try asking questions first that will lead the participants to discover the answers on their own.
 
--   Provide feedback for their responses to the customer's objections
+-   Provide feedback for their responses to the customer's objections.
 
-    -   Try asking questions first that will lead the participants to discover the answers on their own
+    -   Try asking questions first that will lead the participants to discover the answers on their own.
 
 ## Step 3: Present the solution
 
--   Determine which table will be paired with your table before Step 3 begins
+-   Determine which table will be paired with your table before Step 3 begins.
 
--   For the first round, assign one table as the Microsoft team and the other table as the customer
+-   For the first round, assign one table as the presenting team and the other table as the customer.
 
--   Have the Microsoft team present their solution to the customer team
+-   Have the presenting team present their solution to the customer team.
 
-    -   Have the customer team provide one objection for the Microsoft team to respond to
+    -   Have the customer team provide one objection for the presenting team to respond to.
 
-    -   The presentation and objections should be no longer than 15-minutes
+    -   The presentation, objections, and feedback should take no longer than 15 minutes.
 
-    -   If needed, the trainer may also provide feedback
+    -   If needed, the trainer may also provide feedback.
 
 ## Wrap-up
 
-   -   Have the table participants reconvene with the larger session group to hear the facilitator/SME share the following preferred solution
+-   Have the table participants reconvene with the larger session group to hear the facilitator/SME share the following preferred solution.
 
 ##  Preferred target audience
 
@@ -429,27 +442,25 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 
 The solution for Coho\'s scenario involved several technologies:
 
-1.  Migrating to Azure SQL Data Warehouse
+1.  Migrating to Azure SQL Data Warehouse.
 
-2.  Using the Migration Advisor as a starting point for migration
+2.  Using the Migration Advisor as a starting point for migration.
 
-3.  Uploading data to Azure Blob storage, then loading the data via Polybase to minimize the time needed to load the new warehouse
+3.  Uploading data to Azure Blob storage, then loading the data via Polybase to minimize the time needed to load the new warehouse.
 
-4.  Taking advantage of new features such as Clustered Columnstore Indexes to optimize performance
+4.  Taking advantage of new features such as Clustered Columnstore Indexes to optimize performance.
 
 5.  Following best practices for minimizing data movement across the nodes of the warehouse by using hash distribution where appropriate.
 
-6.  Using external tables to query data stored in Azure Storage
+6.  Using external tables to query data stored in Azure Storage.
 
-7.  Migrating existing ETL to Azure Data Factory
+7.  Migrating existing ETL to Azure Data Factory.
 
-8.  Allowing ad-hoc access to data warehouse data by implementing Azure Analysis Services
+8.  Allowing ad-hoc access to data warehouse data by implementing Azure Analysis Services.
 
-9.  Capitalizing on Power BI to enable self-service BI
-
+9.  Capitalizing on Power BI to enable self-service BI.
 
 *Plan for data warehouse migration*
-
 
 1.  **Data preparation**: Coho needs to validate its database compatibility. Develop a high-level checklist of all off the steps necessary to validate compatibility including any tools you might use.
 
@@ -467,11 +478,11 @@ The solution for Coho\'s scenario involved several technologies:
 
     -   Database logins. Evaluate each login for need.
 
-    -   Schema compatibility: <https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-migrate-schema/>
+    -   Schema compatibility: <https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-migrate-schema/>.
 
-    -   Code compatibility: <https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-migrate-code/>
+    -   Code compatibility: <https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-migrate-code/>.
 
-    -   Data compatibility: <https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-migrate-data/>
+    -   Data compatibility: <https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-migrate-data/>.
 
     -   Architectural changes. For example, defining the distribution of your data across the nodes of the warehouse.
 
@@ -481,23 +492,23 @@ The solution for Coho\'s scenario involved several technologies:
 
     -   Recommendations for finding the best Data Warehouse Unit DWU for your workload:
 
-        -   For a data warehouse in development, begin by selecting a small number of DWUs
+        -   For a data warehouse in development, begin by selecting a small number of DWUs.
 
-        -   Monitor your application performance, observing the number of DWUs selected compared to the performance you observe
+        -   Monitor your application performance, observing the number of DWUs selected compared to the performance you observe.
 
-        -   Determine how much faster or slower performance should be for you to reach the optimum performance level for your requirements by assuming linear scale
+        -   Determine how much faster or slower performance should be for you to reach the optimum performance level for your requirements by assuming linear scale.
 
         -   Increase or decrease the number of DWUs in proportion to how much faster or slower you want your workload to perform. The service will respond quickly and adjust the compute resources to meet the new DWU requirements.
 
-        -   Continue making adjustments until you reach an optimum performance level for your business requirements
+        -   Continue making adjustments until you reach an optimum performance level for your business requirements.
 
 3.  **Migration process:** Design a secure migration process that minimizes downtime. Your migration process should include the following:
 
     a.  Recommendations for migrating and validating schema
 
-    b.  Recommendations for migrating and validating code
+    b.  Recommendations for migrating and validating data
 
-    c.  Recommendations for migrating and validating data
+    c.  Recommendations for migrating and validating code
 
     d.  Architectural considerations that may be necessary for running on SQL Data Warehouse
 
@@ -523,9 +534,9 @@ The solution for Coho\'s scenario involved several technologies:
 
     -   One of the primary architectural considerations will be how the data will be distributed across the Data Warehouse. Azure SQL Database stores data across many different locations known as distributions. Each distribution stores a unique subset of the data in the data warehouse. When tables are declared in Azure SQL Data Warehouse, you define how the data will be distributed across the distributions. There are two available options:
 
-    -   ROUND\_ROBIN: This is the default option. It loads faster than a hash distributed table, making it a good staging target. However, it is typically not the optimal choice for query performance. It is generally suitable when there is no obvious join key in the table.
+    -   **ROUND\_ROBIN**: This is the default option. It loads faster than a hash distributed table, making it a good staging target. However, it is typically not the optimal choice for query performance. It is generally suitable when there is no obvious join key in the table.
 
-    -   HASH: This option uses an internal function to spread the data across the distributions by hashing a single column. The hash is a deterministic process making the results of the hash predictable. For example, hashing an integer value of 10 will always result in the same hash value. This holds true across different tables. This means that two tables that are frequently joined on an id column, that are hash distributed, will not need to move data between nodes of the warehouse to satisfy the join.
+    -   **HASH**: This option uses an internal function to spread the data across the distributions by hashing a single column. The hash is a deterministic process making the results of the hash predictable. For example, hashing an integer value of 10 will always result in the same hash value. This holds true across different tables. This means that two tables that are frequently joined on an id column, that are hash distributed, will not need to move data between nodes of the warehouse to satisfy the join.
 
 4.  **Post migration steps:** Define any post migration steps.
 
@@ -570,10 +581,9 @@ The solution for Coho\'s scenario involved several technologies:
 
     **Answer:** Azure Data Factory requires a self-hosted Integration Runtime for connectivity to on-premises data sources (or targets).
 
-
 3.  **Diagram the solution**
 
-    ![](images/Whiteboarddesignsessiontrainerguide-MigrateEDWtoAzureSQLDataWarehouseimages/media/image8.png)
+    ![Diagram showing the various types of Data Factory Integration Runtime. The first is the default runtime used to run pipelines that leverage Azure services. The second is the Azure SSIS Integration Runtime which is designed to run SSIS packages only. The diagram also shows both of these types of Integration Runtimes running in Azure Virtual Networks and on-premises as a gateway.](images/Whiteboarddesignsessiontrainerguide-MigrateEDWtoAzureSQLDataWarehouseimages/media/image8.png)
     _Data Factory orchestration with on-premises data stores._
 
 *Self-service BI*
@@ -608,7 +618,8 @@ The solution for Coho\'s scenario involved several technologies:
 
 3.  **Diagram the solution**
 
-    ![Screenshot of the End-to-end Data warehouse integration diagram, which is broken into h On-Premises, Azure, and Users. At this time, we are unable to capture all of the information in the diagram. Future versions of this course should address this. ](images/Whiteboarddesignsessiontrainerguide-MigrateEDWtoAzureSQLDataWarehouseimages/media/image9.png)
+    ![Screenshot of the End-to-end Data warehouse integration diagram, which is broken into On-Premises, Azure, and Users.](images/Whiteboarddesignsessiontrainerguide-MigrateEDWtoAzureSQLDataWarehouseimages/media/image9.png)
+    
     _End to end project data flow_
 
 ## Checklist of preferred objection handling
@@ -625,12 +636,11 @@ The solution for Coho\'s scenario involved several technologies:
 
     The migration will be tackled in a multi-phased approach. The first phase will migrate the schema and code to the SQL Data Warehouse. This will be done prior to the data migration which will be the second phase. The data migration itself can be broken into three steps with each of the following optimized steps:
 
-    -  Export: Use SSIS to export to multiple gzip compressed files
+    -  **Export**: Use SSIS to export to multiple gzip compressed files.
 
-    -  Transfer: Copy files to Azure blob storage using AZCopy. Express Route will improve performance and reliability of the copy
+    -  **Transfer**: Copy files to Azure blob storage using AZCopy. Express Route will improve performance and reliability of the copy.
 
-    -  Load: Load the data from Azure blob storage using Polybase
-
+    -  **Load**: Load the data from Azure blob storage using Polybase.
 
 3.  How will we integrate with existing analytics tools and systems?
 
@@ -642,7 +652,7 @@ The solution for Coho\'s scenario involved several technologies:
 
     **Potential answer:**
 
-    Azure SQL Data Warehouse uses Polybase to connect to the files stored in Azure Blob Storage or Azure Data Lake. This allows us to create external tables referencing the files stored there. HDInsight processes can dump data to these stores which can then be read by Azure SQL Data Warehouse. Data can also be integrated by Azure Data Factory*. *
+    Azure SQL Data Warehouse uses Polybase to connect to the files stored in Azure Blob Storage or Azure Data Lake. This allows us to create external tables referencing the files stored there. HDInsight processes can dump data to these stores which can then be read by Azure SQL Data Warehouse. Data can also be integrated by Azure Data Factory.
 
 5.  We would like to have the ability to archive data from the warehouse, but we cannot have data completely offline.
 
