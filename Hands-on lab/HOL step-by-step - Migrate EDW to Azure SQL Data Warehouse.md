@@ -32,7 +32,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Overview](#overview)
     - [Solution architecture](#solution-architecture)
     - [Requirements](#requirements)
-    - [Exercise 1: Configure Azure Services](#exercise-1--configure-azure-services)
+    - [Exercise 1: Configure Azure Services](#exercise-1-configure-azure-services)
         - [Task 1: Create a logical SQL Server to host SSISDB](#task-1-create-a-logical-sql-server-to-host-ssisdb)
         - [Task 2: Create an Azure Data Factory v2](#task-2-create-an-azure-data-factory-v2)
         - [Task 3: Create an Azure SQL Data Warehouse](#task-3-create-an-azure-sql-data-warehouse)
