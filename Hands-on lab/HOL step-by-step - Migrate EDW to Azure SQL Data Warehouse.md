@@ -738,7 +738,7 @@ In this exercise, you will configure backup, restore for Analysis Services, and 
 
     ![In the Containers blade, in the Name field, backups is typed, and the OK button is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image95.png)
 
-1.  On the **Containers** blade, click on the newly created **backups** Container, then click **Select**.
+6.  On the **Containers** blade, click on the newly created **backups** Container, then click **Select**.
 
     ![Containers blade picture and backups is selected and click select button is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image96.png)    
 
@@ -890,15 +890,15 @@ In this exercise, you will setup integration with Power BI Desktop.
 
     ![In the Power BI window, in the left pane, a world map displays with dots on it. In the right pane, two more panes display: Visualizations, and Fields. In the Visualizations pane, the World graph icon is selected. Under Location, CountryRegionCode displays. In the right, Fields pane, DimGeograpny is expanded, and below it, the CountryRegionCode is check box is selected.](images/2018-06-26-18-34-00.png)
 
-9.  The circles that PowerBI adds to the map are simply every country in which Coho had sales. Let's add the sales amount to this to make the map a little more interesting. Add the **SalesAmount** from the **FactInternetSales** table by putting a check next to it. The circles on the map will change in size to reflect the sum of all sales in that particular country.
+9.  The circles that PowerBI adds to the map are simply every country/region in which Coho had sales. Let's add the sales amount to this to make the map a little more interesting. Add the **SalesAmount** from the **FactInternetSales** table by putting a check next to it. The circles on the map will change in size to reflect the sum of all sales in that particular country/region.
 
     ![In the Power BI window, in the left pane, a world map displays with varying-sized dots on it. Larger dots are over North America and Australia. In the right Fields pane, the SalesAmount check box is selected.](images/2018-06-26-18-37-09.png)
 
-10. We want to see a little more specific detail around what these circles actually mean, so let\'s add a legend to identify the countries. Drag the **EnglishCountryRegionName** field under **Legend**.
+10. We want to see a little more specific detail around what these circles actually mean, so let\'s add a legend to identify the countries/regions. Drag the **EnglishCountryRegionName** field under **Legend**.
 
     ![In the Power BI window, in the left pane, the world map displays, this time with dots that vary by size and color. In the fields pane, under DimGeography, the EnglishCountryRegionName field is circled, and the check box is selected. An arrow points from here to the same EnglishCountryRegionName field in the Visualizations pane, under Legend.](images/2018-06-26-18-41-49.png)
 
-11. Click the **Save** button in the top left of your screen, name your report **Sales by country,** and click **Save**.
+11. Click the **Save** button in the top left of your screen, name your report **Sales by countryregion,** and click **Save**.
 
 ## After the hands-on Lab 
 
