@@ -74,7 +74,7 @@ Coho, a retail company focusing on consumer electronics, is modernizing their da
 
 ## Solution architecture
 
-![An image of the solution architecture that depicts a simulated on-premises environment hosting SQL Server with paths for data to be uploaded to Azure Blob Storage and schema transferred to Azure SQL Datawarehouse. Finally, data is shown transferred to a computer running Power BI.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image2.png "Solution architecture")
+![An image of the solution architecture that depicts a simulated on-premises environment hosting SQL Server with paths for data to be uploaded to Azure Blob Storage and schema transferred to Azure SQL Datawarehouse. Finally, data is shown transferred to a computer running Power BI.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image2.png "Solution architecture that depicts a simulated on-premises environment hosting SQL Server with paths for data to be uploaded to Azure Blob Storage and schema transferred to Azure SQL Datawarehouse. Finally, data is shown transferred to a computer running Power BI")
 
 ## Requirements
 
@@ -116,7 +116,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
         -   ***West US 2***
         -   ***UK South***
 
-        ![Screenshot of the configuration options for the SQL server logical server.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image15.png)
+        ![Screenshot of the configuration options for the SQL server logical server](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image15.png "SQL Server configuration options")
 
 ### Task 2: Create an Azure Data Factory v2
 
@@ -140,15 +140,15 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     The Data Factory location is where the metadata of the data factory is stored and where the triggering of the pipeline is initiated from. Meanwhile, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services. This behavior is realized through the globally available Integration Runtime to ensure data compliance, efficiency, and reduced network egress costs.
 
-    ![Screenshot of the configuration options for the new Data Factory.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image17.png)
+    ![Screenshot of the configuration options for the new Data Factory](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image17.png "Specify Data Factory configuration options")
 
 4.  After the Data Factory deployment completes, navigate to the Data Factory and click the Author & Monitor tile.
 
-    ![Screenshot of the Data Factory Author and Monitor tile in the Azure Portal.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image18.png)
+    ![Screenshot of the Data Factory Author and Monitor tile in the Azure Portal](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image18.png "Select the Author and Monitor tile from the quick links")
 
 5.  Select the **Configure SSIS Integration Runtime**.
 
-    ![Screenshot of the Configure SSIS Integration Runtime tile.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image19.png)
+    ![Screenshot of the Configure SSIS Integration Runtime tile](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image19.png "Choose the Configure SSIS Integration Runtime tile and then complete for following information")
 
 6.  On the first Integration Runtime Setup window, select the following options and then click **Next**:
 
@@ -164,7 +164,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     The Integration Runtime Location defines the location of its back-end compute, and essentially the location where the data movement, activity dispatching, and SSIS package execution are performed. The Integration Runtime location can be different from the location of the Data Factory it belongs to. For your location, select the location of your integration runtime. Only supported locations are displayed. We recommend that you select the same location as your SQL Server logical server to host SSISDB.
 
-    ![Screenshot of the Integration Runtime Setup.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image20.png)
+    ![Screenshot of the Integration Runtime Setup](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image20.png "Integration Runtime Setup. Select the name,location, note size an node number with other configuration options")
 
 7.  On the second Integration Runtime Setup window, select the following options, click **Test Connection** and then click **Next**:
 
@@ -180,11 +180,11 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     -   Catalog Database Service Tier: **S1**
 
-    ![Screenshot of the Integration Runtime Setup.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image21.png)
+    ![Screenshot of the Integration Runtime Setup](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image21.png "Integration Runtime Setup for SQL Database settings")
 
 8.  On the final Integration Runtime Setup window, set **Maximum Parallel Executions Per Node = 1**, then click **Finish**.
 
-    ![Screenshot of the Integration Runtime Setup.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image22.png) 
+    ![Screenshot of the Integration Runtime Setup](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image22.png "Mention the parallel execution per node in the Integration Runtime Setup options")
 
 9.  The Integration Runtime can take 20-30 minutes to deploy and start. You do not need to wait on it to complete and may continue with the lab. The status will change from Starting to Running when it is complete.
 
@@ -202,7 +202,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
     -   Resource group: **Create new** - **CohoDWRG**
     -   Select source: **Blank database**                                             
     
-    ![Screenshot of the SQL Data Warehouse settings blade.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image30.png)
+    ![Screenshot of the SQL Data Warehouse settings blade](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image30.png "SQL Data Warehouse configuration settings for new data warehouse")
 
 3.  On the Server blade, select **Create a new server**. Specify the following options, and click **Select**:
 
@@ -214,7 +214,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
    
 4.  Select the Performance tier tile, set the performance to **400 DWU,** and click **Apply**.
 
-    ![In the Configure Performance blade, the Scale your system sliding scale is at DW400.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image32.png)
+    ![In the Configure Performance blade, The Scale your system sliding scale is at DW400.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image32.png "Configure performance In the Configure Performance blade, The Scale your system sliding scale is at DW400")
 
 5.  On the SQL Data Warehouse blade, click **Create**.
 
@@ -244,7 +244,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     -   Resource group: **Use existing** - **CohoDWRG**
     
-   ![Screenshot of the storage account settings blade.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image030.png)
+   ![Screenshot of the storage account settings blade](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image030.png "creating the storage account")
 
 4.  Navigate to the new storage account, and click **Blobs**.
 
@@ -306,7 +306,7 @@ The first four steps of this task walk you through creating an organizational ac
 
     -   Storage key expiration: **Never**
 
-    ![Select Analysis Services.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image0030.png)
+    ![Select Analysis Services](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image0030.png "selecting analysis services with other configurable options")
 
 ### Task 6: Prepare Environment and Create Migration Accounts
 
@@ -314,7 +314,7 @@ The first four steps of this task walk you through creating an organizational ac
 
 2.  In the Storage account blade, and under settings, click on **Access keys**.
 
-    ![In the Storage account blade, under Settings, Access keys is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image36.png)
+    ![In the Storage account blade, under Settings, Access keys is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image36.png "Choose access keys from the menu of the storage account")
 
 3.  Copy the **storage account name** and access **key1**. and paste into notepad for later use.
 
@@ -778,7 +778,7 @@ In this exercise, you will configure backup, restore for Analysis Services, and 
 
         ![Fields in the Connect to Server dialog box are set to the previously defined settings.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image102.png)
 
-        >**Note**: If you are using your own organizational account instead of the one we created earlier in the lab then you will put that in for the user name. You may also need to update the authentication type depending on the requirements of your organization (for example, if you use multi-factor autentication).
+        >**Note**: If you are using your own organizational account instead of the one we created earlier in the lab then you will put that in for the user name. You may also need to update the authentication type depending on the requirements of your organization (for example, if you use multi-factor authentication).
 
     The User name setting should be in the form \<name\>@\<your-domain\>. If you do not know your domain name, you can get it by navigating to the Azure Portal and hovering over your login information in the upper right corner of your browser window.
 
@@ -858,7 +858,7 @@ In this exercise, you will setup integration with Power BI Desktop.
 
 9.  Verify that Launch Microsoft Power BI Desktop is checked, and select **Finish**.
 
-    ![On the Microsoft Power BI Setup wizard Completed page, the Finish butotn is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image118.png)
+    ![On the Microsoft Power BI Setup wizard Completed page, the Finish button is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image118.png)
 
 ### Task 2: Query data with Power BI Desktop
 
@@ -894,7 +894,7 @@ In this exercise, you will setup integration with Power BI Desktop.
 
     ![In the Power BI window, in the left pane, a world map displays with varying-sized dots on it. Larger dots are over North America and Australia. In the right Fields pane, the SalesAmount check box is selected.](images/2018-06-26-18-37-09.png)
 
-10. We want to see a little more specific detail around what these circles actually mean, so let\'s add a legend to identify the countries/regions. Drag the **EnglishCountryRegionName** field under **Legend**.
+10. We want to see a little more specific detail around what these circles actually mean, so let's add a legend to identify the countries/regions. Drag the **EnglishCountryRegionName** field under **Legend**.
 
     ![In the Power BI window, in the left pane, the world map displays, this time with dots that vary by size and color. In the fields pane, under DimGeography, the EnglishCountryRegionName field is circled, and the check box is selected. An arrow points from here to the same EnglishCountryRegionName field in the Visualizations pane, under Legend.](images/2018-06-26-18-41-49.png)
 
