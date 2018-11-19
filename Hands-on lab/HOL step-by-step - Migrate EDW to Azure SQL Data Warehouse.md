@@ -306,7 +306,7 @@ The first four steps of this task walk you through creating an organizational ac
 
     -   Storage key expiration: **Never**
 
-    ![Select Analysis Services](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image0030.png "selecting analysis services with other configurable options")
+    ![Configure Analysis Services](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image0030.png "Specifying analysis services with other configurable options")
 
 ### Task 6: Prepare Environment and Create Migration Accounts
 
