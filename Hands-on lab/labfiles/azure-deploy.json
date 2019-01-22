@@ -142,7 +142,7 @@
     "variables": {
         "vnetId": "[resourceId('CohoOnPremEnvironment','Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
         "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetName'))]",
-        "customScriptURI":"https://raw.githubusercontent.com/opsgility/lab-support-public/master/sql-on-azure-iaas/configure-onprem-sql.ps1"
+        "customScriptURI":"https://raw.githubusercontent.com/Microsoft/MCW-Migrate-EDW-to-Azure-SQL-Data-Warehouse/jan-2019-update/Hands-on lab/labfiles/configure-onprem-sql.ps1"
     },
     "resources": [
         {
