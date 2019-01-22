@@ -50,9 +50,10 @@ In this exercise, you will deploy the source environment for this lab. The sourc
 
 2.  Click **Deploy to Azure** button below. 
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fopsgility%2Fcw-azure-stack%2Fmaster%2Fazure-deploy.json" rel="nofollow">
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2FMCW-Migrate-EDW-to-Azure-SQL-Data-Warehouse%2Fjan-2019-update%2FHands-on%20lab%2Flabfiles%2Fazure-deploy.json" rel="nofollow">
     <img src="https://camo.githubusercontent.com/9285dd3998997a0835869065bb15e5d500475034/687474703a2f2f617a7572656465706c6f792e6e65742f6465706c6f79627574746f6e2e706e67" data-canonical-src="http://azuredeploy.net/deploybutton.png" style="max-width:100%;">
     </a>
+
 
 3. This will launch a template deployment in the Azure Portal. Under the Resource Group parameter select **Create New** and type **CohoOnPremEnvironment**.
 
