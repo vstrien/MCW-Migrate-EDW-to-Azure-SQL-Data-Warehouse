@@ -28,35 +28,35 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 <!-- TOC -->
 
 - [Migrate EDW to Azure SQL Data Warehouse hands-on lab step-by-step](#migrate-edw-to-azure-sql-data-warehouse-hands-on-lab-step-by-step)
-    - [Abstract and learning objectives](#abstract-and-learning-objectives)
-    - [Overview](#overview)
-    - [Solution architecture](#solution-architecture)
-    - [Requirements](#requirements)
-    - [Exercise 1: Configure Azure Services](#exercise-1-configure-azure-services)
-        - [Task 1: Create a logical SQL Server to host SSISDB](#task-1-create-a-logical-sql-server-to-host-ssisdb)
-        - [Task 2: Create an Azure Data Factory v2](#task-2-create-an-azure-data-factory-v2)
-        - [Task 3: Create an Azure SQL Data Warehouse](#task-3-create-an-azure-sql-data-warehouse)
-        - [Task 4: Create an Azure Storage Account](#task-4-create-an-azure-storage-account)
-        - [Task 5: Create Analysis Services](#task-5-create-analysis-services)
-        - [Task 6: Prepare Environment and Create Migration Accounts](#task-6-prepare-environment-and-create-migration-accounts)
-    - [Exercise 2: Data and schema preparation](#exercise-2-data-and-schema-preparation)
-        - [Task 1: Validate schema and data](#task-1-validate-schema-and-data)
-        - [Task 2: Prepare Azure SQL Data Warehouse and migrate schema](#task-2-prepare-azure-sql-data-warehouse-and-migrate-schema)
-    - [Exercise 3: Migrate the data to Azure SQL Data Warehouse](#exercise-3-migrate-the-data-to-azure-sql-data-warehouse)
-        - [Task 1: Exporting the data from your current data warehouse](#task-1-exporting-the-data-from-your-current-data-warehouse)
-        - [Task 2: Transfer your data to Azure](#task-2-transfer-your-data-to-azure)
-    - [Exercise 4: Migrate an SSIS Package to Data Factory v2](#exercise-4-migrate-an-ssis-package-to-data-factory-v2)
-        - [Task 1: Deploy SSIS Package to Data Factory](#task-1-deploy-ssis-package-to-data-factory)
-        - [Task 2: Schedule the SSIS Package](#task-2-schedule-the-ssis-package)
-    - [Exercise 5: Create an Analysis Services Model](#exercise-5-create-an-analysis-services-model)
-        - [Task 1: Configure Analysis Services backup](#task-1-configure-analysis-services-backup)
-        - [Task 2: Restore Analysis Services backup](#task-2-restore-analysis-services-backup)
-        - [Task 3: Update Analysis Services connections](#task-3-update-analysis-services-connections)
-    - [Exercise 6: Visualize data with Power BI Desktop](#exercise-6-visualize-data-with-power-bi-desktop)
-        - [Task 1: Install Power BI Desktop](#task-1-install-power-bi-desktop)
-        - [Task 2: Query data with Power BI Desktop](#task-2-query-data-with-power-bi-desktop)
-    - [After the hands-on Lab](#after-the-hands-on-lab)
-        - [Task 1: Cleanup resource groups](#task-1-cleanup-resource-groups)
+  - [Abstract and learning objectives](#abstract-and-learning-objectives)
+  - [Overview](#overview)
+  - [Solution architecture](#solution-architecture)
+  - [Requirements](#requirements)
+  - [Exercise 1: Configure Azure Services](#exercise-1-configure-azure-services)
+    - [Task 1: Create a logical SQL Server to host SSISDB](#task-1-create-a-logical-sql-server-to-host-ssisdb)
+    - [Task 2: Create an Azure Data Factory v2](#task-2-create-an-azure-data-factory-v2)
+    - [Task 3: Create an Azure SQL Data Warehouse](#task-3-create-an-azure-sql-data-warehouse)
+    - [Task 4: Create an Azure Storage Account](#task-4-create-an-azure-storage-account)
+    - [Task 5: Create Analysis Services](#task-5-create-analysis-services)
+    - [Task 6: Prepare Environment and Create Migration Accounts](#task-6-prepare-environment-and-create-migration-accounts)
+  - [Exercise 2: Data and schema preparation](#exercise-2-data-and-schema-preparation)
+    - [Task 1: Validate schema and data](#task-1-validate-schema-and-data)
+    - [Task 2: Prepare Azure SQL Data Warehouse and migrate schema](#task-2-prepare-azure-sql-data-warehouse-and-migrate-schema)
+  - [Exercise 3: Migrate the data to Azure SQL Data Warehouse](#exercise-3-migrate-the-data-to-azure-sql-data-warehouse)
+    - [Task 1: Exporting the data from your current data warehouse](#task-1-exporting-the-data-from-your-current-data-warehouse)
+    - [Task 2: Transfer your data to Azure](#task-2-transfer-your-data-to-azure)
+  - [Exercise 4: Migrate an SSIS Package to Data Factory v2](#exercise-4-migrate-an-ssis-package-to-data-factory-v2)
+    - [Task 1: Deploy SSIS Package to Data Factory](#task-1-deploy-ssis-package-to-data-factory)
+    - [Task 2: Schedule the SSIS Package](#task-2-schedule-the-ssis-package)
+  - [Exercise 5: Create an Analysis Services Model](#exercise-5-create-an-analysis-services-model)
+    - [Task 1: Configure Analysis Services backup](#task-1-configure-analysis-services-backup)
+    - [Task 2: Restore Analysis Services backup](#task-2-restore-analysis-services-backup)
+    - [Task 3: Update Analysis Services connections](#task-3-update-analysis-services-connections)
+  - [Exercise 6: Visualize data with Power BI Desktop](#exercise-6-visualize-data-with-power-bi-desktop)
+    - [Task 1: Install Power BI Desktop](#task-1-install-power-bi-desktop)
+    - [Task 2: Query data with Power BI Desktop](#task-2-query-data-with-power-bi-desktop)
+  - [After the hands-on Lab](#after-the-hands-on-lab)
+    - [Task 1: Cleanup resource groups](#task-1-cleanup-resource-groups)
 
 <!-- /TOC -->
 
@@ -83,7 +83,7 @@ Coho, a retail company focusing on consumer electronics, is modernizing their da
 
 ## Exercise 1: Configure Azure Services
 
-In this exercise, you will create and configure an Azure Storage Account, Azure SQL Data Warehouse, Azure Analysis Services and Azure Data Factory V2.
+In this exercise, you will create and configure an Azure Storage Account, Azure SQL Data Warehouse, Azure Analysis Services and Azure Data Factory V2. Using these services you migrate your existing data warehouse and sample workloads to Azure.
 
 ### Task 1: Create a logical SQL Server to host SSISDB
 
@@ -103,20 +103,31 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     -   Subscription: ***Your subscription***
 
-    -   Resource group: **Create new -** **CohoDataFactory**
+    -   Resource group: **Create new -** **CohoCloud**
 
-    -   Location: ***Choose a region near you from the following regions which support the Integration Runtime***:
+    -   Location: ***Choose a region near you from the following regions which support the SSIS Integration Runtime***:
 
         -   ***East US***
+        -   ***East US 2***
+        -   ***West US***
+        -   ***West US 2***
+        -   ***Central US***
+        -   ***South Central US***
+        -   ***West Central US***
+        -   ***Canada Central***
         -   ***North Europe***
         -   ***West Europe***
-        -   ***East US 2***
-        -   ***Central US***
-        -   ***Australia East***
-        -   ***West US 2***
         -   ***UK South***
+        -   ***Southeast Asia***
+        -   ***Japan East***
+        -   ***Central India***
+        -   ***Australia East***
+        -   ***Australia Southeast***
 
-        ![Screenshot of the configuration options for the SQL server logical server](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image15.png "SQL Server configuration options")
+        You can find the current list of available regions here: https://azure.microsoft.com/en-us/global-infrastructure/services/?products=data-factory&regions=all 
+
+        ![Screenshot of the configuration options for the SQL server logical server](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-01-22-10-58-07.png "SQL Server configuration options")
+
 
 ### Task 2: Create an Azure Data Factory v2
 
@@ -132,7 +143,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     -   Subscription: ***Your subscription***.
 
-    -   Resource group: **CohoDataFactory**
+    -   Resource group: **Use existing** - **CohoCloud**
 
     -   Version: **V2**
 
@@ -140,11 +151,12 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     The Data Factory location is where the metadata of the data factory is stored and where the triggering of the pipeline is initiated from. Meanwhile, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services. This behavior is realized through the globally available Integration Runtime to ensure data compliance, efficiency, and reduced network egress costs.
 
-    ![Screenshot of the configuration options for the new Data Factory](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image17.png "Specify Data Factory configuration options")
+    ![Screenshot of the configuration options for the new Data Factory](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-01-22-11-27-31.png "Specify Data Factory configuration options")
+
 
 4.  After the Data Factory deployment completes, navigate to the Data Factory and click the Author & Monitor tile.
 
-    ![Screenshot of the Data Factory Author and Monitor tile in the Azure Portal](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image18.png "Select the Author and Monitor tile from the quick links")
+    ![Screenshot of the Data Factory Author and Monitor tile in the Azure Portal](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-01-22-11-30-46.png "Select the Author and Monitor tile from the quick links")
 
 5.  Select the **Configure SSIS Integration Runtime**.
 
@@ -199,10 +211,10 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 2.  Click **Create** on the SQL Data Warehouse blade. Specify the following information. Then, click the **Server** tile.
 
     -   Name: **CohoDW**
-    -   Resource group: **Create new** - **CohoDWRG**
+    -   Resource group: **CohoCloud**
     -   Select source: **Blank database**                                             
     
-    ![Screenshot of the SQL Data Warehouse settings blade](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image30.png "SQL Data Warehouse configuration settings for new data warehouse")
+        ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-01-22-11-51-04.png)
 
 3.  On the Server blade, select **Create a new server**. Specify the following options, and click **Select**:
 
@@ -211,10 +223,12 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
     -   Password: **Demo\@pass123**
     -   Location: **Same location you created your logical SQL Server in**.
     -   Allow azure services: **checked** 
-   
-4.  Select the Performance tier tile, set the performance to **400 DWU,** and click **Apply**.
 
-    ![In the Configure Performance blade, The Scale your system sliding scale is at DW400.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image32.png "Configure performance In the Configure Performance blade, The Scale your system sliding scale is at DW400")
+        ![Screenshot of the SQL Data Warehouse settings blade](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image30.png "SQL Data Warehouse configuration settings for new data warehouse")
+
+4.  Select the Performance level tile, select the **Gen2** tab and set the performance to **400 cDWU,** and click **Apply**.
+
+    ![In the Configure Performance blade, Gen2 tab is selected, the Scale your system sliding scale is at cDW400.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-01-22-11-58-40.png "Configure performance In the Configure Performance blade, The Scale your system sliding scale is at DW400")
 
 5.  On the SQL Data Warehouse blade, click **Create**.
 
@@ -226,35 +240,35 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     ![Select Storage account from the Azure Marketplace.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image24.png)
 
-3.  Click **Create** on the Storage account blade. Specify the following information, and click **Create**:
+3.  Click **Create** on the Storage account blade. Specify the following information, and click **Review + create**:
 
-    -   Name: ***specify a unique DNS name***.
+    -   Resource group: **Use existing** - **CohoCloud**
 
-    -   Deployment model: **Resource manager**
-
-    -   Account kind: **Storage (general purpose v1)**
+    -   Storage account name: ***specify a unique DNS name***.
 
     -   Location: ***Same location you created your logical SQL Server in***.
 
-    -   Replication: **Locally-redundant storage (LRS)**
-
     -   Performance: **Standard**
 
-    -   Secure transfer required: **Disabled**
+    -   Account kind: **StorageV2 (general purpose v2)**
 
-    -   Resource group: **Use existing** - **CohoDWRG**
-    
-   ![Screenshot of the storage account settings blade](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image030.png "creating the storage account")
+    -   Replication: **Locally-redundant storage (LRS)**
 
-4.  Navigate to the new storage account, and click **Blobs**.
+    -   Access tier: **Hot**    
+
+        ![Screenshot of the storage account settings blade](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-01-22-12-05-21.png "Creating the storage account")
+
+4. On the Review + create tab, verify your configuration choices and select **Create**.
+
+5.  Navigate to the new storage account, and click **Blobs**.
 
     ![In the Azure Portal, in the left pane, Overview is selected. In the Essentials section, under Services, Blobs is circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image26.png)
 
-5.  On the Blob service blade, click the **+Container** button.
+6.  On the Blob service blade, click the **+Container** button.
 
     ![The container button is circled on the Blob Service blade.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image27.png)
 
-6.  On the New container blade type **migration** for the name. Then, click **OK**.
+7.  On the New container blade type **migration** for the name. Then, click **OK**.
 
     ![In the Blob Service blade, Migration is typed in the Name field. Public access level is set to Private.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image28.png)
 
@@ -282,19 +296,21 @@ The first four steps of this task walk you through creating an organizational ac
 
 4.  Click the **Create** button.
 
-5.  Click **+Create a resource** and type **Analysis Services** in the search box. Choose **Analysis Services** from the results.
+5.  Open an incognito or in-private browser window, navigate to https://portal.azure.com and login with your new asadmin account. You will be prompeted to change your password. Change your password. Make sure to note your new password then close the browser window.
+
+6.  Click **+Create a resource** and type **Analysis Services** in the search box. Choose **Analysis Services** from the results.
 
     ![Select Analysis Services from the Azure Marketplace.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image35.png)
 
-6.  Click **Create** on the Analysis Services information blade.
+7.  Click **Create** on the Analysis Services information blade.
 
-7.  Use the following configurations then click **Create**:
+8.  Use the following configurations then click **Create**:
 
     -   Server name: ***Choose a unique name***.
 
     -   Subscription: ***Choose your subscription***.
 
-    -   Resource group: **Use existing** **CohoDWRG**
+    -   Resource group: **CohoCloud**
 
     -   Location: ***Same location you created your logical SQL Server in***.
 
@@ -306,11 +322,12 @@ The first four steps of this task walk you through creating an organizational ac
 
     -   Storage key expiration: **Never**
 
-    ![Configure Analysis Services](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image0030.png "Specifying analysis services with other configurable options")
+
+        ![Configure Analysis Services](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-01-22-12-17-06.png "Specifying analysis services with other configurable options")
 
 ### Task 6: Prepare Environment and Create Migration Accounts
 
-1.  In the Azure Portal navigate to your **CohoDWRG** resource group, and click on your storage account.
+1.  In the Azure Portal navigate to your **CohoCloud** resource group, and click on your storage account.
 
 2.  In the Storage account blade, and under settings, click on **Access keys**.
 
@@ -322,25 +339,25 @@ The first four steps of this task walk you through creating an organizational ac
 
 4.  From the **SQLCohoDW** virtual machine that you created before the lab, open a browser window, and connect to the **Azure Portal**.
 
-    If you do not have a SQLCohoDW virtual machine, you should verify that you have completed the pre-requite steps in the correct subscription:  
+    > **Note**: If you do not have a SQLCohoDW virtual machine, you should verify that you have completed the pre-requite steps in the correct subscription.  
 
-5.  Navigate to your **CohoDWRG** resource group. Then, click on the logical SQL Server that hosts your Azure SQL Data Warehouse.
+5.  Navigate to your **CohoCloud** resource group. Then, select the logical SQL Server that hosts your Azure SQL Data Warehouse.
 
     ![In the Resource group name section, the logical SQL Server is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image38.png)
 
-6.  In the security blade, click on **Firewall and Virtual Networks**.
+6.  In the security menu on the left, select **Firewall and Virtual Networks**.
 
 7.  In the cohodw - Firewall blade, click the **+Add client IP** button. Then, click the **Save** button.
 
     ![In the Firewall settings blade, the Add client IP and the Save buttons are circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image39.png)
 
-8.  Back in the **CohoDWRG** resource group, select the **CohoDW** data warehouse, and copy the server name.
+8.  Back in the **CohoCloud** resource group, select the **CohoDW** data warehouse, and copy the server name.
 
-    ![In the SQL Database blade, in the Essentials section, the server name is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image40.png.)
+    ![In the SQL Database blade, in the Essentials section, the server name is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-01-22-14-05-22.png)
 
 9.  Next, we want to create a special account to perform our data load operations. This account will be added to the larger resource class. By default, all accounts are initially in the smallrc resource class. Adding the account to the largerc resource class allows the account to consume more memory during query execution which will be more efficient for operations such as data loads and maintenance tasks.
 
-    From File Explorer, open the **C:\\LabFiles\\CreateDataLoader.sql** script in SQL Server Management Studio.
+    Open the **C:\\LabFiles\\CreateDataLoader.sql** script in SQL Server Management Studio.
 
 10. Connect to your Azure SQL Data Warehouse using SQL Server Authentication and the **demouser** account and password **Demo\@pass123**.
 
@@ -460,7 +477,7 @@ Coho is relying on you to migrate the data warehouse to Azure SQL Data Warehouse
 
         ![The leading GO statement of the script is commented out.](images/2018-06-26-15-07-23.png)
 
-10. Run the script by clicking the **Execute** button. This will use the default options to create tables, Clustered Columnstore Indexing and ROUNDROBIN distribution.
+10. Change the database context from master to CohoDW, Run the script by clicking the **Execute** button. This will use the default options to create tables, Clustered Columnstore Indexing and ROUNDROBIN distribution.
 
     ![Screenshot of the Execute button.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image55.png)
 
@@ -506,7 +523,7 @@ This exercise is focused on migrating the data from your existing data warehouse
 
 2.  Open a command prompt and navigate to the **C:\\Program Files (x86)\\Microsoft SDKs\\Azure\\AzCopy** folder.
 
-3.  Update the following command with the storage account name and key that you saved in Exercise 1, Task 6, Step 3 and execute it to begin copying your data files to Azure (all of the text is a single command).
+3.  Update the following command with the storage account name and key that you saved earlier and execute it to begin copying your data files to Azure (all of the text is a single command).
 
     ```
     AzCopy /Source:"C:\Migration" /Dest:https://<YourStorageAccount>.blob.core.windows.net/migration /DestKey:<YourStorageAccountKey> /pattern:*.txt /NC:2
@@ -574,9 +591,9 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
 1.  From your **SQLcohoDW** virtual machine, navigate to the Azure portal.
 
-2.  Navigate to the **CohoDataFactory** resource group and open your **SSISDB** database. This database was created by Azure Data Factory when you provisioned your Azure-SSIS Integration Runtime.
+2.  Navigate to the **CohoCloud** resource group and open your **SSISDB** database. This database was created by Azure Data Factory when you provisioned your Azure-SSIS Integration Runtime.
 
-3.  Click on the Set server firewall button. Go to security area and select **Firewalls and Virtual Networks**.
+3.  Select the **Set server firewall** button. 
 
 4.  Click the **+Add client IP** button, then click **Save**.
 
@@ -594,7 +611,7 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
     ![On the connection properties tab, the connect to database dropdown is set to SSISDB.](images/2018-06-25-19-33-38.png)
 
-8.  Expand Integration Services Catalogs, right-click it and choose **Create Folder...**
+8.  Expand Integration Services Catalogs, right-click SSISDB and choose **Create Folder...**
 
     ![In Object Explorer, create folder is circle in the sub-menu.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image66.png)
 
@@ -632,7 +649,7 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
     ![In the configuration window, the connection managers tab is selected, DestinationDW is highlighted, and ConnectionString, Password, and Servername are circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image74.png)
 
-18. Click the SourceOLTP connection, edit the values the **ConnectionString**, **Password** and **ServerName** properties to reflect the name of your Azure SQL Database server that you created at the beginning of the lab to host the cohoOLTP database. Click **OK** to save your changes.
+18. Click the SourceOLTP connection, edit the values the **ConnectionString**, **Password** and **ServerName** properties to reflect the name of your Azure SQL Database server that you deployed to the **CohoOnPremisesEnvironment** resource group at the beginning of the lab to host the cohoOLTP database. Click **OK** to save your changes.
 
     ![In the configuration window, the connection managers tab is selected, SourceOLTP is highlighted, and ConnectionString, Password, and Servername are circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image75.png)
 
@@ -650,7 +667,7 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
     TRUNCATE TABLE dbo.FactResellerSales_STAGE
     ```
 
-3.  Launch the Chrome browser, and navigate to the Azure portal. From the Azure portal, navigate to the CohoDataFactory resource group, open your Azure Data Factory and click the **Author & Monitor** tile.
+3.  Launch the Chrome browser, and navigate to the Azure portal. From the Azure portal, navigate to the CohoCloud resource group, open your Azure Data Factory and click the **Author & Monitor** tile.
 
     ![Image of the Author and Monitor tile.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image77.png)
 
@@ -670,7 +687,7 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
     ![On the general tab, change the name of the activity to Load stage tables.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image81.png)
 
-8.  Switch to the setting tab, set the Azure SSIS IR to **Azure-SSIS**, change your logging level to **Verbose**, and set your package path to **Azure-SSIS/DataLoad/Package.dtsx**.
+8.  Switch to the settings tab, set the Azure SSIS IR to **Azure-SSIS**, change your logging level to **Verbose**, and set your package path to **Azure-SSIS/DataLoad/Package.dtsx**.
 
     ![On the settings tab, the Azure-SSIS IR dropdown is set to Azure-SSIS, the logging level is set to verbose and the package path is set to Azure-SSIS/DataLoad/Package.dtsx.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image82.png)
 
@@ -690,13 +707,13 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
     ![Trigger button has been selected and New / Edit is circled in the dropdown.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image86.png)
 
-13. On the Add Trigger window, click Choose trigger then select +New.
+13. On the Add Trigger window, click **Choose trigger...*** then select **+New**.
 
     ![On the add trigger window, the new button is circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image87.png)
 
-14. Change the name to **15minuteTrigger**, set the type to **Tumbling Window**, set the recurrence to **Every Minute**, **Every 15 Minutes**, select an end date of one full day from now and verify that **Activated** is checked. Then click **Next** and then click **Finish**.
+14. Change the name to **15minuteTrigger**, set the type to **Tumbling Window**, set the recurrence to **Every 15 Minutes**, select an end date of one full day from now and verify that **Activated** is checked. Then click **Next** and then click **Finish**.
 
-    ![Screenshot of the completed schedule configuration.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image88.png)
+    ![Screenshot of the completed schedule configuration.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-01-22-15-37-41.png)
 
 15. Click the **Publish All** button to save your changes.
 
@@ -727,6 +744,8 @@ In this exercise, you will configure backup, restore for Analysis Services, and 
 4.  On the Create storage account blade, use the following configurations, and click **OK**:
 
     -   Name: ***Choose a unique storage account name***.
+
+    -   Account kind: **StorageV2 (general purpose V2)**
 
     -   Performance: **Standard**
 
@@ -774,7 +793,7 @@ In this exercise, you will configure backup, restore for Analysis Services, and 
 
     -   Authentication: **Active Directory Password Authentication**
 
-    -   User name: [asadmin@\<subscription\_name\>.\<domain](mailto:asadmin@%3csubscription_name%3e.%3cdomain)\>
+    -   User name: **asadmin@\<subscription\_name\>.\<domain\>**
 
         ![Fields in the Connect to Server dialog box are set to the previously defined settings.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image102.png)
 
@@ -800,27 +819,27 @@ In this exercise, you will configure backup, restore for Analysis Services, and 
 
 ### Task 3: Update Analysis Services connections
 
-1.  From SQL Server Management Studio, expand the **coho-data-model** database, expand **Connections**, right-click **Adventure Works DB from SQL**, script the connection as **CREATE OR REPLACE To** a **New Query Editor Window**.
+1.  From SQL Server Management Studio, expand the **coho-data-model** database, expand **Connections**, right-click **CohoDW**, script the connection as **CREATE OR REPLACE To** a **New Query Editor Window**.
 
-    ![In Object Explorer, the following path is expanded: Databases\\coho-data-model\\Connections. Under Connections, CohoDW is selected. From its right-click menu, Script Connection As / CREATE OR REPLACE to / New Query Editor Window are selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image107.png)
+    ![In Object Explorer, the following path is expanded: Databases\\coho-data-model\\Connections. Under Connections, CohoDW is selected. From its right-click menu, Script Connection As / CREATE OR REPLACE to / New Query Editor Window are selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-01-22-18-36-54.png)
 
 2.  Modify the connection string to point to your SQL Data Warehouse.
 
-3.  ![In the New Query Editor Window, cohodw9607 is circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image108.png)
+    ![In the New Query Editor Window, cohodw9607 is circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image108.png)
 
-    From the Query menu, click **Execute** to update the connection.
+3.  From the Query menu, click **Execute** to update the connection.
 
     ![Execute is selected in the Query menu.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image109.png)
 
-4.  Right-click the **coho-data-model** database, and choose **Process Database**.
+3.  Right-click the **coho-data-model** database, and choose **Process Database**.
 
     ![In Object Explorer, coho-data-model is selected, and from its right-click menu, Process Database is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image110.png)
 
-5.  Change the **Mode** to **Process Full** and then click **OK** on the Process Data window.
+4.  Change the **Mode** to **Process Full** and then click **OK** on the Process Data window.
 
     ![The Process Database window displays.](images/2018-06-26-19-17-14.png)
 
-6.  Close the Process Data window.
+5.  Close the Process Data window.
 
 ## Exercise 6: Visualize data with Power BI Desktop
 
@@ -886,6 +905,8 @@ In this exercise, you will setup integration with Power BI Desktop.
 
 7.  Login with your Active Directory Azure Portal credentials.
 
+8.  Select your Analysis Services database.
+
 8.  In the Fields blade in the dark grey side bar to the right, expand the **DimGeography** dimension and check the box next to **CountryRegionCode**. This will automatically launch the map visualization, because Power BI is smart enough to understand this is geographic data.
 
     ![In the Power BI window, in the left pane, a world map displays with dots on it. In the right pane, two more panes display: Visualizations, and Fields. In the Visualizations pane, the World graph icon is selected. Under Location, CountryRegionCode displays. In the right, Fields pane, DimGeograpny is expanded, and below it, the CountryRegionCode is check box is selected.](images/2018-06-26-18-34-00.png)
@@ -906,17 +927,13 @@ To prevent excessive charges, you should cleanup the resources you have created 
 
 ### Task 1: Cleanup resource groups
 
-1.  From the Azure Portal, navigate to the **CohoDWRG** resource group.
-
-    ![Screenshot of the CohoDWRG button.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image127.png)
+1.  From the Azure Portal, navigate to the **CohoCloud** resource group.
 
 2.  From the resource group overview blade, click **Delete resource group**.
 
-    ![In the Resource group blade, the Delete resource group icon is selected in the top menu.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image128.png)
+    ![In the Resource group blade, the Delete resource group icon is selected in the top menu.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-01-22-19-06-25.png)
 
 3.  Type the name of the resource group to confirm the delete request, and click **delete**.
-
-    ![The Warning window displays, requiring that you type the resource group name in the text box. Below, Affected resources display.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image129.png)
 
 4.  Repeat the process to delete the **CohoOnPremEnvironment** resource group.
 
