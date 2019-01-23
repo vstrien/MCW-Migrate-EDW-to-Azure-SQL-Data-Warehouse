@@ -72,7 +72,7 @@
         },
         "virtualNetworkName": {
             "type": "string",
-            "defaultValue": "CohoOnPremEnvironment-vnet"
+            "defaultValue": "CohoOnPrem-vnet"
         },
         "networkInterfaceName": {
             "type": "string",
@@ -132,7 +132,7 @@
         }
     },
     "variables": {
-        "vnetId": "[resourceId('CohoOnPremEnvironment','Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
+        "vnetId": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
         "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetName'))]",
         "customScriptURI":"https://raw.githubusercontent.com/Microsoft/MCW-Migrate-EDW-to-Azure-SQL-Data-Warehouse/jan-2019-update/Hands-on lab/labfiles/configure-onprem-sql.ps1",
         "serverName": "[concat('cohooltpserver', uniqueString(resourceGroup().id))]"
@@ -276,13 +276,13 @@
                             },
                             "privateIPAllocationMethod": "Dynamic",
                             "publicIpAddress": {
-                                "id": "[resourceId('CohoOnPremEnvironment','Microsoft.Network/publicIpAddresses', parameters('publicIpAddressName'))]"
+                                "id": "[resourceId('Microsoft.Network/publicIpAddresses', parameters('publicIpAddressName'))]"
                             }
                         }
                     }
                 ],
                 "networkSecurityGroup": {
-                    "id": "[resourceId('CohoOnPremEnvironment', 'Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]"
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]"
                 }
             }
         },
