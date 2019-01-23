@@ -54,11 +54,12 @@ In this exercise, you will deploy the source environment for this lab. The sourc
     <img src="https://camo.githubusercontent.com/9285dd3998997a0835869065bb15e5d500475034/687474703a2f2f617a7572656465706c6f792e6e65742f6465706c6f79627574746f6e2e706e67" data-canonical-src="http://azuredeploy.net/deploybutton.png" style="max-width:100%;">
     </a>
 
+3. This will launch a template deployment in the Azure Portal. Under the Resource Group parameter select **Create New** and type **CohoOnPremEnvironment** and select **OK**.
 
-3. This will launch a template deployment in the Azure Portal. Under the Resource Group parameter select **Create New** and type **CohoOnPremEnvironment**.
+    ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-01-22-19-25-46.png)
 
 4. Choose a region near you then select **Create**.
 
-5. Profit.
+5. The deployment will take about 15-20 minutes.
 
 You should follow all steps provided *before* performing the Hands-on lab.

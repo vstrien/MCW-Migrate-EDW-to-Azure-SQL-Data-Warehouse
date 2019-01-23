@@ -26,17 +26,9 @@
             "type": "string",
             "defaultValue": "S1"
         },
-        "location": {
-            "type": "string",
-            "defaultValue": "southcentralus"
-        },
         "maxSizeBytes": {
             "type": "int",
             "defaultValue": 268435456000
-        },
-        "serverName": {
-            "type": "string",
-            "defaultValue": "cohooltpserver"
         },
         "sampleName": {
             "type": "string",
@@ -142,14 +134,15 @@
     "variables": {
         "vnetId": "[resourceId('CohoOnPremEnvironment','Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
         "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetName'))]",
-        "customScriptURI":"https://raw.githubusercontent.com/Microsoft/MCW-Migrate-EDW-to-Azure-SQL-Data-Warehouse/jan-2019-update/Hands-on lab/labfiles/configure-onprem-sql.ps1"
+        "customScriptURI":"https://raw.githubusercontent.com/Microsoft/MCW-Migrate-EDW-to-Azure-SQL-Data-Warehouse/jan-2019-update/Hands-on lab/labfiles/configure-onprem-sql.ps1",
+        "serverName": "[concat('cohooltpserver', uniqueString(resourceGroup().id))]"
     },
     "resources": [
         {
             "name": "[parameters('virtualMachineName')]",
             "type": "Microsoft.Compute/virtualMachines",
             "apiVersion": "2018-06-01",
-            "location": "[parameters('location')]",
+            "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[concat('Microsoft.Network/networkInterfaces/', parameters('networkInterfaceName'))]"
             ],
@@ -177,18 +170,7 @@
                         "managedDisk": {
                             "storageAccountType": "Premium_LRS"
                         }
-                    },
-                    "dataDisks": [
-                        {
-                            "createOption": "empty",
-                            "lun": 0,
-                            "diskSizeGB": "1023",
-                            "caching": "ReadOnly",
-                            "managedDisk": {
-                                "storageAccountType": "Premium_LRS"
-                            }
-                        }
-                    ]
+                    }
                 },
                 "networkProfile": {
                     "networkInterfaces": [
@@ -201,6 +183,7 @@
         },
         {
             "name": "Microsoft.CustomScriptExtension-armCustomScriptEx",
+            "location": "[resourceGroup().location]",
             "apiVersion": "2015-01-01",
             "type": "Microsoft.Resources/deployments",
             "properties": {
@@ -211,9 +194,6 @@
                 "parameters": {
                     "vmName": {
                         "value": "SQLCohoDW"
-                    },
-                    "location": {
-                        "value": "[parameters('location')]"
                     },
                     "fileUris": {
                         "value": "[variables('customScriptURI')]"
@@ -228,7 +208,7 @@
             "name": "[parameters('virtualMachineName')]",
             "type": "Microsoft.SqlVirtualMachine/SqlVirtualMachines",
             "apiVersion": "2017-03-01-preview",
-            "location": "[parameters('location')]",
+            "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]",
                 "Microsoft.CustomScriptExtension-armCustomScriptEx"
@@ -259,7 +239,7 @@
             "name": "[parameters('virtualNetworkName')]",
             "type": "Microsoft.Network/virtualNetworks",
             "apiVersion": "2018-08-01",
-            "location": "[parameters('location')]",
+            "location": "[resourceGroup().location]",
             "properties": {
                 "addressSpace": {
                     "addressPrefixes": [
@@ -280,7 +260,7 @@
             "name": "[parameters('networkInterfaceName')]",
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2018-04-01",
-            "location": "[parameters('location')]",
+            "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[concat('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]",
                 "[concat('Microsoft.Network/publicIpAddresses/', parameters('publicIpAddressName'))]",
@@ -310,7 +290,7 @@
             "name": "[parameters('publicIpAddressName')]",
             "type": "Microsoft.Network/publicIpAddresses",
             "apiVersion": "2018-08-01",
-            "location": "[parameters('location')]",
+            "location": "[resourceGroup().location]",
             "properties": {
                 "publicIpAllocationMethod": "[parameters('publicIpAddressType')]"
             },
@@ -322,7 +302,7 @@
             "name": "[parameters('networkSecurityGroupName')]",
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2018-08-01",
-            "location": "[parameters('location')]",
+            "location": "[resourceGroup().location]",
             "properties": {
                 "securityRules": [
                     {
@@ -345,8 +325,8 @@
         },
         {
             "apiVersion": "2015-05-01-preview",
-            "location": "[parameters('location')]",
-            "name": "[parameters('serverName')]",
+            "location": "[resourceGroup().location]",
+            "name": "[variables('serverName')]",
             "properties": {
                 "administratorLogin": "[parameters('administratorLogin')]",
                 "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
@@ -356,9 +336,9 @@
                 {
                     "apiVersion": "2017-10-01-preview",
                     "dependsOn": [
-                        "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+                        "[concat('Microsoft.Sql/servers/', variables('serverName'))]"
                     ],
-                    "location": "[parameters('location')]",
+                    "location": "[resourceGroup().location]",
                     "name": "[parameters('databaseName')]",
                     "properties": {
                         "collation": "[parameters('collation')]",
@@ -379,9 +359,9 @@
                     "condition": "[parameters('allowAzureIps')]",
                     "apiVersion": "2014-04-01-preview",
                     "dependsOn": [
-                        "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+                        "[concat('Microsoft.Sql/servers/', variables('serverName'))]"
                     ],
-                    "location": "[parameters('location')]",
+                    "location": "[resourceGroup().location]",
                     "name": "AllowAllWindowsAzureIps",
                     "properties": {
                         "endIpAddress": "0.0.0.0",
@@ -395,8 +375,8 @@
                     "type": "securityAlertPolicies",
                     "name": "Default",
                     "dependsOn": [
-                        "[concat('Microsoft.Sql/servers/', parameters('serverName'))]",
-                        "[concat('Microsoft.Sql/servers/', parameters('serverName'), '/databases/', parameters('databaseName'))]"
+                        "[concat('Microsoft.Sql/servers/', variables('serverName'))]",
+                        "[concat('Microsoft.Sql/servers/', variables('serverName'), '/databases/', parameters('databaseName'))]"
                     ],
                     "properties": {
                         "state": "Enabled",
