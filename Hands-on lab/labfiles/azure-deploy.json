@@ -160,15 +160,13 @@
         "vnetId": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
         "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetName'))]",
         "customScriptURI":"https://raw.githubusercontent.com/Microsoft/MCW-Migrate-EDW-to-Azure-SQL-Data-Warehouse/jan-2019-update/Hands-on lab/labfiles/configure-onprem-sql.ps1",
-        "serverName": "[concat('cohooltpserver', uniqueString(resourceGroup().id))]",
-        "location": "[parameters('region')]"
+        "serverName": "[concat('cohooltpserver', uniqueString(resourceGroup().id))]"
     },
     "resources": [
         {
             "name": "[parameters('virtualMachineName')]",
             "type": "Microsoft.Compute/virtualMachines",
             "apiVersion": "2018-06-01",
-            "location": "[variables('location')]",
             "dependsOn": [
                 "[concat('Microsoft.Network/networkInterfaces/', parameters('networkInterfaceName'))]"
             ],
@@ -209,7 +207,6 @@
         },
         {
             "name": "Microsoft.CustomScriptExtension-armCustomScriptEx",
-            "location": "[variables('location')]",
             "apiVersion": "2015-01-01",
             "type": "Microsoft.Resources/deployments",
             "properties": {
@@ -234,7 +231,6 @@
             "name": "[parameters('virtualMachineName')]",
             "type": "Microsoft.SqlVirtualMachine/SqlVirtualMachines",
             "apiVersion": "2017-03-01-preview",
-            "location": "[variables('location')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]",
                 "Microsoft.CustomScriptExtension-armCustomScriptEx"
@@ -265,7 +261,6 @@
             "name": "[parameters('virtualNetworkName')]",
             "type": "Microsoft.Network/virtualNetworks",
             "apiVersion": "2018-08-01",
-            "location": "[variables('location')]",
             "properties": {
                 "addressSpace": {
                     "addressPrefixes": [
@@ -286,7 +281,6 @@
             "name": "[parameters('networkInterfaceName')]",
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2018-04-01",
-            "location": "[variables('location')]",
             "dependsOn": [
                 "[concat('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]",
                 "[concat('Microsoft.Network/publicIpAddresses/', parameters('publicIpAddressName'))]",
@@ -316,7 +310,6 @@
             "name": "[parameters('publicIpAddressName')]",
             "type": "Microsoft.Network/publicIpAddresses",
             "apiVersion": "2018-08-01",
-            "location": "[variables('location')]",
             "properties": {
                 "publicIpAllocationMethod": "[parameters('publicIpAddressType')]"
             },
@@ -328,7 +321,6 @@
             "name": "[parameters('networkSecurityGroupName')]",
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2018-08-01",
-            "location": "[variables('location')]",
             "properties": {
                 "securityRules": [
                     {
@@ -351,7 +343,6 @@
         },
         {
             "apiVersion": "2015-05-01-preview",
-            "location": "[variables('location')]",
             "name": "[variables('serverName')]",
             "properties": {
                 "administratorLogin": "[parameters('administratorLogin')]",
@@ -364,7 +355,6 @@
                     "dependsOn": [
                         "[concat('Microsoft.Sql/servers/', variables('serverName'))]"
                     ],
-                    "location": "[variables('location')]",
                     "name": "[parameters('databaseName')]",
                     "properties": {
                         "collation": "[parameters('collation')]",
@@ -387,7 +377,6 @@
                     "dependsOn": [
                         "[concat('Microsoft.Sql/servers/', variables('serverName'))]"
                     ],
-                    "location": "[variables('location')]",
                     "name": "AllowAllWindowsAzureIps",
                     "properties": {
                         "endIpAddress": "0.0.0.0",

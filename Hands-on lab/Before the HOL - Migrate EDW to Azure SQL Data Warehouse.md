@@ -56,9 +56,9 @@ In this exercise, you will deploy the source environment for this lab. The sourc
 
 3. This will launch a template deployment in the Azure Portal. Under the Resource Group parameter select **Create New** and type **CohoOnPremEnvironment** and select **OK**.
 
-    ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-01-22-19-25-46.png)
+    ![Screenshot of the Azure Custom deployment blade, next to Resouce Group, the Create new link is highlighted and in the resulting new resource group window OnPremEnvironment is typed into the name field.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-01-22-19-25-46.png "Custom deployment blade")
 
-4. Choose a region near you, accept the terms and conditions, then select **Purchase**.
+4. Set the **Location** to a region close to you, accept the terms and conditions at the bottom, then select **Purchase**.
 
 5. The deployment will take about 15-20 minutes.
 
