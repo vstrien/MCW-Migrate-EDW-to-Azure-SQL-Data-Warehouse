@@ -58,7 +58,7 @@ In this exercise, you will deploy the source environment for this lab. The sourc
 
     ![](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-01-22-19-25-46.png)
 
-4. Choose a region near you then select **Create**.
+4. Choose a region near you, accept the terms and conditions, then select **Purchase**.
 
 5. The deployment will take about 15-20 minutes.
 
