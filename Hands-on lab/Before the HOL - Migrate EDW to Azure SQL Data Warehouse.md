@@ -58,7 +58,7 @@ In this exercise, you will deploy the source environment for this lab. The sourc
 
     ![Screenshot of the Azure Custom deployment blade, next to Resouce Group, the Create new link is highlighted and in the resulting new resource group window OnPremEnvironment is typed into the name field.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-01-22-19-25-46.png "Custom deployment blade")
 
-4. Set the **Location** to a region close to you, accept the terms and conditions at the bottom, then select **Purchase**.
+4. Set the **Location** and the **Region** to a region close to you, accept the terms and conditions at the bottom, then select **Purchase**.
 
 5. The deployment will take about 15-20 minutes.
 
