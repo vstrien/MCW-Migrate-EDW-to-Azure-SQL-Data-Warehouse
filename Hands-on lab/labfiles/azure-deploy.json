@@ -83,11 +83,11 @@
             "type": "bool",
             "defaultValue": true
         },        
-        "virtualMachineName": {
+        "vmName": {
             "type": "string",
             "defaultValue": "SQLCohoDW"
         },
-        "virtualMachineSize": {
+        "vmSize": {
             "type": "string",
             "defaultValue": "Standard_D2s_v3"
         },
@@ -95,259 +95,194 @@
             "type": "string",
             "defaultValue": "demouser"
         },
-        "virtualNetworkName": {
-            "type": "string",
-            "defaultValue": "CohoOnPrem-vnet"
-        },
-        "networkInterfaceName": {
-            "type": "string",
-            "defaultValue": "SQLCohoDW-nic"
-        },
-        "networkSecurityGroupName": {
-            "type": "string",
-            "defaultValue": "SQLCohoDW-nsg"
-        },
         "adminPassword": {
             "type": "securestring",
             "defaultValue": "Demo@pass123"
         },
-        "addressPrefix": {
-            "type": "string",
-            "defaultValue": "10.0.0.0/24"
-        },
         "subnetName": {
             "type": "string",
             "defaultValue": "default"
-        },
-        "subnetPrefix": {
-            "type": "string",
-            "defaultValue": "10.0.0.0/24"
-        },
-        "publicIpAddressName": {
-            "type": "string",
-            "defaultValue": "SQLCohoDW-ip"
-        },
-        "publicIpAddressType": {
-            "type": "string",
-            "defaultValue": "Dynamic"
-        },
-        "publicIpAddressSku": {
-            "type": "string",
-            "defaultValue": "Basic"
-        },
-        "sqlConnectivityType": {
-            "type": "string",
-            "defaultValue": "Private"
-        },
-        "sqlPortNumber": {
-            "type": "int",
-            "defaultValue": 1433
-        },
-        "sqlAuthenticationLogin": {
-            "type": "string",
-            "defaultValue": "demouser"
-        },
-        "sqlAuthenticationPassword": {
-            "type": "securestring",
-            "defaultValue": "Demo@pass123"
-        },
-        "rServicesEnabled": {
-            "type": "string",
-            "defaultValue": "false"
         }
     },
     "variables": {
-        "vnetId": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-        "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetName'))]",
+        "vnetId": "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
         "customScriptURI":"https://raw.githubusercontent.com/Microsoft/MCW-Migrate-EDW-to-Azure-SQL-Data-Warehouse/jan-2019-update/Hands-on lab/labfiles/configure-onprem-sql.ps1",
+        "customScriptUriScriptFileName":"configure-onprem-sql.ps1",
+        "customScriptFolder": "./",
         "serverName": "[concat('cohooltpserver', uniqueString(resourceGroup().id))]",
-        "location": "[parameters('region')]"
+        "location": "[parameters('region')]",
+        "imagePublisher": "MicrosoftSQLServer",
+        "imageOffer": "SQL2016SP2-WS2016",
+        "imageSku": "SQLDEV",
+        "OSDiskName": "sqlvm1osdisk",
+        "nicName": "sqlvm1nic",
+        "addressPrefix": "10.0.0.0/16",
+        "subnetName": "Subnet",
+        "subnetPrefix": "10.0.0.0/24",
+        "vhdStorageType": "Standard_LRS",
+        "publicIPAddressName": "sqlvm1ip",
+        "publicIPAddressType": "Dynamic",
+        "vhdStorageContainerName": "vhds",
+        "virtualNetworkName": "CohoOnPrem-vnet",
+        "subnetRef": "[concat(variables('vnetId'), '/subnets/', variables('subnetName'))]",
+        "vhdStorageAccountName": "[concat('vhdstorage', uniqueString(resourceGroup().id))]"
     },
     "resources": [
         {
-            "name": "[parameters('virtualMachineName')]",
-            "type": "Microsoft.Compute/virtualMachines",
-            "apiVersion": "2018-06-01",
-            "location": "[variables('location')]",
-            "dependsOn": [
-                "[concat('Microsoft.Network/networkInterfaces/', parameters('networkInterfaceName'))]"
-            ],
-            "properties": {
-                "osProfile": {
-                    "computerName": "[parameters('virtualMachineName')]",
-                    "adminUsername": "[parameters('adminUsername')]",
-                    "adminPassword": "[parameters('adminPassword')]",
-                    "windowsConfiguration": {
-                        "provisionVmAgent": "true"
-                    }
-                },
-                "hardwareProfile": {
-                    "vmSize": "[parameters('virtualMachineSize')]"
-                },
-                "storageProfile": {
-                    "imageReference": {
-                        "publisher": "MicrosoftSQLServer",
-                        "offer": "SQL2016SP2-WS2016",
-                        "sku": "SQLDEV",
-                        "version": "latest"
-                    },
-                    "osDisk": {
-                        "createOption": "fromImage",
-                        "managedDisk": {
-                            "storageAccountType": "Premium_LRS"
-                        }
-                    }
-                },
-                "networkProfile": {
-                    "networkInterfaces": [
-                        {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaceName'))]"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "name": "Microsoft.CustomScriptExtension-armCustomScriptEx",
-            "apiVersion": "2015-01-01",
-            "type": "Microsoft.Resources/deployments",
-            "properties": {
-                "mode": "incremental",
-                "templateLink": {
-                    "uri": "https://gallery.azure.com/artifact/20161101/Microsoft.CustomScriptExtension-arm.2.0.50/Artifacts/MainTemplate.json"
-                },
-                "parameters": {
-                    "vmName": {
-                        "value": "SQLCohoDW"
-                    },
-                    "fileUris": {
-                        "value": "[variables('customScriptURI')]"
-                    }
-                }
-            },
-            "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachineName'))]"
-            ]
-        },
-        {
-            "name": "[parameters('virtualMachineName')]",
-            "type": "Microsoft.SqlVirtualMachine/SqlVirtualMachines",
-            "apiVersion": "2017-03-01-preview",
-            "location": "[variables('location')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]",
-                "Microsoft.CustomScriptExtension-armCustomScriptEx"
-            ],
-            "properties": {
-                "virtualMachineResourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]",
-                "AutoPatchingSettings": {
-                    "Enable": false
-                },
-                "KeyVaultCredentialSettings": {
-                    "Enable": false,
-                    "CredentialName": ""
-                },
-                "ServerConfigurationsManagementSettings": {
-                    "SQLConnectivityUpdateSettings": {
-                        "ConnectivityType": "[parameters('sqlConnectivityType')]",
-                        "Port": "[parameters('sqlPortNumber')]",
-                        "SQLAuthUpdateUserName": "[parameters('sqlAuthenticationLogin')]",
-                        "SQLAuthUpdatePassword": "[parameters('sqlAuthenticationPassword')]"
-                    },
-                    "AdditionalFeaturesServerConfigurations": {
-                        "IsRServicesEnabled": "[parameters('rServicesEnabled')]"
-                    }
-                }
-            }
-        },
-        {
-            "name": "[parameters('virtualNetworkName')]",
-            "type": "Microsoft.Network/virtualNetworks",
-            "apiVersion": "2018-08-01",
-            "location": "[variables('location')]",
-            "properties": {
-                "addressSpace": {
-                    "addressPrefixes": [
-                        "[parameters('addressPrefix')]"
-                    ]
-                },
-                "subnets": [
-                    {
-                        "name": "[parameters('subnetName')]",
-                        "properties": {
-                            "addressPrefix": "[parameters('subnetPrefix')]"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "[parameters('networkInterfaceName')]",
-            "type": "Microsoft.Network/networkInterfaces",
-            "apiVersion": "2018-04-01",
-            "location": "[variables('location')]",
-            "dependsOn": [
-                "[concat('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]",
-                "[concat('Microsoft.Network/publicIpAddresses/', parameters('publicIpAddressName'))]",
-                "[concat('Microsoft.Network/networkSecurityGroups/', parameters('networkSecurityGroupName'))]"
-            ],
-            "properties": {
-                "ipConfigurations": [
-                    {
-                        "name": "ipconfig1",
-                        "properties": {
-                            "subnet": {
-                                "id": "[variables('subnetRef')]"
-                            },
-                            "privateIPAllocationMethod": "Dynamic",
-                            "publicIpAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIpAddresses', parameters('publicIpAddressName'))]"
-                            }
-                        }
-                    }
-                ],
-                "networkSecurityGroup": {
-                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]"
-                }
-            }
-        },
-        {
-            "name": "[parameters('publicIpAddressName')]",
-            "type": "Microsoft.Network/publicIpAddresses",
-            "apiVersion": "2018-08-01",
-            "location": "[variables('location')]",
-            "properties": {
-                "publicIpAllocationMethod": "[parameters('publicIpAddressType')]"
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[variables('vhdStorageAccountName')]",
+            "apiVersion": "2016-01-01",
+            "location": "[resourceGroup().location]",
+            "tags": {
+              "displayName": "StorageAccount"
             },
             "sku": {
-                "name": "[parameters('publicIpAddressSku')]"
-            }
-        },
-        {
-            "name": "[parameters('networkSecurityGroupName')]",
-            "type": "Microsoft.Network/networkSecurityGroups",
-            "apiVersion": "2018-08-01",
-            "location": "[variables('location')]",
+              "name": "[variables('vhdStorageType')]"
+            },
+            "kind": "Storage"
+          },
+          {
+            "apiVersion": "2016-03-30",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "name": "[variables('publicIPAddressName')]",
+            "location": "[resourceGroup().location]",
+            "tags": {
+              "displayName": "PublicIPAddress"
+            },
             "properties": {
-                "securityRules": [
-                    {
-                        "name": "RDP",
-                        "properties": {
-                            "priority": 300,
-                            "protocol": "TCP",
-                            "access": "Allow",
-                            "direction": "Inbound",
-                            "sourceApplicationSecurityGroups": [],
-                            "destinationApplicationSecurityGroups": [],
-                            "sourceAddressPrefix": "*",
-                            "sourcePortRange": "*",
-                            "destinationAddressPrefix": "*",
-                            "destinationPortRange": "3389"
-                        }
-                    }
-                ]
+              "publicIPAllocationMethod": "[variables('publicIPAddressType')]"
             }
-        },
+          },
+          {
+            "apiVersion": "2016-03-30",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[variables('virtualNetworkName')]",
+            "location": "[resourceGroup().location]",
+            "tags": {
+              "displayName": "VirtualNetwork"
+            },
+            "properties": {
+              "addressSpace": {
+                "addressPrefixes": [
+                  "[variables('addressPrefix')]"
+                ]
+              },
+              "subnets": [
+                {
+                  "name": "[variables('subnetName')]",
+                  "properties": {
+                    "addressPrefix": "[variables('subnetPrefix')]"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "apiVersion": "2016-03-30",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[variables('nicName')]",
+            "location": "[resourceGroup().location]",
+            "tags": {
+              "displayName": "NetworkInterface"
+            },
+            "dependsOn": [
+              "[resourceId('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
+              "[resourceId('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+            ],
+            "properties": {
+              "ipConfigurations": [
+                {
+                  "name": "ipconfig1",
+                  "properties": {
+                    "privateIPAllocationMethod": "Dynamic",
+                    "publicIPAddress": {
+                      "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))]"
+                    },
+                    "subnet": {
+                      "id": "[variables('subnetRef')]"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "apiVersion": "2015-06-15",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[parameters('vmName')]",
+            "location": "[resourceGroup().location]",
+            "tags": {
+              "displayName": "VirtualMachine"
+            },
+            "dependsOn": [
+              "[resourceId('Microsoft.Storage/storageAccounts/', variables('vhdStorageAccountName'))]",
+              "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+            ],
+            "properties": {
+              "hardwareProfile": {
+                "vmSize": "[parameters('vmSize')]"
+              },
+              "osProfile": {
+                "computerName": "[parameters('vmName')]",
+                "adminUsername": "[parameters('adminUsername')]",
+                "adminPassword": "[parameters('adminPassword')]"
+              },
+              "storageProfile": {
+                "imageReference": {
+                  "publisher": "[variables('imagePublisher')]",
+                  "offer": "[variables('imageOffer')]",
+                  "sku": "[variables('imageSku')]",
+                  "version": "latest"
+                },
+                "osDisk": {
+                  "name": "osdisk",
+                  "vhd": {
+                    "uri": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts', variables('vhdStorageAccountName')), '2016-01-01').primaryEndpoints.blob, variables('vhdStorageContainerName'), '/', variables('OSDiskName'), '.vhd')]"
+                  },
+                  "caching": "ReadWrite",
+                  "createOption": "FromImage"
+                }
+              },
+              "networkProfile": {
+                "networkInterfaces": [
+                  {
+                    "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('nicName'))]"
+                  }
+                ]
+              },
+              "diagnosticsProfile": {
+                "bootDiagnostics": {
+                  "enabled": false
+                }
+              }
+            },
+            "resources": [
+              {
+                "name": "CustomSciptExtension1",
+                "type": "extensions",
+                "location": "[resourceGroup().location]",
+                "apiVersion": "2016-03-30",
+                "dependsOn": [
+                  "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
+                ],
+                "tags": {
+                  "displayName": "ConfigureVM"
+                },
+                "properties": {
+                  "publisher": "Microsoft.Compute",
+                  "type": "CustomScriptExtension",
+                  "typeHandlerVersion": "1.8",
+                  "autoUpgradeMinorVersion": false,
+                  "settings": {
+                    "fileUris": [
+                      "[variables('customScriptUri')]"
+                    ],
+                    "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', variables('customScriptFolder'), '/', variables('customScriptUriScriptFileName'))]"
+                  }
+                }
+              }
+            ]
+          },
         {
             "apiVersion": "2015-05-01-preview",
             "location": "[variables('location')]",
