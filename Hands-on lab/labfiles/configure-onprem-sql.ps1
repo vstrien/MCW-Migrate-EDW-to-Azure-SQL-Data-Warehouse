@@ -84,5 +84,13 @@ Invoke-Command -Credential $credential -ComputerName $env:COMPUTERNAME -Argument
 		# Restore the database from the backup
         Invoke-Sqlcmd -ServerInstance Localhost -Database "master" -Query "RESTORE DATABASE CohoDW FROM DISK = 'C:\LabFiles\CohoDW.bak' WITH MOVE 'CohoDW_Data' TO 'C:\Data\CohoDW_Data.mdf', MOVE 'CohoDW_Log' TO 'C:\Log\CohoDW_Log.ldf'"
 
+        # Reset the sa account
+        Invoke-Sqlcmd -ServerInstance Localhost -Database "master" -Query "ALTER LOGIN sa ENABLE"
+        Invoke-Sqlcmd -ServerInstance Localhost -Database "master" -Query "ALTER LOGIN sa WITH PASSWORD = 'Demo@pass123'"
+
 }
 Disable-PSRemoting -Force
+
+# Restart SQL to pickup change to mixed mode authentication
+net stop MSSQLSERVER
+net start MSSQLSERVER
