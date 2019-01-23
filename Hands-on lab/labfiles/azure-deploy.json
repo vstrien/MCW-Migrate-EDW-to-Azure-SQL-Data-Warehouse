@@ -2,6 +2,31 @@
     "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "region": {
+            "type": "string",
+            "defaultValue": "South Central US",
+            "allowedValues": [
+                "East US",
+                "East US 2",
+                "West US",
+                "West US 2",
+                "Central US",
+                "South Central US",
+                "West Central US",
+                "Canada Central",
+                "North Europe",
+                "West Europe",
+                "UK South",
+                "Southeast Asia",
+                "Japan East",
+                "Central India",
+                "Australia East",
+                "Australia Southeast"
+            ],
+            "metadata": {
+              "name": "Use one of the following regions that support the Azure Data Factory SSIS Integration Runtime."
+            }
+        },
         "administratorLogin": {
             "type": "string",
             "defaultValue": "demouser"
@@ -136,7 +161,7 @@
         "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetName'))]",
         "customScriptURI":"https://raw.githubusercontent.com/Microsoft/MCW-Migrate-EDW-to-Azure-SQL-Data-Warehouse/jan-2019-update/Hands-on lab/labfiles/configure-onprem-sql.ps1",
         "serverName": "[concat('cohooltpserver', uniqueString(resourceGroup().id))]",
-        "location": "[resourceGroup().location]"
+        "location": "[parameters('region')]"
     },
     "resources": [
         {
