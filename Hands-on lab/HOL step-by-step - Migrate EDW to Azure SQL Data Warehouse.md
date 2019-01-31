@@ -20,7 +20,7 @@ Microsoft may have patents, patent applications, trademarks, copyrights, or othe
 
 The names of manufacturers, products, or URLs are provided for informational purposes only and Microsoft makes no representations and warranties, either expressed, implied, or statutory, regarding these manufacturers or the use of the products with any Microsoft technologies. The inclusion of a manufacturer or product does not imply endorsement of Microsoft of the manufacturer or product. Links may be provided to third party sites. Such sites are not under the control of Microsoft and Microsoft is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Microsoft is not responsible for webcasting or any other form of transmission received from any linked site. Microsoft is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement of Microsoft of the site or the products contained therein.
 
-© 2018 Microsoft Corporation. All rights reserved.
+© 2019 Microsoft Corporation. All rights reserved.
 
 Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners
 
@@ -139,15 +139,15 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
 3.  Click **Create** on the Data Factory blade. Specify the following information, and click **Create**:
 
-    -   Name: ***Specify a unique name***.
+    -   Name: **Specify a unique name**.
 
-    -   Subscription: ***Your subscription***.
+    -   Subscription: **Your subscription**.
 
     -   Resource group: **Use existing** - **CohoCloud**
 
     -   Version: **V2**
 
-    -   Location: ***Location near you***
+    -   Location: **Location near you**
 
     The Data Factory location is where the metadata of the data factory is stored and where the triggering of the pipeline is initiated from. Meanwhile, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services. This behavior is realized through the globally available Integration Runtime to ensure data compliance, efficiency, and reduced network egress costs.
 
@@ -166,7 +166,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     -   Name: **Azure-SSIS**
 
-    -   Location: ***The same location you created your logical SQL Server***.
+    -   Location: **The same location you created your logical SQL Server**.
 
     -   Node size: **Standard\_D1\_v2 (1 Core(s), 3584MB)**
 
@@ -180,11 +180,11 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
 7.  On the second Integration Runtime Setup window, select the following options, click **Test Connection** and then click **Next**:
 
-    -   Subscription: ***Your subscription***.
+    -   Subscription: **Your subscription**.
 
-    -   Location: ***Same location you created your logical SQL Server in***.
+    -   Location: **Same location you created your logical SQL Server in**.
 
-    -   Catalog Database Server Endpoint: ***\<your logical sql server name\>.database.windows.net***
+    -   Catalog Database Server Endpoint: **\<your logical sql server name\>.database.windows.net***
 
     -   Admin Username: **demouser**
 
@@ -218,7 +218,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
 3.  On the Server blade, select **Create a new server**. Specify the following options, and click **Select**:
 
-    -   Server name: ***Choose a unique server name**.
+    -   Server name: **Choose a unique server name**.
     -   Server admin login: **demouser**
     -   Password: **Demo\@pass123**
     -   Location: **Same location you created your logical SQL Server in**.
@@ -244,9 +244,9 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     -   Resource group: **Use existing** - **CohoCloud**
 
-    -   Storage account name: ***specify a unique DNS name***.
+    -   Storage account name: **specify a unique DNS name**.
 
-    -   Location: ***Same location you created your logical SQL Server in***.
+    -   Location: **Same location you created your logical SQL Server in**.
 
     -   Performance: **Standard**
 
@@ -288,7 +288,7 @@ The first four steps of this task walk you through creating an organizational ac
 
     -   Name: **asadmin**
 
-    -   User name: ***asadmin@\<your-domain\>.com***
+    -   User name: **asadmin@\<your-domain\>.com**
 
     -   Password: *Check the **Show password** box, then **copy** the password into Notepad*.
 
@@ -306,13 +306,13 @@ The first four steps of this task walk you through creating an organizational ac
 
 8.  Use the following configurations then click **Create**:
 
-    -   Server name: ***Choose a unique name***.
+    -   Server name: **Choose a unique name**.
 
-    -   Subscription: ***Choose your subscription***.
+    -   Subscription: **Choose your subscription**.
 
     -   Resource group: **CohoCloud**
 
-    -   Location: ***Same location you created your logical SQL Server in***.
+    -   Location: **Same location you created your logical SQL Server in**.
 
     -   Pricing tier: **S0 Standard**
 
@@ -651,7 +651,7 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
 18. Click the SourceOLTP connection, edit the values the **ConnectionString**, **Password** and **ServerName** properties to reflect the name of your Azure SQL Database server that you deployed to the **CohoOnPremisesEnvironment** resource group at the beginning of the lab to host the cohoOLTP database. Click **OK** to save your changes.
 
-    ![In the configuration window, the connection managers tab is selected, SourceOLTP is highlighted, and ConnectionString, Password, and Servername are circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image75.png"Set connection information for sourceOLTP")
+   ![In the configuration window, the connection managers tab is selected, SourceOLTP is highlighted, and ConnectionString, Password, and Servername are circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image75.png"Set connection information for sourceOLTP")
 
 19. You have deployed and configured the SSIS package to run in your Azure environment. You can execute the package by right clicking the package and choosing execute. SQL Server Management Studio will also give you a report of the current status. The execution view allows you to troubleshoot package execution directly from SSMS.
 
@@ -743,7 +743,7 @@ In this exercise, you will configure backup, restore for Analysis Services, and 
 
 4.  On the Create storage account blade, use the following configurations, and click **OK**:
 
-    -   Name: ***Choose a unique storage account name***.
+    -   Name: **Choose a unique storage account name**.
 
     -   Account kind: **StorageV2 (general purpose V2)**
 
@@ -751,7 +751,7 @@ In this exercise, you will configure backup, restore for Analysis Services, and 
 
     -   Replication: **Locally-redundant storage (LRS)**
 
-    -   Location: ***The same location you have been using for this lab***.
+    -   Location: **The same location you have been using for this lab**.
 
 5.  Choose the storage account you just created to open the Containers blade. Click **+Container** to create a new container, type **backups** for the name, and click **OK**.
 
@@ -789,7 +789,7 @@ In this exercise, you will configure backup, restore for Analysis Services, and 
 
     -   Server Type: **Analysis Server**
 
-    -   Server name: ***the server name you copied earlier***.
+    -   Server name: **The server name you copied earlier**.
 
     -   Authentication: **Active Directory Password Authentication**
 
