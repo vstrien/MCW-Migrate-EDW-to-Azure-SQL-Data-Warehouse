@@ -465,15 +465,15 @@ Coho is relying on you to migrate the data warehouse to Azure SQL Data Warehouse
 
 9.  This script still needs to be modified before it will run correctly in Azure SQL Data Warehouse because some T-SQL syntax is not supported in Azure SQL Data Warehouse. Make the following updates to the script:
 
-    -   Execute a Find and Replace on your script to replace all occurrences of "ON \[PRIMARY\]" with "" to remove them from the script.
+    -   Execute a Find and Replace on your script to replace all occurrences of **ON \[PRIMARY\]** with **""** to remove them from the script.
 
-        ![In the Find field, On Primary is typed.](images/2018-06-26-14-53-28.png "Replace ON PRIMARY text")
+        ![In the Find field, On Primary is typed.](images/2019-02-01-09-43-10.png "Replace ON PRIMARY text")
 
-    -   Execute a Find and Replace on your script to replace all occurrences of "USE \[" with "\--USE \[" to comment out those lines.
+    -   Execute a Find and Replace on your script to replace all occurrences of **USE \[** with **\--USE \[** to comment out those lines.
 
         ![Use \[ is typed in the Find field, and \--USE \[ is typed in the Replace field.](images/2018-06-26-14-55-42.png "Comment out incompatible text")
 
-    -   Comment out the leading GO statement.
+    -   Comment out the leading **GO** statement.
 
         ![The leading GO statement of the script is commented out.](images/2018-06-26-15-07-23.png "Comment out incompatible text")
 
