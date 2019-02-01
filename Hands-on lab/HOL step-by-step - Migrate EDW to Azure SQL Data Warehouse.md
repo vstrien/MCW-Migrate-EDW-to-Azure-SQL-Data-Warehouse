@@ -296,7 +296,7 @@ The first four steps of this task walk you through creating an organizational ac
 
 4.  Click the **Create** button.
 
-5.  Open an incognito or in-private browser window, navigate to https://portal.azure.com and login with your new asadmin account. You will be prompeted to change your password. Change your password. Make sure to note your new password then close the browser window.
+5.  Open an incognito or in-private browser window, navigate to https://portal.azure.com and login with your new asadmin account. You will be prompted to change your password. Change your password. Make sure to note your new password then close the browser window.
 
 6.  Click **+Create a resource** and type **Analysis Services** in the search box. Choose **Analysis Services** from the results.
 
@@ -651,7 +651,7 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
 18. Click the SourceOLTP connection, edit the values the **ConnectionString**, **Password** and **ServerName** properties to reflect the name of your Azure SQL Database server that you deployed to the **CohoOnPremisesEnvironment** resource group at the beginning of the lab to host the cohoOLTP database. Click **OK** to save your changes.
 
-   ![In the configuration window, the connection managers tab is selected, SourceOLTP is highlighted, and ConnectionString, Password, and Servername are circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image75.png"Set connection information for sourceOLTP")
+    ![In the configuration window, the connection managers tab is selected, SourceOLTP is highlighted, and ConnectionString, Password, and Servername are circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image75.png" Set connection information for sourceOLTP")
 
 19. You have deployed and configured the SSIS package to run in your Azure environment. You can execute the package by right clicking the package and choosing execute. SQL Server Management Studio will also give you a report of the current status. The execution view allows you to troubleshoot package execution directly from SSMS.
 
