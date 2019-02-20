@@ -106,7 +106,7 @@
     },
     "variables": {
         "vnetId": "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
-        "customScriptURI":"https://raw.githubusercontent.com/Microsoft/MCW-Migrate-EDW-to-Azure-SQL-Data-Warehouse/jan-2019-update/Hands-on lab/labfiles/configure-onprem-sql.ps1",
+        "customScriptURI":"https://raw.githubusercontent.com/Microsoft/MCW-Migrate-EDW-to-Azure-SQL-Data-Warehouse/master/Hands-on%20lab/labfiles/configure-onprem-sql.ps1",
         "customScriptUriScriptFileName":"configure-onprem-sql.ps1",
         "customScriptFolder": "./",
         "serverName": "[concat('cohooltpserver', uniqueString(resourceGroup().id))]",
