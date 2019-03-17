@@ -28,16 +28,16 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 <!-- TOC -->
 
 - [Migrate EDW to Azure SQL Data Warehouse whiteboard design session student guide](#migrate-edw-to-azure-sql-data-warehouse-whiteboard-design-session-student-guide)
-    - [Abstract and learning objectives](#abstract-and-learning-objectives)
-    - [Step 1: Review the customer case study](#step-1--review-the-customer-case-study)
-        - [Customer situation](#customer-situation)
-        - [Customer needs](#customer-needs)
-        - [Customer objections](#customer-objections)
-        - [Infographic for common scenarios](#infographic-for-common-scenarios)
-    - [Step 2: Design a proof of concept solution](#step-2--design-a-proof-of-concept-solution)
-    - [Step 3: Present the solution](#step-3--present-the-solution)
-    - [Wrap-up](#wrap-up)
-    - [Additional references](#additional-references)
+  - [Abstract and learning objectives](#abstract-and-learning-objectives)
+  - [Step 1: Review the customer case study](#step-1-review-the-customer-case-study)
+    - [Customer situation](#customer-situation)
+    - [Customer needs](#customer-needs)
+    - [Customer objections](#customer-objections)
+    - [Infographic for common scenarios](#infographic-for-common-scenarios)
+  - [Step 2: Design a proof of concept solution](#step-2-design-a-proof-of-concept-solution)
+  - [Step 3: Present the solution](#step-3-present-the-solution)
+  - [Wrap-up](#wrap-up)
+  - [Additional references](#additional-references)
 
 <!-- /TOC -->
 
@@ -126,7 +126,7 @@ Scale-out performance, ability to combine data from multiple data sources; Integ
 
 **Power BI**
 
-![The Power BI screenshot contains several comparitive graphs about a Retail Store\'s Performance. At the top, left, a line graph has two lines comparing this year\'s and last year\'s sales records by month. Under this graph is a table listing the Top 10 products by rank and total sales. On the right side is a box graph (a box filled with smaller boxes). Boxes vary by size depending on their sales. Underneath the box graph is a bubble chart comparing Sales variances by percentages for Chain, Fashions Direct, and Lindseys. At the bottom are pictures of District Managers, and hyperlinks to more information about them.](images/Whiteboarddesignsessionstudentguide-MigrateEDWtoAzureSQLDataWarehouseimages/media/image6.png)
+![The Power BI screenshot contains several comparative graphs about a Retail Store\'s Performance. At the top, left, a line graph has two lines comparing this year\'s and last year\'s sales records by month. Under this graph is a table listing the Top 10 products by rank and total sales. On the right side is a box graph (a box filled with smaller boxes). Boxes vary by size depending on their sales. Underneath the box graph is a bubble chart comparing Sales variances by percentages for Chain, Fashions Direct, and Lindseys. At the bottom are pictures of District Managers, and hyperlinks to more information about them.](images/Whiteboarddesignsessionstudentguide-MigrateEDWtoAzureSQLDataWarehouseimages/media/image6.png)
 
 ## Step 2: Design a proof of concept solution
 

@@ -10,7 +10,7 @@ Whiteboard design session  trainer guide
 </div>
 
 <div class="MCWHeader3">
-January 2019
+March 2019
 </div>
 
 
@@ -29,30 +29,30 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 <!-- TOC -->
 
 - [Trainer information](#trainer-information)
-    - [Role of the trainer](#role-of-the-trainer)
-    - [Whiteboard design session flow](#whiteboard-design-session-flow)
-    - [Before the whiteboard design session: How to prepare](#before-the-whiteboard-design-session--how-to-prepare)
-    - [During the whiteboard design session: Tips for an effective whiteboard design session](#during-the-whiteboard-design-session--tips-for-an-effective-whiteboard-design-session)
+  - [Role of the trainer](#role-of-the-trainer)
+  - [Whiteboard design session flow](#whiteboard-design-session-flow)
+  - [Before the whiteboard design session: How to prepare](#before-the-whiteboard-design-session-how-to-prepare)
+  - [During the whiteboard design session: Tips for an effective whiteboard design session](#during-the-whiteboard-design-session-tips-for-an-effective-whiteboard-design-session)
 - [Migrate EDW to Azure SQL Data Warehouse whiteboard design session student guide](#migrate-edw-to-azure-sql-data-warehouse-whiteboard-design-session-student-guide)
-    - [Abstract and learning objectives](#abstract-and-learning-objectives)
-    - [Step 1: Review the customer case study](#step-1--review-the-customer-case-study)
-        - [Customer situation](#customer-situation)
-        - [Customer needs](#customer-needs)
-        - [Customer objections](#customer-objections)
-        - [Infographic for common scenarios](#infographic-for-common-scenarios)
-    - [Step 2: Design a proof of concept solution](#step-2--design-a-proof-of-concept-solution)
-    - [Step 3: Present the solution](#step-3--present-the-solution)
-    - [Wrap-up](#wrap-up)
-    - [Additional references](#additional-references)
+  - [Abstract and learning objectives](#abstract-and-learning-objectives)
+  - [Step 1: Review the customer case study](#step-1-review-the-customer-case-study)
+    - [Customer situation](#customer-situation)
+    - [Customer needs](#customer-needs)
+    - [Customer objections](#customer-objections)
+    - [Infographic for common scenarios](#infographic-for-common-scenarios)
+  - [Step 2: Design a proof of concept solution](#step-2-design-a-proof-of-concept-solution)
+  - [Step 3: Present the solution](#step-3-present-the-solution)
+  - [Wrap-up](#wrap-up)
+  - [Additional references](#additional-references)
 - [Migrate EDW to Azure SQL Data Warehouse whiteboard design session trainer guide](#migrate-edw-to-azure-sql-data-warehouse-whiteboard-design-session-trainer-guide)
-    - [Step 1: Review the customer case study](#step-1--review-the-customer-case-study)
-    - [Step 2: Design a proof of concept solution](#step-2--design-a-proof-of-concept-solution)
-    - [Step 3: Present the solution](#step-3--present-the-solution)
-    - [Wrap-up](#wrap-up)
-    - [Preferred target audience](#preferred-target-audience)
-    - [Preferred solution](#preferred-solution)
-    - [Checklist of preferred objection handling](#checklist-of-preferred-objection-handling)
-    - [Customer quote (to be read back to the attendees at the end)](#customer-quote-to-be-read-back-to-the-attendees-at-the-end)
+  - [Step 1: Review the customer case study](#step-1-review-the-customer-case-study-1)
+  - [Step 2: Design a proof of concept solution](#step-2-design-a-proof-of-concept-solution-1)
+  - [Step 3: Present the solution](#step-3-present-the-solution-1)
+  - [Wrap-up](#wrap-up-1)
+  - [Preferred target audience](#preferred-target-audience)
+  - [Preferred solution](#preferred-solution)
+  - [Checklist of preferred objection handling](#checklist-of-preferred-objection-handling)
+  - [Customer quote (to be read back to the attendees at the end)](#customer-quote-to-be-read-back-to-the-attendees-at-the-end)
 
 <!-- /TOC -->
 
@@ -249,11 +249,11 @@ Scale-out performance, ability to combine data from multiple data sources; Integ
 
 **Azure Data Factory**
 
-![The Azure Data Factory overview starts on the left with severa Data Sources. This points to the steps Ingest, Prepare, Transform and Analyze, and then Publish. On the right side, Data Consumption points to Publish.](images/Whiteboarddesignsessionstudentguide-MigrateEDWtoAzureSQLDataWarehouseimages/media/image5.png)
+![The Azure Data Factory overview starts on the left with several data sources. This points to the steps Ingest, Prepare, Transform and Analyze, and then Publish. On the right side, Data Consumption points to Publish.](images/Whiteboarddesignsessionstudentguide-MigrateEDWtoAzureSQLDataWarehouseimages/media/image5.png)
 
 **Power BI**
 
-![The Power BI screenshot contains several comparitive graphs about a Retail Store\'s Performance. At the top, left, a line graph has two lines comparing this year\'s and last year\'s sales records by month. Under this graph is a table listing the Top 10 products by rank and total sales. On the right side is a box graph (a box filled with smaller boxes). Boxes vary by size depending on their sales. Underneath the box graph is a bubble chart comparing Sales variances by percentages for Chain, Fashions Direct, and Lindseys. At the bottom are pictures of District Managers, and hyperlinks to more information about them.](images/Whiteboarddesignsessionstudentguide-MigrateEDWtoAzureSQLDataWarehouseimages/media/image6.png)
+![The Power BI screenshot contains several comparative graphs about a Retail Store\'s Performance. At the top, left, a line graph has two lines comparing this year\'s and last year\'s sales records by month. Under this graph is a table listing the Top 10 products by rank and total sales. On the right side is a box graph (a box filled with smaller boxes). Boxes vary by size depending on their sales. Underneath the box graph is a bubble chart comparing Sales variances by percentages for Chain, Fashions Direct, and Lindseys. At the bottom are pictures of District Managers, and hyperlinks to more information about them.](images/Whiteboarddesignsessionstudentguide-MigrateEDWtoAzureSQLDataWarehouseimages/media/image6.png)
 
 ## Step 2: Design a proof of concept solution
 
