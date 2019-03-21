@@ -10,7 +10,7 @@ Hands-on lab step-by-step
 </div>
 
 <div class="MCWHeader3">
-January 2019
+March 2019
 </div>
 
 
@@ -93,7 +93,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     ![Screenshot of choosing SQL server logical server from the Azure Marketplace](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image14.png "Choosing the SQL Server logical server")
 
-3.  Click **Create** on the SQL Server blade. Specify the following information, and click **Create**:
+3.  Click **Create** on the SQL Server (logical server) blade. Specify the following information, and click **Create**:
 
     -   Server name: **Specify a unique name**.
 
@@ -168,7 +168,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     -   Location: **The same location you created your logical SQL Server**.
 
-    -   Node size: **Standard\_D1\_v2 (1 Core(s), 3584MB)**
+    -   Node size: **Standard\_D2\_v3 (2 Core(s), 8192 MB)**
 
     -   Node Number: **1**
 
@@ -194,9 +194,9 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     ![Screenshot of the Integration Runtime Setup](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image21.png "Integration Runtime Setup for SQL Database settings")
 
-8.  On the final Integration Runtime Setup window, set **Maximum Parallel Executions Per Node = 1**, then click **Finish**.
+8.  On the final Integration Runtime Setup window, set **Maximum Parallel Executions Per Node = 1**, then click **Next**, then click **Finish** on the summary page.
 
-    ![Screenshot of the Integration Runtime Setup](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image22.png "Mention the parallel execution per node in the Integration Runtime Setup options")
+    ![Screenshot of the Integration Runtime Setup advanced settings.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-03-17-10-25-10.png "parallel execution per node in the Integration Runtime Setup options")
 
 9.  The Integration Runtime can take 20-30 minutes to deploy and start. You do not need to wait on it to complete and may continue with the lab. The status will change from Starting to Running when it is complete.
 
@@ -345,9 +345,9 @@ The first four steps of this task walk you through creating an organizational ac
 
     ![In the Resource group name section, the logical SQL Server is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image38.png "Selecting the logical SQL Server.")
 
-6.  In the security menu on the left, select **Firewall and Virtual Networks**.
+6.  In the security menu on the left, select **Firewalls and virtual networks**.
 
-7.  In the cohodw - Firewall blade, click the **+Add client IP** button. Then, click the **Save** button.
+7.  In the cohodw - Firewalls and virtual networks blade, click the **+Add client IP** button. Then, click the **Save** button.
 
     ![In the Firewall settings blade, the Add client IP and the Save buttons are circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image39.png "Adding the client IP to the Firewall")
 
@@ -465,7 +465,7 @@ Coho is relying on you to migrate the data warehouse to Azure SQL Data Warehouse
 
 9.  This script still needs to be modified before it will run correctly in Azure SQL Data Warehouse because some T-SQL syntax is not supported in Azure SQL Data Warehouse. Make the following updates to the script:
 
-    -   Execute a Find and Replace on your script to replace all occurrences of **ON \[PRIMARY\]** with **""** to remove them from the script.
+    -   Execute a Find and Replace on your script to replace all occurrences of **ON \[PRIMARY\]** with blank space to remove them from the script.
 
         ![In the Find field, On Primary is typed.](images/2019-02-01-09-43-10.png "Replace ON PRIMARY text")
 
@@ -593,7 +593,7 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
 2.  Navigate to the **CohoCloud** resource group and open your **SSISDB** database. This database was created by Azure Data Factory when you provisioned your Azure-SSIS Integration Runtime.
 
-3.  Select the **Set server firewall** button. 
+3.  Select the **Firewalls and virtual networks** from the Security menu on the left. 
 
 4.  Click the **+Add client IP** button, then click **Save**.
 
@@ -657,6 +657,8 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
     ![Screenshot of the All Executions report showing examples of both failed and successful package runs.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image76.png "View Execution output")
 
+    >**Note**: The SSIS package requires the pre-creation of the destination tables. These tables are created during the execution of the **C:\\LabFiles\\LoadData.sql** script. If you are receiving errors, verify that you did not skip this step earlier.
+
 ### Task 2: Schedule the SSIS Package
 
 1.  Open SQL Server Management Studio and connect to your SQL Data Warehouse.
@@ -687,25 +689,25 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
     ![On the general tab, change the name of the activity to Load stage tables.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image81.png "Configure general settings for SSIS execution")
 
-8.  Switch to the settings tab, set the Azure SSIS IR to **Azure-SSIS**, change your logging level to **Verbose**, and set your package path to **Azure-SSIS/DataLoad/Package.dtsx**.
+8.  Switch to the settings tab, set the Azure SSIS IR to **Azure-SSIS**, change your folder to **Azure-SSIS**, change your project to **DataLoad**, change your package to **Package.dtsx** and change your logging level to **Verbose**.
 
-    ![On the settings tab, the Azure-SSIS IR dropdown is set to Azure-SSIS, the logging level is set to verbose and the package path is set to Azure-SSIS/DataLoad/Package.dtsx.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image82.png "Configure settings for SSIS execution")
+    ![On the settings tab, the Azure-SSIS IR dropdown is set to Azure-SSIS, the logging level is set to verbose, the folder is set to DataLoad, and the package is set to Package.dtsx.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-03-17-13-14-10.png "Configure settings for SSIS execution")
 
-9.  Click the Publish All button to publish save your changes to Azure Data Factory. Wait for the success confirmation before continuing.
+9.  Click the **Publish All** button at the top of the window to save your changes to Azure Data Factory. Wait for the success confirmation before continuing.
 
     ![Image of the confirmation message.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image83.png "Successfully published")
 
-10. Click the **Trigger** button at the top of your pipeline pane and select **Trigger Now** to test you pipeline. If the Pipeline Run window opens, click **Finish** to continue.
+10. Click the **Add trigger** button at the top of your pipeline pane and select **Trigger Now** to test you pipeline. If the Pipeline Run window opens, click **Finish** to continue.
 
-    ![Trigger button has been selected and Trigger now is circled in the dropdown.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image84.png "Trigger now")
+    ![Trigger button has been selected and Trigger now is circled in the dropdown.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-03-17-13-19-39.png "Trigger now")
 
 11. In the upper right hand corner you should see a notification bell, click the bell to see the current status of your pipeline.
 
     ![Screenshot of the notification message under the notification bell.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image85.png "Pipeline running notification")
 
-12. To schedule your Pipeline, click the trigger button again, this time select **New/Edit**.
+12. To schedule your Pipeline, click the Add trigger button again, this time select **New/Edit**.
 
-    ![Trigger button has been selected and New / Edit is circled in the dropdown.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image86.png "New trigger")
+    ![Trigger button has been selected and New / Edit is circled in the dropdown.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-03-17-13-21-54.png "New trigger")
 
 13. On the Add Trigger window, click **Choose trigger...*** then select **+New**.
 
@@ -791,11 +793,11 @@ In this exercise, you will configure backup, restore for Analysis Services, and 
 
     -   Server name: **The server name you copied earlier**.
 
-    -   Authentication: **Active Directory Password Authentication**
+    -   Authentication: **Active Directory - Password**
 
     -   User name: **asadmin@\<subscription\_name\>.\<domain\>**
 
-        ![Fields in the Connect to Server dialog box are set to the previously defined settings.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image102.png "Connect to Azure Analysis Services")
+        ![Fields in the Connect to Server dialog box are set to the previously defined settings.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-03-17-13-32-45.png "Connect to Azure Analysis Services")
 
         >**Note**: If you are using your own organizational account instead of the one we created earlier in the lab then you will put that in for the user name. You may also need to update the authentication type depending on the requirements of your organization (for example, if you use multi-factor authentication).
 
@@ -837,7 +839,7 @@ In this exercise, you will configure backup, restore for Analysis Services, and 
 
 4.  Change the **Mode** to **Process Full** and then click **OK** on the Process Data window.
 
-    ![The Process Database window displays.](images/2018-06-26-19-17-14.png "Process full")
+    ![The Process Database window displays.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-03-17-13-51-28.png "Process full")
 
 5.  Close the Process Data window.
 
@@ -895,17 +897,13 @@ In this exercise, you will setup integration with Power BI Desktop.
 
     ![In the Get Data Window, in the left pane, Azure is selected. In the right pane, Azure Analysis Services database (Beta) is selected. At the bottom, the Connect button is selected.](images/2018-06-26-18-21-40.png "Select Azure Analysis Services database")
 
-5.  If you get a Preview connector warning, click **Continue**.
-
-    ![The Preview connector warning page displays.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image122.png "Preview connector warning")
-
-6.  On the **SQL Server Analysis Services database** screen, provide the name of your Analysis Server service, type **,** make sure that **Connect live** is selected, and click **OK**.
+5.  On the **SQL Server Analysis Services database** screen, provide the name of your Analysis Server service, type **,** make sure that **Connect live** is selected, and click **OK**.
 
     ![On the SQL Server Analysis Services database page, the following two fields and their settings are circled: Server, asazure://southcentralus.asazure.windows.net/ssadw1; Database (optional), coho-data-model; The radio button for Connect live is selected. ](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image123.png "Connect live to SQL Server Analysis Services database")
 
-7.  Login with your Active Directory Azure Portal credentials.
+6.  Login with your **asadmin** Active Directory Azure credentials that you created earlier.
 
-8.  Select your Analysis Services database.
+7.  Select your Analysis Services database.
 
 8.  In the Fields blade in the dark grey side bar to the right, expand the **DimGeography** dimension and check the box next to **CountryRegionCode**. This will automatically launch the map visualization, because Power BI is smart enough to understand this is geographic data.
 
