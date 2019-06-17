@@ -82,7 +82,7 @@ Coho, a retail company focusing on consumer electronics, is modernizing their da
 
 ## Exercise 1: Configure Azure Services
 
-In this exercise, you will create and configure an Azure Storage Account, Azure SQL Data Warehouse, Azure Analysis Services and Azure Data Factory V2. Using these services you migrate your existing data warehouse and sample workloads to Azure.
+In this exercise, you will create and configure an Azure Storage Account, Azure SQL Data Warehouse, Azure Analysis Services and Azure Data Factory V2. Using these services, you migrate your existing data warehouse and sample workloads to Azure.
 
 ### Task 1: Create a logical SQL Server to host SSISDB
 
@@ -175,7 +175,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     The Integration Runtime Location defines the location of its back-end compute, and essentially the location where the data movement, activity dispatching, and SSIS package execution are performed. The Integration Runtime location can be different from the location of the Data Factory it belongs to. For your location, select the location of your integration runtime. Only supported locations are displayed. We recommend that you select the same location as your SQL Server logical server to host SSISDB.
 
-    ![Screenshot of the Integration Runtime Setup](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image20.png "Integration Runtime Setup. Select the name,location, note size an node number with other configuration options")
+    ![Screenshot of the Integration Runtime Setup](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image20.png "Integration Runtime Setup. Select the name, location, note size and node number with other configuration options")
 
 7.  On the second Integration Runtime Setup window, select the following options, click **Test Connection** and then click **Next**:
 
@@ -277,7 +277,7 @@ The first four steps of this task walk you through creating an organizational ac
 
 1.  From the Azure Portal, open Azure Active Directory.
 
-    ![Screenshot of the Azure Active Directory button.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image33.png "Azure Acitve Directory")
+    ![Screenshot of the Azure Active Directory button.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image33.png "Azure Active Directory")
 
 2.  Click **Users** from the menu.
 
