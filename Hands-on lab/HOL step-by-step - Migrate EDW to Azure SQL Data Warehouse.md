@@ -386,7 +386,7 @@ Coho is relying on you to migrate the data warehouse to Azure SQL Data Warehouse
 
 1.  In the Azure portal, navigate to your **CohoOnPremEnvironment** resource group, then connect to the **SQLCohoDW** virtual machine. If you are still connected you may use the same connection.
 
-2.  Launch SQL Server Management Studio, connect to the local **SQLCohoDW** instance with Windows Authentication on the demouser account and the Demo@pass123 password then open a **New Query** window.
+2.  Launch SQL Server Management Studio, connect to the local **SQLCohoDW** instance with Windows Authentication on the demouser account and the Demo@pass123 password, then open a **New Query** window.
 
     ![Screenshot of the New Query button.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image46.png "New query")
 
@@ -912,11 +912,11 @@ In this exercise, you will setup integration with Power BI Desktop.
 
 7.  Select your Analysis Services database.
 
-8.  In the Fields blade in the dark grey side bar to the right, expand the **DimGeography** dimension and check the box next to **CountryRegionCode**. This will automatically launch the map visualization, because Power BI is smart enough to understand this is geographic data.
+8.  In the Fields blade in the dark grey side bar to the right, expand the **DimGeography** dimension and check the box next to **CountryRegionCode**. This will automatically launch the map visualization because Power BI is smart enough to understand this is geographic data.
 
     ![In the Power BI window, in the left pane, a world map displays with dots on it. In the right pane, two more panes display: Visualizations, and Fields. In the Visualizations pane, the World graph icon is selected. Under Location, CountryRegionCode displays. In the right, Fields pane, DimGeograpny is expanded, and below it, the CountryRegionCode is check box is selected.](images/2018-06-26-18-34-00.png "DimGeography-CountryRegionCode")
 
-9.  The circles that PowerBI adds to the map are simply every country/region in which Coho had sales. Let's add the sales amount to this to make the map a little more interesting. Add the **SalesAmount** from the **FactInternetSales** table by putting a check next to it. The circles on the map will change in size to reflect the sum of all sales in that particular country/region.
+9.  The circles that Power BI adds to the map are simply every country/region in which Coho had sales. Let's add the sales amount to this to make the map a little more interesting. Add the **SalesAmount** from the **FactInternetSales** table by putting a check next to it. The circles on the map will change in size to reflect the sum of all sales in that particular country/region.
 
     ![In the Power BI window, in the left pane, a world map displays with varying-sized dots on it. Larger dots are over North America and Australia. In the right Fields pane, the SalesAmount check box is selected.](images/2018-06-26-18-37-09.png "FactInternetSales-SalesAmount")
 
