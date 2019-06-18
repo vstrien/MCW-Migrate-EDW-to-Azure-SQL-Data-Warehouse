@@ -146,7 +146,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     -   Version: **V2**
 
-    -   Location: **Location near you**
+    -   Location: **Location near you**.
 
     The Data Factory location is where the metadata of the data factory is stored and where the triggering of the pipeline is initiated from. Meanwhile, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services. This behavior is realized through the globally available Integration Runtime to ensure data compliance, efficiency, and reduced network egress costs.
 
@@ -183,7 +183,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     -   Location: **Same location you created your logical SQL Server in**.
 
-    -   Catalog Database Server Endpoint: **\<your logical sql server name\>.database.windows.net***
+    -   Catalog Database Server Endpoint: **\<your logical sql server name\>.database.windows.net**
 
     -   Admin Username: **demouser**
 
@@ -243,7 +243,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     -   Resource group: **Use existing** - **CohoCloud**
 
-    -   Storage account name: **specify a unique DNS name**.
+    -   Storage account name: **Specify a unique DNS name**.
 
     -   Location: **Same location you created your logical SQL Server in**.
 
@@ -421,7 +421,7 @@ Coho is relying on you to migrate the data warehouse to Azure SQL Data Warehouse
 
     ![In the New Query Editor Script for the table, the following line is circled: \[TSQL\] \[navchar\](4000) NOT NULL.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image48.png "Row exceeding maximum data size")
 
-6.  Before we fix this column, we must validate that none of the data would be truncated. Check the maximum actual data size with the following query.
+6.  Before we fix this column, we must validate that none of the data would be truncated. Check the maximum actual data size with the following query:
 
     ```
     SELECT MAX(DATALENGTH([TSQL]))
