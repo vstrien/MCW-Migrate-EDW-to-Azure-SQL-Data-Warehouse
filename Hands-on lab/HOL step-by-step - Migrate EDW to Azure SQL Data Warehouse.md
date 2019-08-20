@@ -9,7 +9,7 @@ Hands-on lab step-by-step
 </div>
 
 <div class="MCWHeader3">
-June 2019
+August 2019
 </div>
 
 
@@ -92,17 +92,18 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     ![Screenshot of choosing SQL server logical server from the Azure Marketplace](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-06-14_11-34-34.png "Choosing the SQL Server logical server")
 
-3.  Click **Create** on the SQL Server (logical server) blade. Specify the following information, and click **Create**:
+3.  Click **Create** on the SQL Server (logical server) blade. Specify the following information, and click **Next: Networking**:
+
+
+    -   Subscription: ***Your subscription***
+
+    -   Resource group: **Create new -** **CohoCloud**
 
     -   Server name: **Specify a unique name**.
 
     -   Server admin login: **demouser**
 
     -   Password: **Demo\@pass123**
-
-    -   Subscription: ***Your subscription***
-
-    -   Resource group: **Create new -** **CohoCloud**
 
     -   Location: ***Choose a region near you from the following regions which support the SSIS Integration Runtime***:
 
@@ -112,21 +113,31 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
         -   ***West US 2***
         -   ***Central US***
         -   ***South Central US***
+        -   ***North Central US***
         -   ***West Central US***
+        -   ***Brazil South***
         -   ***Canada Central***
         -   ***North Europe***
         -   ***West Europe***
+        -   ***France Central***
         -   ***UK South***
+        -   ***East Asia***
         -   ***Southeast Asia***
         -   ***Japan East***
+        -   ***Korea Central***
         -   ***Central India***
         -   ***Australia East***
         -   ***Australia Southeast***
 
         You can find the current list of available regions here: https://azure.microsoft.com/en-us/global-infrastructure/services/?products=data-factory&regions=all 
 
-        ![Screenshot of the configuration options for the SQL server logical server](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-06-24-10-58-07.png "SQL Server configuration options")
+        ![Screenshot of the configuration options for the SQL server logical server](images/2019-08-16-18-40-21.png "SQL Server configuration options")
 
+4.  On the networking tab, set **Allow Azure services and resources to access this server** to **Yes**. 
+
+    ![Screenshot of the network tab of the SQL server logical server.](images/2019-08-16-18-42-39.png "Firewall rules")
+
+5.  Click **Review + create**, then click the **Create** button to create your logical SQL Server.
 
 ### Task 2: Create an Azure Data Factory v2
 
@@ -146,11 +157,13 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     -   Version: **V2**
 
-    -   Location: **Location near you**.
+    -   Location: **Location near you**
+
+    -   Enable GIT: ***Unchecked***
 
     The Data Factory location is where the metadata of the data factory is stored and where the triggering of the pipeline is initiated from. Meanwhile, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services. This behavior is realized through the globally available Integration Runtime to ensure data compliance, efficiency, and reduced network egress costs.
 
-    ![Screenshot of the configuration options for the new Data Factory](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-01-22-11-27-31.png "Specify Data Factory configuration options")
+    ![Screenshot of the configuration options for the new Data Factory](images/2019-08-16-18-47-55.png "Specify Data Factory configuration options")
 
 
 4.  After the Data Factory deployment completes, navigate to the Data Factory and click the Author & Monitor tile.
@@ -207,15 +220,16 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     ![Screenshot of the Azure Marketplace with SQL Data Warehouse selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-06-14_12-13-29.png "Choosing SQL Data Warehouse in the Azure Marketplace.")
 
-2.  Click **Create** on the SQL Data Warehouse blade. Specify the following information. Then, click the **Create Server** link.
+2.  Click **Create** on the SQL Data Warehouse blade. Specify the following information. 
 
     -   Name: **CohoDW**
     -   Resource group: **CohoCloud**
+    -   Server: **Create new**
                                               
     
         ![Screenshot of the SQL Data Warehouse creation blade.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-06-14_12-17-57.png "SQL Data Warehouse creation blade.")
 
-3.  On the Server blade, select **Create a new server**. Specify the following options, and click **Select**:
+3.  On the new server blade, specify the following options, and click **OK**:
 
     -   Server name: **Choose a unique server name**.
     -   Server admin login: **demouser**
@@ -223,7 +237,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
     -   Location: **Same location you created your logical SQL Server in**.
     -   Allow azure services: **checked** 
 
-        ![Screenshot of the SQL Data Warehouse new server blade with configuration options set.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-06-14_12-17-29.png "SQL Data Warehouse configuration settings for new data warehouse")
+        ![Screenshot of the SQL Data Warehouse new server blade with configuration options set.](images/2019-08-16-18-58-59.png "SQL Data Warehouse configuration settings for new data warehouse")
 
 4.  Select the Performance level link, select the **Gen2** tab and set the performance to **400 cDWU,** and click **Apply**.
 
@@ -336,9 +350,9 @@ The first four steps of this task walk you through creating an organizational ac
 
     ![In the Access keys blade, The Storage account name field is edwstor0. Both the name and the copy button are circled. Under Name, the key1 key and its copy button are circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image37.png "Copy the storage account name and key.")
 
-4.  From the **SQLCohoDW** virtual machine that you created before the lab, open a browser window, and connect to the **Azure Portal**.
+4.  Open a remote desktop session to the **SQLCohoDW** virtual machine that you created before the lab. From within the **SQLCohoDW** virtual machine, open a browser window, and connect to the **Azure Portal**.
 
-    > **Note**: If you do not have a SQLCohoDW virtual machine, you should verify that you have completed the pre-requite steps in the correct subscription.  
+    > **Note**: If you do not have a SQLCohoDW virtual machine, you should verify that you have completed the pre-requisite steps in the correct subscription.  
 
 5.  Navigate to your **CohoCloud** resource group. Then, select the logical SQL Server that hosts your Azure SQL Data Warehouse.
 
@@ -358,9 +372,11 @@ The first four steps of this task walk you through creating an organizational ac
 
     Open the **C:\\LabFiles\\CreateDataLoader.sql** script in SQL Server Management Studio.
 
-10. Connect to your Azure SQL Data Warehouse using SQL Server Authentication and the **demouser** account and password **Demo\@pass123**.
+10. Connect to your Azure SQL Data Warehouse using the server name that you copied from the Azure portal. Change your authenication method to SQL Server Authentication and use the **demouser** account and password **Demo\@pass123**. 
 
     ![The Connect to Server dialog box displays.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image41.png "Connect to Server")
+
+    >**NOTE**: By default, SQL Server Management Studio will attempt to connect you to the local SQL Server instance called SQLCohoDW. You must connect to the Azure SQL Data Warehouse which is the server name that you copied from the Azure portal in a previous step.
 
 11. Verify you are connected to the **master** database.
 
@@ -464,15 +480,15 @@ Coho is relying on you to migrate the data warehouse to Azure SQL Data Warehouse
 
 9.  This script still needs to be modified before it will run correctly in Azure SQL Data Warehouse because some T-SQL syntax is not supported in Azure SQL Data Warehouse. Make the following updates to the script:
 
-    -   Execute a Find and Replace on your script to replace all occurrences of **ON \[PRIMARY\]** with blank space to remove them from the script.
+    -   Execute a Find and Replace on your script to replace all occurrences of **ON \[PRIMARY\]** with blank space to remove them from the script. **ON \[PRIMARY\]** is used in a CREATE TABLE statement to indicate which file group you would like to create the table on. Since filegroup management and storage in Azure SQL Data Warehouse are managed by Azure, this part of the statement is not necessary. 
 
         ![In the Find field, On Primary is typed.](images/2019-02-01-09-43-10.png "Replace ON PRIMARY text")
 
-    -   Execute a Find and Replace on your script to replace all occurrences of **USE \[** with **\--USE \[** to comment out those lines.
+    -   Execute a Find and Replace on your script to replace all occurrences of **USE \[** with **\--USE \[** to comment out those lines. The USE command instructs SQL Server to change the database context to the specified database. Azure SQL Data Warehouses are allocated at the database level so this command is unsupported.
 
         ![Use \[ is typed in the Find field, and \--USE \[ is typed in the Replace field.](images/2018-06-26-14-55-42.png "Comment out incompatible text")
 
-    -   Comment out the leading **GO** statement.
+    -   Comment out the leading **GO** statement. 
 
         ![The leading GO statement of the script is commented out.](images/2018-06-26-15-07-23.png "Comment out incompatible text")
 
@@ -494,7 +510,7 @@ This exercise is focused on migrating the data from your existing data warehouse
 
 1.  Connect to your **SQLCohoDW** virtual machine.
 
-2.  Open the **C:\\LabFiles\\bcp\_commands.txt** file. These are the bcp commands for each of the tables you need to migrate. The line below is an example. Notice the bcp commands all use the -C 65001 parameter. This indicates the output will be in UTF-8 which is required by Polybase. This code page is only an option with bcp.exe that ships with SQL Server 2016 and later tools. If you are using an older version of bcp, you will have an additional step to convert to UTF-8.
+2.  Open the **C:\\LabFiles\\bcp\_commands.txt** file. These are the bcp commands for each of the tables you need to migrate. The line below is an example. Notice the bcp commands all use the -C 65001 parameter. This indicates the output will use the UTF-8 code page which is required by Azure SQL Database's Polybase feature. This code page is only an option with bcp.exe that ships with SQL Server 2016 and later tools. If you are using an older version of bcp, you will have an additional step to convert to UTF-8.
 
     ```
     bcp "select [ScenarioKey],REPLACE([ScenarioName],'|','||') from [CohoDW].[dbo].[DimScenario]" queryout "C:\Migration/dbo.DimScenario.txt" -q -c -C 65001 -t "|" -r "\n" -S localhost -T
@@ -504,7 +520,7 @@ This exercise is focused on migrating the data from your existing data warehouse
 
     ![In File Explorer, the name of the file is now changed to bcp\_commands.bat.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image56.png "Rename bcp_commands")
 
-4.  Create a new folder named **C:\\Migration** on the local drive if you have not already done so. This is where the bcp\_commands.bat will save data to.
+4.  Create a new folder named **C:\\Migration** on the local drive if it does not already exist. This is where the bcp\_commands.bat will save data to.
 
 5.  Open a command prompt and execute **C:\\LabFiles\\bcp\_commands.bat**.
 
@@ -538,7 +554,7 @@ This exercise is focused on migrating the data from your existing data warehouse
 
 5.  Open SQL Server Management Studio, and connect to the **CohoDW** database of your SQL Data Warehouse using the **dataloader** account.
 
-6.  Execute the following to create a database scoped credential you will use to store the access key to the migration storage account. Make sure the password is correct that you provided earlier.
+6.  Execute the following to create a database scoped credential you will use to store the access key to the migration storage account. Make sure the password is correct.
 
     ```
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Demo@pass123';
@@ -684,13 +700,13 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
     ![In the Data Factory authoring portal, execute SSIS package is circled with an arrow depicting the object being dragged to the blank canvas.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image80.png "Add execute ssis package")
 
-7.  Change the name of your activity to Load stage tables.
+7.  Change the name of your activity to **Load stage tables**.
 
     ![On the general tab, change the name of the activity to Load stage tables.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-06-14_14-44-44.png "Configure general settings for SSIS execution")
 
-8.  Switch to the settings tab, set the Azure SSIS IR to **Azure-SSIS**, change your folder to **Azure-SSIS**, change your project to **DataLoad**, change your package to **Package.dtsx** and change your logging level to **Verbose**.
+8.  Switch to the settings tab, set the Azure SSIS IR to **Azure-SSIS**, change the package location to **SSISDB**, change your folder to **Azure-SSIS**, change your project to **DataLoad**, change your package to **Package.dtsx** and change your logging level to **Verbose**.
 
-    ![On the settings tab, the Azure-SSIS IR dropdown is set to Azure-SSIS, the logging level is set to verbose, the folder is set to DataLoad, and the package is set to Package.dtsx.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-03-17-13-14-10.png "Configure settings for SSIS execution")
+    ![On the settings tab, the Azure-SSIS IR dropdown is set to Azure-SSIS, the logging level is set to verbose, the folder is set to DataLoad, and the package is set to Package.dtsx.](images/2019-08-19-16-55-23.png "Configure settings for SSIS execution")
 
 9.  Click the **Publish All** button at the top of the window to save your changes to Azure Data Factory. Wait for the success confirmation before continuing.
 
@@ -708,15 +724,15 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
     ![Trigger button has been selected and New / Edit is circled in the dropdown.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-03-17-13-21-54.png "New trigger")
 
-13. On the Add Trigger window, click **Choose trigger...*** then select **+New**.
+13. On the Add Trigger window, click **Choose trigger...** then select **+New**.
 
     ![On the add trigger window, the new button is circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image87.png "Add trigger")
 
-14. Change the name to **15minuteTrigger**, set the type to **Tumbling Window**, set the recurrence to **Every 15 Minutes**, select an end date of one full day from now and verify that **Activated** is checked. Then click **Next** and then click **Finish**.
+14. Change the name to **15minuteTrigger**, set the type to **Tumbling Window**, set the recurrence to **Every 15 Minutes**, select an end date of one full day from now and verify that **Activated** is set to **Yes**. Then click **Save** and then click **Finish**.
 
-    ![Screenshot of the completed schedule configuration.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-06-14_14-51-23.png "Schedule configuration")
+    ![Screenshot of the completed schedule configuration.](images/2019-08-19-17-01-35.png "Schedule configuration")
 
-15. Click the **Publish All** button to save your changes.
+15. Click the **Publish All** button to publish your new trigger.
 
     ![Publish all button.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image89.png "Publish All")
 
@@ -754,7 +770,7 @@ In this exercise, you will configure backup, restore for Analysis Services, and 
 
     -   Location: **The same location you have been using for this lab**.
 
-5.  Choose the storage account you just created to open the Containers blade. Click **+Container** to create a new container, type **backups** for the name, and click **OK**.
+5.  Choose the storage account you just created to open the Containers blade (you may need to click the refresh button). Click **+Container** to create a new container, type **backups** for the name, and click **OK**.
 
     ![In the Containers blade, in the Name field, backups is typed, and the OK button is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image95.png "New backups container")
 
