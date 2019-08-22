@@ -10,7 +10,7 @@ Whiteboard design session  trainer guide
 </div>
 
 <div class="MCWHeader3">
-June 2019
+August 2019
 </div>
 
 
