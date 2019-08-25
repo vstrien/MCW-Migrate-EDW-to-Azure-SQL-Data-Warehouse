@@ -131,27 +131,15 @@
         "virtualNetworkName": "CohoOnPrem-vnet",
         "subnetRef": "[concat(variables('vnetId'), '/subnets/', variables('subnetName'))]",
         "vhdStorageAccountName": "[concat('vhdstorage-', uniqueString(resourceGroup().id))]",
-        "databricks_name": "[concat('databricks-', uniqueString(resourceGroup().id))]",
-        "coho360_name": "[concat('coho360-', uniqueString(resourceGroup().id))]"
+        "coho360_name": "[concat('coho360-', uniqueString(resourceGroup().id))]",
+        "coho360container_name": "coho360staging"
         
     },
     "resources": [
       {
-            "type": "Microsoft.Databricks/workspaces",
-            "apiVersion": "2018-04-01",
-            "name": "[variables('databricks_name')]",
-            "location": "[resourceGroup().location]",
-            "sku": {
-              "name": "premium"
-            },
-            "properties": {
-              "managedResourceGroupId": "[concat(resourceGroup().id, '-databricks')]"
-            }
-      },
-      {
         "type": "Microsoft.Storage/storageAccounts",
         "name": "[variables('coho360_name')]",
-        "apiVersion": "2016-01-01",
+        "apiVersion": "2018-07-01",
         "location": "[resourceGroup().location]",
         "tags": {
           "displayName": "StorageAccount"
@@ -159,7 +147,20 @@
         "sku": {
           "name": "[variables('vhdStorageType')]"
         },
-        "kind": "Storage"
+        "kind": "StorageV2",
+        "properties": {
+          "accessTier": "Hot"
+        },
+        "resources": [
+          {
+              "name": "[variables('coho360container_name')]",
+              "type": "blobServices/containers",
+              "apiVersion": "2018-07-01",
+              "dependsOn": [
+                  "[variables('coho360_name')]"
+              ]
+          }
+      ]
       },
           {
             "type": "Microsoft.Storage/storageAccounts",
