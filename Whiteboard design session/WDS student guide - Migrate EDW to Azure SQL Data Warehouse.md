@@ -260,5 +260,5 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 | Leverage other services with SQL Data Warehouse   | <https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-integrate/>      |
 | Copy data from an on-premises SQL Server database to Azure Blob storage | <https://docs.microsoft.com/en-us/azure/data-factory/tutorial-hybrid-copy-portal>    |
 | Azure Analysis Services  | <https://docs.microsoft.com/en-us/azure/analysis-services/analysis-services-overview>   |
-| Power BI Gateway - Enterprise in-depth   | <https://powerbi.microsoft.com/en-us/documentation/powerbi-gateway-enterprise-indepth/>   |
+| Power BI Gateway   | <https://powerbi.microsoft.com/en-us/gateway/>   |
 

@@ -177,7 +177,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     ![Screenshot of the Data Factory Author and Monitor tile in the Azure Portal](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-01-22-11-30-46.png "Select the Author and Monitor tile from the quick links")
 
-5.  Select the **Configure SSIS Integration Runtime**.
+5.  Select the **Configure SSIS Integration**.
 
     ![Screenshot of the Configure SSIS Integration Runtime tile](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-06-14_12-08-10.png "Choose the Configure SSIS Integration Runtime tile and then complete for following information")
 
@@ -264,7 +264,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     -   Resource group: **Use existing** - **CohoCloud**
 
-    -   Storage account name: **Specify a unique DNS name**.
+    -   Storage account name: **Specify a unique name**.
 
     -   Location: **Same location you created your logical SQL Server in**.
 
@@ -357,7 +357,7 @@ The first four steps of this task walk you through creating an organizational ac
 
     ![In the Access keys blade, The Storage account name field is edwstor0. Both the name and the copy button are circled. Under Name, the key1 key and its copy button are circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image37.png "Copy the storage account name and key.")
 
-4.  Open a remote desktop session to the **SQLCohoDW** virtual machine that you created before the lab. From within the **SQLCohoDW** virtual machine, open a browser window, and connect to the **Azure Portal**.
+4.  Open a remote desktop session to the **SQLCohoDW** virtual machine that you created before the lab using the **demouser** login and **Demo@pass123** password. From within the **SQLCohoDW** virtual machine, open a browser window, and connect to the **Azure Portal**.
 
     > **Note**: If you do not have a SQLCohoDW virtual machine, you should verify that you have completed the pre-requisite steps in the correct subscription.  
 
@@ -491,7 +491,7 @@ Coho is relying on you to migrate the data warehouse to Azure SQL Data Warehouse
 
         ![In the Find field, On Primary is typed.](images/2019-02-01-09-43-10.png "Replace ON PRIMARY text")
 
-    -   Execute a Find and Replace on your script to replace all occurrences of **USE \[** with **\--USE \[** to comment out those lines. The USE command instructs SQL Server to change the database context to the specified database. Azure SQL Data Warehouses are allocated at the database level so this command is unsupported.
+    -   Execute a **case sensitive** Find and Replace on your script to replace all occurrences of **USE \[** with **\--USE \[** to comment out those lines. Make sure you specify case sensitive to avoid unintentionally modifying any column names. The USE command instructs SQL Server to change the database context to the specified database. Azure SQL Data Warehouses are allocated at the database level so this command is unsupported.
 
         ![Use \[ is typed in the Find field, and \--USE \[ is typed in the Replace field.](images/2018-06-26-14-55-42.png "Comment out incompatible text")
 
