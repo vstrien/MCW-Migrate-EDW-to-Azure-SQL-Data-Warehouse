@@ -1,4 +1,4 @@
-param($sourceFileUrl="http://cloudworkshop.blob.core.windows.net/migrate-edw/StudentFiles-06-2018.zip", $destinationFolder="C:\LabFiles", $user="demouser", $password="Demo@pass123")
+param($sourceFileUrl="http://cloudworkshop.blob.core.windows.net/migrate-edw/StudentFiles-09-2019.zip", $destinationFolder="C:\LabFiles", $user="demouser", $password="Demo@pass123")
 $ErrorActionPreference = 'SilentlyContinue'
 
 Set-MpPreference -DisableRealtimeMonitoring $true

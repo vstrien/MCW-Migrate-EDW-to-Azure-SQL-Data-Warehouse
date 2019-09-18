@@ -10,7 +10,7 @@ Whiteboard design session student guide
 </div>
 
 <div class="MCWHeader3">
-June 2019
+August 2019
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -260,5 +260,5 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 | Leverage other services with SQL Data Warehouse   | <https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-integrate/>      |
 | Copy data from an on-premises SQL Server database to Azure Blob storage | <https://docs.microsoft.com/en-us/azure/data-factory/tutorial-hybrid-copy-portal>    |
 | Azure Analysis Services  | <https://docs.microsoft.com/en-us/azure/analysis-services/analysis-services-overview>   |
-| Power BI Gateway - Enterprise in-depth   | <https://powerbi.microsoft.com/en-us/documentation/powerbi-gateway-enterprise-indepth/>   |
+| Power BI Gateway   | <https://powerbi.microsoft.com/en-us/gateway/>   |
 

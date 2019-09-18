@@ -9,7 +9,7 @@ Hands-on lab step-by-step
 </div>
 
 <div class="MCWHeader3">
-June 2019
+August 2019
 </div>
 
 
@@ -47,11 +47,18 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
   - [Exercise 4: Migrate an SSIS Package to Data Factory v2](#exercise-4-migrate-an-ssis-package-to-data-factory-v2)
     - [Task 1: Deploy SSIS Package to Data Factory](#task-1-deploy-ssis-package-to-data-factory)
     - [Task 2: Schedule the SSIS Package](#task-2-schedule-the-ssis-package)
-  - [Exercise 5: Create an Analysis Services Model](#exercise-5-create-an-analysis-services-model)
+  - [Exercise 5: Create a Data Pipeline for the Coho360 project](#exercise-5-create-a-data-pipeline-for-the-coho360-project)
+    - [Task 1: Create linked services](#task-1-create-linked-services)
+    - [Task 2: Create the datasets](#task-2-create-the-datasets)
+    - [Task 3: Create data sources in Data Flow](#task-3-create-data-sources-in-data-flow)
+    - [Task 4: Join data sources in Data Flow](#task-4-join-data-sources-in-data-flow)
+    - [Task 5: Create the SQL Data Warehouse data sink](#task-5-create-the-sql-data-warehouse-data-sink)
+    - [Task 6: Create and run the pipeline](#task-6-create-and-run-the-pipeline)
+  - [Exercise 6: Create an Analysis Services Model](#exercise-6-create-an-analysis-services-model)
     - [Task 1: Configure Analysis Services backup](#task-1-configure-analysis-services-backup)
     - [Task 2: Restore Analysis Services backup](#task-2-restore-analysis-services-backup)
     - [Task 3: Update Analysis Services connections](#task-3-update-analysis-services-connections)
-  - [Exercise 6: Visualize data with Power BI Desktop](#exercise-6-visualize-data-with-power-bi-desktop)
+  - [Exercise 7: Visualize data with Power BI Desktop](#exercise-7-visualize-data-with-power-bi-desktop)
     - [Task 1: Install Power BI Desktop](#task-1-install-power-bi-desktop)
     - [Task 2: Query data with Power BI Desktop](#task-2-query-data-with-power-bi-desktop)
   - [After the hands-on Lab](#after-the-hands-on-lab)
@@ -92,17 +99,18 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     ![Screenshot of choosing SQL server logical server from the Azure Marketplace](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-06-14_11-34-34.png "Choosing the SQL Server logical server")
 
-3.  Click **Create** on the SQL Server (logical server) blade. Specify the following information, and click **Create**:
+3.  Click **Create** on the SQL Server (logical server) blade. Specify the following information, and click **Next: Networking**:
+
+
+    -   Subscription: ***Your subscription***
+
+    -   Resource group: **Create new -** **CohoCloud**
 
     -   Server name: **Specify a unique name**.
 
     -   Server admin login: **demouser**
 
     -   Password: **Demo\@pass123**
-
-    -   Subscription: ***Your subscription***
-
-    -   Resource group: **Create new -** **CohoCloud**
 
     -   Location: ***Choose a region near you from the following regions which support the SSIS Integration Runtime***:
 
@@ -112,21 +120,31 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
         -   ***West US 2***
         -   ***Central US***
         -   ***South Central US***
+        -   ***North Central US***
         -   ***West Central US***
+        -   ***Brazil South***
         -   ***Canada Central***
         -   ***North Europe***
         -   ***West Europe***
+        -   ***France Central***
         -   ***UK South***
+        -   ***East Asia***
         -   ***Southeast Asia***
         -   ***Japan East***
+        -   ***Korea Central***
         -   ***Central India***
         -   ***Australia East***
         -   ***Australia Southeast***
 
         You can find the current list of available regions here: https://azure.microsoft.com/en-us/global-infrastructure/services/?products=data-factory&regions=all 
 
-        ![Screenshot of the configuration options for the SQL server logical server](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-06-24-10-58-07.png "SQL Server configuration options")
+        ![Screenshot of the configuration options for the SQL server logical server](images/2019-08-16-18-40-21.png "SQL Server configuration options")
 
+4.  On the networking tab, set **Allow Azure services and resources to access this server** to **Yes**. 
+
+    ![Screenshot of the network tab of the SQL server logical server.](images/2019-08-16-18-42-39.png "Firewall rules")
+
+5.  Click **Review + create**, then click the **Create** button to create your logical SQL Server.
 
 ### Task 2: Create an Azure Data Factory v2
 
@@ -146,18 +164,20 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     -   Version: **V2**
 
-    -   Location: **Location near you**.
+    -   Location: **Location near you**
+
+    -   Enable GIT: ***Unchecked***
 
     The Data Factory location is where the metadata of the data factory is stored and where the triggering of the pipeline is initiated from. Meanwhile, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services. This behavior is realized through the globally available Integration Runtime to ensure data compliance, efficiency, and reduced network egress costs.
 
-    ![Screenshot of the configuration options for the new Data Factory](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-01-22-11-27-31.png "Specify Data Factory configuration options")
+    ![Screenshot of the configuration options for the new Data Factory](images/2019-08-16-18-47-55.png "Specify Data Factory configuration options")
 
 
 4.  After the Data Factory deployment completes, navigate to the Data Factory and click the Author & Monitor tile.
 
     ![Screenshot of the Data Factory Author and Monitor tile in the Azure Portal](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-01-22-11-30-46.png "Select the Author and Monitor tile from the quick links")
 
-5.  Select the **Configure SSIS Integration Runtime**.
+5.  Select the **Configure SSIS Integration**.
 
     ![Screenshot of the Configure SSIS Integration Runtime tile](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-06-14_12-08-10.png "Choose the Configure SSIS Integration Runtime tile and then complete for following information")
 
@@ -207,15 +227,16 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     ![Screenshot of the Azure Marketplace with SQL Data Warehouse selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-06-14_12-13-29.png "Choosing SQL Data Warehouse in the Azure Marketplace.")
 
-2.  Click **Create** on the SQL Data Warehouse blade. Specify the following information. Then, click the **Create Server** link.
+2.  Click **Create** on the SQL Data Warehouse blade. Specify the following information. 
 
     -   Name: **CohoDW**
     -   Resource group: **CohoCloud**
+    -   Server: **Create new**
                                               
     
         ![Screenshot of the SQL Data Warehouse creation blade.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-06-14_12-17-57.png "SQL Data Warehouse creation blade.")
 
-3.  On the Server blade, select **Create a new server**. Specify the following options, and click **Select**:
+3.  On the new server blade, specify the following options, and click **OK**:
 
     -   Server name: **Choose a unique server name**.
     -   Server admin login: **demouser**
@@ -223,7 +244,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
     -   Location: **Same location you created your logical SQL Server in**.
     -   Allow azure services: **checked** 
 
-        ![Screenshot of the SQL Data Warehouse new server blade with configuration options set.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-06-14_12-17-29.png "SQL Data Warehouse configuration settings for new data warehouse")
+        ![Screenshot of the SQL Data Warehouse new server blade with configuration options set.](images/2019-08-16-18-58-59.png "SQL Data Warehouse configuration settings for new data warehouse")
 
 4.  Select the Performance level link, select the **Gen2** tab and set the performance to **400 cDWU,** and click **Apply**.
 
@@ -243,7 +264,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     -   Resource group: **Use existing** - **CohoCloud**
 
-    -   Storage account name: **Specify a unique DNS name**.
+    -   Storage account name: **Specify a unique name**.
 
     -   Location: **Same location you created your logical SQL Server in**.
 
@@ -336,9 +357,9 @@ The first four steps of this task walk you through creating an organizational ac
 
     ![In the Access keys blade, The Storage account name field is edwstor0. Both the name and the copy button are circled. Under Name, the key1 key and its copy button are circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image37.png "Copy the storage account name and key.")
 
-4.  From the **SQLCohoDW** virtual machine that you created before the lab, open a browser window, and connect to the **Azure Portal**.
+4.  Open a remote desktop session to the **SQLCohoDW** virtual machine that you created before the lab using the **demouser** login and **Demo@pass123** password. From within the **SQLCohoDW** virtual machine, open a browser window, and connect to the **Azure Portal**.
 
-    > **Note**: If you do not have a SQLCohoDW virtual machine, you should verify that you have completed the pre-requite steps in the correct subscription.  
+    > **Note**: If you do not have a SQLCohoDW virtual machine, you should verify that you have completed the pre-requisite steps in the correct subscription.  
 
 5.  Navigate to your **CohoCloud** resource group. Then, select the logical SQL Server that hosts your Azure SQL Data Warehouse.
 
@@ -358,9 +379,11 @@ The first four steps of this task walk you through creating an organizational ac
 
     Open the **C:\\LabFiles\\CreateDataLoader.sql** script in SQL Server Management Studio.
 
-10. Connect to your Azure SQL Data Warehouse using SQL Server Authentication and the **demouser** account and password **Demo\@pass123**.
+10. Connect to your Azure SQL Data Warehouse using the server name that you copied from the Azure portal. Change your authentication method to SQL Server Authentication and use the **demouser** account and password **Demo\@pass123**. 
 
     ![The Connect to Server dialog box displays.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image41.png "Connect to Server")
+
+    >**Note**: By default, SQL Server Management Studio will attempt to connect you to the local SQL Server instance called SQLCohoDW. You must connect to the Azure SQL Data Warehouse which is the server name that you copied from the Azure portal in a previous step.
 
 11. Verify you are connected to the **master** database.
 
@@ -464,15 +487,15 @@ Coho is relying on you to migrate the data warehouse to Azure SQL Data Warehouse
 
 9.  This script still needs to be modified before it will run correctly in Azure SQL Data Warehouse because some T-SQL syntax is not supported in Azure SQL Data Warehouse. Make the following updates to the script:
 
-    -   Execute a Find and Replace on your script to replace all occurrences of **ON \[PRIMARY\]** with blank space to remove them from the script.
+    -   Execute a Find and Replace on your script to replace all occurrences of **ON \[PRIMARY\]** with blank space to remove them from the script. **ON \[PRIMARY\]** is used in a CREATE TABLE statement to indicate which file group you would like to create the table on. Since filegroup management and storage in Azure SQL Data Warehouse are managed by Azure, this part of the statement is not necessary. 
 
         ![In the Find field, On Primary is typed.](images/2019-02-01-09-43-10.png "Replace ON PRIMARY text")
 
-    -   Execute a Find and Replace on your script to replace all occurrences of **USE \[** with **\--USE \[** to comment out those lines.
+    -   Execute a **case sensitive** Find and Replace on your script to replace all occurrences of **USE \[** with **\--USE \[** to comment out those lines. Make sure you specify case sensitive to avoid unintentionally modifying any column names. The USE command instructs SQL Server to change the database context to the specified database. Azure SQL Data Warehouses are allocated at the database level so this command is unsupported.
 
         ![Use \[ is typed in the Find field, and \--USE \[ is typed in the Replace field.](images/2018-06-26-14-55-42.png "Comment out incompatible text")
 
-    -   Comment out the leading **GO** statement.
+    -   Comment out the leading **GO** statement. 
 
         ![The leading GO statement of the script is commented out.](images/2018-06-26-15-07-23.png "Comment out incompatible text")
 
@@ -494,7 +517,7 @@ This exercise is focused on migrating the data from your existing data warehouse
 
 1.  Connect to your **SQLCohoDW** virtual machine.
 
-2.  Open the **C:\\LabFiles\\bcp\_commands.txt** file. These are the bcp commands for each of the tables you need to migrate. The line below is an example. Notice the bcp commands all use the -C 65001 parameter. This indicates the output will be in UTF-8 which is required by Polybase. This code page is only an option with bcp.exe that ships with SQL Server 2016 and later tools. If you are using an older version of bcp, you will have an additional step to convert to UTF-8.
+2.  Open the **C:\\LabFiles\\bcp\_commands.txt** file. These are the bcp commands for each of the tables you need to migrate. The line below is an example. Notice the bcp commands all use the -C 65001 parameter. This indicates the output will use the UTF-8 code page which is required by Azure SQL Database's Polybase feature. This code page is only an option with bcp.exe that ships with SQL Server 2016 and later tools. If you are using an older version of bcp, you will have an additional step to convert to UTF-8.
 
     ```
     bcp "select [ScenarioKey],REPLACE([ScenarioName],'|','||') from [CohoDW].[dbo].[DimScenario]" queryout "C:\Migration/dbo.DimScenario.txt" -q -c -C 65001 -t "|" -r "\n" -S localhost -T
@@ -504,7 +527,7 @@ This exercise is focused on migrating the data from your existing data warehouse
 
     ![In File Explorer, the name of the file is now changed to bcp\_commands.bat.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image56.png "Rename bcp_commands")
 
-4.  Create a new folder named **C:\\Migration** on the local drive if you have not already done so. This is where the bcp\_commands.bat will save data to.
+4.  Create a new folder named **C:\\Migration** on the local drive if it does not already exist. This is where the bcp\_commands.bat will save data to.
 
 5.  Open a command prompt and execute **C:\\LabFiles\\bcp\_commands.bat**.
 
@@ -538,7 +561,7 @@ This exercise is focused on migrating the data from your existing data warehouse
 
 5.  Open SQL Server Management Studio, and connect to the **CohoDW** database of your SQL Data Warehouse using the **dataloader** account.
 
-6.  Execute the following to create a database scoped credential you will use to store the access key to the migration storage account. Make sure the password is correct that you provided earlier.
+6.  Execute the following to create a database scoped credential you will use to store the access key to the migration storage account. Make sure the password is correct.
 
     ```
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Demo@pass123';
@@ -684,13 +707,13 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
     ![In the Data Factory authoring portal, execute SSIS package is circled with an arrow depicting the object being dragged to the blank canvas.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image80.png "Add execute ssis package")
 
-7.  Change the name of your activity to Load stage tables.
+7.  Change the name of your activity to **Load stage tables**.
 
     ![On the general tab, change the name of the activity to Load stage tables.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-06-14_14-44-44.png "Configure general settings for SSIS execution")
 
-8.  Switch to the settings tab, set the Azure SSIS IR to **Azure-SSIS**, change your folder to **Azure-SSIS**, change your project to **DataLoad**, change your package to **Package.dtsx** and change your logging level to **Verbose**.
+8.  Switch to the settings tab, set the Azure SSIS IR to **Azure-SSIS**, change the package location to **SSISDB**, change your folder to **Azure-SSIS**, change your project to **DataLoad**, change your package to **Package.dtsx** and change your logging level to **Verbose**.
 
-    ![On the settings tab, the Azure-SSIS IR dropdown is set to Azure-SSIS, the logging level is set to verbose, the folder is set to DataLoad, and the package is set to Package.dtsx.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-03-17-13-14-10.png "Configure settings for SSIS execution")
+    ![On the settings tab, the Azure-SSIS IR dropdown is set to Azure-SSIS, the logging level is set to verbose, the folder is set to DataLoad, and the package is set to Package.dtsx.](images/2019-08-19-16-55-23.png "Configure settings for SSIS execution")
 
 9.  Click the **Publish All** button at the top of the window to save your changes to Azure Data Factory. Wait for the success confirmation before continuing.
 
@@ -700,7 +723,7 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
     ![Trigger button has been selected and Trigger now is circled in the dropdown.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-03-17-13-19-39.png "Trigger now")
 
-11. In the upper right hand corner you should see a notification bell, click the bell to see the current status of your pipeline.
+11. In the upper right hand corner, you should see a notification bell, click the bell to see the current status of your pipeline.
 
     ![Screenshot of the notification message under the notification bell.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image85.png "Pipeline running notification")
 
@@ -708,19 +731,298 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
     ![Trigger button has been selected and New / Edit is circled in the dropdown.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-03-17-13-21-54.png "New trigger")
 
-13. On the Add Trigger window, click **Choose trigger...*** then select **+New**.
+13. On the Add Trigger window, click **Choose trigger...** then select **+New**.
 
     ![On the add trigger window, the new button is circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image87.png "Add trigger")
 
-14. Change the name to **15minuteTrigger**, set the type to **Tumbling Window**, set the recurrence to **Every 15 Minutes**, select an end date of one full day from now and verify that **Activated** is checked. Then click **Next** and then click **Finish**.
+14. Change the name to **15minuteTrigger**, set the type to **Tumbling Window**, set the recurrence to **Every 15 Minutes**, select an end date of one full day from now and verify that **Activated** is set to **Yes**. Then click **Save** and then click **Finish**.
 
-    ![Screenshot of the completed schedule configuration.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-06-14_14-51-23.png "Schedule configuration")
+    ![Screenshot of the completed schedule configuration.](images/2019-08-19-17-01-35.png "Schedule configuration")
 
-15. Click the **Publish All** button to save your changes.
+15. Click the **Publish All** button to publish your new trigger.
 
     ![Publish all button.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image89.png "Publish All")
 
-## Exercise 5: Create an Analysis Services Model
+## Exercise 5: Create a Data Pipeline for the Coho360 project
+
+Coho is building out their Coho360 big data project. This project will provide deeper insights from other data sources such as social media. They need you to integrate the data warehouse with the Coho360 project. To facilitate this, they have dropped several files in an Azure Storage account that are representative of the files that you will need to process. 
+
+In this exercise, you will leverage Mapping Data Flow in Azure Data Factory to build a pipeline to pull the files from storage, cleanup the data, merge the data to a single table and load it into your SQL Data Warehouse.
+
+### Task 1: Create linked services 
+
+1.  Navigate to your **CohoCloud** resource group and open the storage account that begins with **coho360-nnnnn**.
+
+2.  Select **Access keys** from the settings menu on the left.
+
+    ![The settings menu showing the Access Keys button.](images/2019-08-25-09-57-10.png "Access keys on the settings menu")
+
+3.  Copy the **storage account name** and **key** and save them in notepad for later use.
+
+    ![Access keys blade with the copy buttons for the storage account name and key1 highlighted.](images/2019-08-25-09-56-53.png "Copy the storage account name and key")
+
+4.  Go back to the overview blade of this storage account and select the **Blobs** tile.
+
+    ![The Azure Storage Account Blobs tile.](images/2019-08-25-10-26-28.png "Blobs tile")
+
+5.  Select the **coho360staging** container.
+
+6.  Click the **Upload** button at the top of the page.
+
+    ![The coho360staging container with the upload button highlighted.](images/2019-08-25-10-22-19.png "Initiate an upload to your container")
+
+7.  Select the **C:\\LabFiles\\CustomerInfoData.csv**, **C:\\LabFiles\\CustomerMrktResearchData.csv** and **C:\\LabFiles\\CustomerInfoData.csv** files and click the **Upload** button. 
+
+    ![The upload blob window with the files selected.](images/2019-08-25-10-22-36.png "Upload blob")
+
+8.  Navigate to your **CohoCloud** resource group and open the Data Factory resource that you created earlier and click on the **Author & Monitor** tile.
+   
+    ![The data factory blade with the author and monitor tile highlighted.](images/2019-08-25-09-56-26.png "The author and monitor tile")
+
+9.  Click the edit button on the left side of the Data Factory portal.
+
+    ![In the Data Factory portal, the edit icon is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-06-14_14-39-23.png "Data Factory edit button")
+
+10. Enable **Data Flow Debug** at the top of the screen. We will use this in a later task but it takes a few minutes to spin up the compute necessary to support the feature. You do not need to wait for this to complete. We are simply doing this here to minimize the wait time later in the lab. 
+
+    ![The Data Flow Debug switch is enabled and in the provisioning state.](images/2019-08-25-12-40-48.png "Data Flow Debug switch")
+
+11. Click the **Connections** in the lower left of the canvas.
+
+    ![The connection button.](images/2019-08-25-11-17-10.png "The connections button")
+
+12. Under the **Linked Services** tab, select **+New**.
+
+    ![The add new linked service button under the linked services tab.](images/2019-08-25-11-19-28.png "New linked service")
+
+13. On the **New Linked Service** window, select **Azure Blob Storage** and click **Continue**.
+
+    ![Azure Blob Storage icon.](images/2019-08-25-10-39-12.png "Azure Blob Storage")
+
+14. On the **New Linked Service (Azure Blob Storage)** window use the following configurations and then click **Finish**.
+
+    - Name: **Coho360BlobStorage**
+    - Connect via integration runtime: **AutoResolveIntegrationRuntime**
+    - Authentication method: **Account key**
+    - Account selection method: **From Azure subscription**
+    - Azure subscription: *Choose your Azure subscription*
+    - Storage account name: *Choose the storage account that begins with coho360-*
+
+    ![The new linked service window with the settings filled in from above.](images/2019-08-25-11-26-51.png "The New Linked Service (Azure Blob Storage) window")
+
+15. Now we need to create another linked service to support our SQL Data Warehouse. From the Linked Services tab, click **+New**.
+
+    ![The new linked services tab with the New button highlighted and the storage linked service that we crated earlier visible.](images/2019-08-25-11-45-13.png "New linked service")
+
+16. From the **New Linked Service** window, select **Azure SQL Data Warehouse** and then click **Continue**.
+
+    ![The Azure SQL Data Warehouse icon.](images/2019-08-25-11-49-21.png "Azure SQL Data Warehouse")
+
+17. On the **New Linked Service (Azure SQL Data Warehouse)** window use the following configurations and then click **Finish**.
+
+    - Name: **CohoDW**
+    - Connect via integration runtime: **AutoResolveIntegrationRuntime**
+    - Account selection method: **From Azure subscription**
+    - Azure subscription: *Choose your Azure subscription*
+    - Server name: *Choose the server name of your CohoDW SQL Data Warehouse*
+    - Database name: **CohoDW**
+    - Authentication type: **SQL Authentication**
+    - User name: **demouser**
+    - Password: **Demo@pass123**
+
+    ![The New Linked Service (Azure SQL Data Warehouse) window with the configuration options above filled in.](images/2019-08-25-12-00-19.png "New Linked Service (Azure SQL Data Warehouse)")
+
+18. Click **Publish All** to publish and save your linked services.
+
+### Task 2: Create the datasets
+
+1.  Navigate to your **CohoCloud** resource group and open the Data Factory resource that you created earlier and click on the **Author & Monitor** tile.
+   
+    ![The data factory blade with the author and monitor tile highlighted.](images/2019-08-25-09-56-26.png "The author and monitor tile")
+
+2.  Click the edit button on the left side of the Data Factory portal.
+
+    ![In the Data Factory portal, the edit icon is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-06-14_14-39-23.png "Data Factory edit button")
+
+3.  For now, we will need to create a total of three datasets for this pipeline. These datasets will be for our data files in Azure Blob Storage. These files represent the files that will be generated by another system in the Coho360 project. We will extract data from these three files, merge and transform them and then load the data into to the SQL Data Warehouse. 
+
+    Under Factory Resources, hover over the 0 next to **Datasets** and it will change to ellipses, select the ellipses and then choose **Add Dataset**.
+
+    ![The Factory Resources menu with dropdown next to datasets expanded and add dataset highlighted.](images/2019-08-25-10-35-10.png "Adding a dataset")
+
+4.  On the **New Dataset** window, select **Azure Blob Storage** and click **Continue**.
+
+    ![Azure Blob Storage icon.](images/2019-08-25-10-39-12.png "Azure Blob Storage")
+
+5.  On the **Select Format** window, select **DelimitedText** and click **Continue**.
+
+    ![CSV icon indicating delimited text.](images/2019-08-25-10-40-51.png "Delimited text")
+
+6.  On the **Set Properties** window, set the name to **CustomerInfo** and choose the **Coho360BlobStorage** linked service. Click **Browse** next to the file path and choose the **CustomerInfoData.csv** file that you loaded earlier. Finally, check the box for **first row as header**, select import schema **from connection/store** and click **Continue**.
+
+    ![The set properties window with the name, linked service, file path and schema selected.](images/2019-08-25-10-47-12.png "Set properties")
+
+7.  Repeat the process to add your two additional data files as datasets. The dataset name to file mapping should be as follows:
+
+    - **CustomerMrktResearch** -> coho360staging/CustomerMrktResearchData.csv
+    - **CustomerTrans** -> coho360staging/CustomerTransData.csv
+
+8.  Click **Publish All** to publish and save your changes.
+
+### Task 3: Create data sources in Data Flow 
+
+1.  We are going to use a Data Factory Data Flow to process our data. Under the Factory Resources menu, click the 0 to the right of **Data Flows** and select **Add Data Flow**.
+
+    ![The Data Flow dropdown with Add Data Flow selected.](images/2019-08-25-14-42-20.png "Adding a Data Flow")
+
+2.  Close any informational pop-ups. Throughout this exercise you may dismiss all of these pop-ups.
+
+3.  Rename your Data Flow to **MergeCustomer360Data**.
+
+    ![Data Flow general settings with name set to MergeCustomer360Data.](images/2019-08-25-14-48-56.png "Rename your Data Flow")
+
+4.  On the Data Flow canvas, click the **Add Source** box. 
+
+    ![The Data Flow canvas with the add source box highlighted.](images/2019-08-25-14-50-19.png "Add source box")
+
+5.  On the **Source Settings** tab, set the name to **CustomerInfo** and then choose **CustomerInfo** for the source dataset.
+
+    ![The source configurations settings for CustomerInfo.](images/2019-08-25-14-59-32.png "CustomerInfo source settings")
+
+    >**Note**: We have left the sampling set to disabled. This is because the sampling will cause the join failures later in this exercise. For very large datasets you would want to enable sampling to improve the performance of the debugging process.
+
+6.  Select the Projection tab. The projection tab allows you to specify the data types in the dataset. For this dataset we will specify the data types manually. For the columns listed below, make the following data type modifications.
+
+    - CustomerKey: **integer**
+    - NameStyle: **boolean**
+    - BirthDate: **date** format: **yyyy-MM-dd**
+
+    ![THe projection settings tab with the above columns set to the specified values.](images/2019-08-25-15-11-47.png "Projection settings for data type mapping")
+
+7.  You can use the **Data Preview** tab to view the resulting data.
+
+    ![The Data Preview tab is shown with sample output from the CustomerInfo dataset.](images/2019-08-25-15-15-32.png "Data Preview")
+
+8.  Now repeat the above process to add sources for the **CustomerMrktResearch** and **CustomerTrans** datasets. For both of these you may use the **Detect Data Type** feature to automatically populate the data types as in the example below.
+
+    ![The projection tab is selected with the detect data types button highlighted.](images/2019-08-25-15-19-08.png "Detecting data types automatically")
+
+### Task 4: Join data sources in Data Flow 
+
+1.  From your Data Flow canvas, click the **+** symbol to the right of your CustomerInfo dataset.
+
+    ![Data flow canvas with plus symbol highligthed to the right of the CustomerInfo dataset.](images/2019-08-25-16-16-13.png "Adding a new flow")
+
+2.  Choose **Join** from the from the menu.
+
+    ![Add flow menu.](images/2019-08-25-16-17-34.png "Choose join")
+
+3.  On the **Join Settings** tab, use the following configurations:
+
+    - Output stream name: **JoinCustMrktResearch**
+    - Left stream: **CustomerInfo**
+    - Right stream: **CustomerMrktResearch**
+    - Join type: **Inner**
+    - Join condition, left: **CustomerAltKey**
+    - Join condition, right: **CustomerAltKey**
+
+    ![The join settings with the options above specified.](images/2019-08-25-16-23-35.png "Join settings")
+
+4.  You can review the preliminary results on the **Data Preview** tab. Don't worry about duplicate columns yet, we will remove those later.
+
+5.  We also want to join our CustomerTrans dataset, click the **+** symbol to the right of your JoinCustMrktResearch join that you just created and choose **Join** from the menu.
+
+6.  On the **Join Settings** tab, use the following configurations:
+
+    - Output stream name: **JoinCustomerTrans**
+    - Left stream: **JoinCustMrktResearch**
+    - Right stream: **CustomerTrans**
+    - Join type: **Inner**
+    - Join condition, left: **CustomerKey**
+    - Join condition, right: **CustomerKey**
+
+    ![The join settings with the options above specified.](images/2019-08-25-16-31-38.png "Join settings")
+
+### Task 5: Create the SQL Data Warehouse data sink
+
+1.  Before we load the data let's remove the duplicate join columns. Click the **+** symbol to the right of your **JoinCustomerTrans** join operation and then choose **Select**.
+
+2.  On the **Select Settings** tab, use the following configurations:
+
+    - Output stream name: **SelectColumns**
+    - Incoming stream: **JoinCustomerTrans**
+    - Skip duplicate inputs: *checked*
+    - Skip duplicate outputs: *checked*
+    - Auto Mapping: *enabled*
+
+    ![The select settings tab with the above configuration options checked.](images/2019-08-25-17-01-53.png "The select settings tab")
+
+3.  You can review the results on the **Data Preview** tab to verify that the duplicate columns do not show up in the output.
+
+4.  Now let's load the data into our SQL Data Warehouse. Click the **+** symbol to the right of your **SelectColumns** operation and then choose **Sink** at the bottom of the list.
+
+5.  On the sink tab, name the output stream **CohoDW** and then click **+ New** next to create a new sink dataset.
+
+    ![The sink tab with the name set to CohoDW and the new button highlighted next to sink dataset.](images/2019-08-25-16-39-20.png "Sink settings")
+
+6.  From the **New Dataset** window, select **Azure SQL Data Warehouse** and then click **Continue**.
+
+    ![The Azure SQL Data Warehouse icon.](images/2019-08-25-11-49-21.png "Azure SQL Data Warehouse")
+
+7.  On the **Set Properties** windows, use the following configurations and then click **Finish**. 
+
+    - Name: **CohoDW** 
+    - Linked service: **CohoDW**
+    - Create new table: *selected*
+    - Schema and table name: **dbo**.**Customer360**
+
+8.  On the **Settings** tab, verify that **Allow insert** is checked and table action is set to **None** and **Enable staging** is checked.
+
+    ![The data sink settings tab with the options above selected.](images/2019-08-25-16-47-51.png "Data sink settings")
+
+9.  Use the **Inspect** and **Data Preview** tabs to verify that your configuration is correct.
+
+10. Click **Publish All** to publish and save your work.
+
+    >**Note**: If you have errors in your data flow it will cause publishing to fail.
+
+### Task 6: Create and run the pipeline 
+
+1.  To execute out data flow, we need to add it to a pipeline. In the Factory Resources menu, click the 0 next to **Pipelines** and choose **Add pipeline**.
+
+    ![The factory resources menu with the pipeline dropdown menu shown with add pipeline highlighted.](images/2019-08-25-17-21-59.png "Add pipeline")
+
+2.  On the general tab below the canvas, rename your pipeline to **Customer360toCohoDWpipeline**.
+
+    ![](images/2019-08-25-17-30-53.png)
+
+3.  Expand **Move & Transform** under Activities and drag and drop **Data Flow** to the canvas.
+
+    ![](images/2019-08-25-17-26-29.png)
+
+4.  In the **Adding Data Flow** window, select **Use existing data flow** and choose the **MergeCustomer360Data** data flow that you just created.
+
+    ![Adding data flow window with use existing data flow selected and the existing data flow selected.](images/2019-08-25-17-24-26.png "Adding Data Flow")
+
+5.  On the **Settings** tab below the canvas, we need to set the Polybase configuration. Select **Coho360BlobStorage** for the staging linked service and choose the **coho360staging** container for the staging storage folder. 
+
+    ![Data flow settings with the staging linked server and staging storage folder options set.](images/2019-08-25-17-37-01.png "Data flow settings")
+
+6.  Click **Publish All** to publish and save your pipeline.
+
+7.  To test your pipeline, click the **Add trigger** button, then choose **Trigger now**, then click **Finish**.
+
+    ![The add trigger button with trigger now selected from the dropdown menu.](images/2019-08-25-17-40-03.png "Trigger now")
+
+8.  To view the progress of your pipeline, select the monitor dashboard on the left hand side of the screen.
+
+    ![The monitoring dashboard icon.](images/2019-08-25-17-42-11.png "Dashboard icon")
+
+9.  You can monitor the progress of your pipeline run here. Use the refresh button to update the metrics. 
+
+    ![The monitoring dashboard showing our pipeline run is in progress.](images/2019-08-25-17-44-15.png "Monitoring the pipeline run")
+
+## Exercise 6: Create an Analysis Services Model
 
 Coho has provided you with an existing Analysis Services model for use with the Data Warehouse. They have asked you to use this model to support ad-hoc query access from Power BI.
 
@@ -754,7 +1056,7 @@ In this exercise, you will configure backup, restore for Analysis Services, and 
 
     -   Location: **The same location you have been using for this lab**.
 
-5.  Choose the storage account you just created to open the Containers blade. Click **+Container** to create a new container, type **backups** for the name, and click **OK**.
+5.  Choose the storage account you just created to open the Containers blade (you may need to click the refresh button). Click **+Container** to create a new container, type **backups** for the name, and click **OK**.
 
     ![In the Containers blade, in the Name field, backups is typed, and the OK button is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image95.png "New backups container")
 
@@ -842,7 +1144,7 @@ In this exercise, you will configure backup, restore for Analysis Services, and 
 
 5.  Close the Process Data window.
 
-## Exercise 6: Visualize data with Power BI Desktop
+## Exercise 7: Visualize data with Power BI Desktop
 
 In this exercise, you will setup integration with Power BI Desktop.
 
