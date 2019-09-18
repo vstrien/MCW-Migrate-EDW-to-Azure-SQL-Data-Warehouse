@@ -379,11 +379,11 @@ The first four steps of this task walk you through creating an organizational ac
 
     Open the **C:\\LabFiles\\CreateDataLoader.sql** script in SQL Server Management Studio.
 
-10. Connect to your Azure SQL Data Warehouse using the server name that you copied from the Azure portal. Change your authenication method to SQL Server Authentication and use the **demouser** account and password **Demo\@pass123**. 
+10. Connect to your Azure SQL Data Warehouse using the server name that you copied from the Azure portal. Change your authentication method to SQL Server Authentication and use the **demouser** account and password **Demo\@pass123**. 
 
     ![The Connect to Server dialog box displays.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image41.png "Connect to Server")
 
-    >**NOTE**: By default, SQL Server Management Studio will attempt to connect you to the local SQL Server instance called SQLCohoDW. You must connect to the Azure SQL Data Warehouse which is the server name that you copied from the Azure portal in a previous step.
+    >**Note**: By default, SQL Server Management Studio will attempt to connect you to the local SQL Server instance called SQLCohoDW. You must connect to the Azure SQL Data Warehouse which is the server name that you copied from the Azure portal in a previous step.
 
 11. Verify you are connected to the **master** database.
 
@@ -783,7 +783,7 @@ In this exercise, you will leverage Mapping Data Flow in Azure Data Factory to b
 
     ![In the Data Factory portal, the edit icon is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-06-14_14-39-23.png "Data Factory edit button")
 
-10. Enable **Data Flow Debug** at the top of the screen. We will use this in a later task but it takes a few minutes to spinup the compute necessary to support the feature. You do not need to wait for this to complete. We are simply doing this here to minimize the wait time later in the lab. 
+10. Enable **Data Flow Debug** at the top of the screen. We will use this in a later task but it takes a few minutes to spin up the compute necessary to support the feature. You do not need to wait for this to complete. We are simply doing this here to minimize the wait time later in the lab. 
 
     ![The Data Flow Debug switch is enabled and in the provisioning state.](images/2019-08-25-12-40-48.png "Data Flow Debug switch")
 
@@ -889,13 +889,13 @@ In this exercise, you will leverage Mapping Data Flow in Azure Data Factory to b
 
     ![The source configurations settings for CustomerInfo.](images/2019-08-25-14-59-32.png "CustomerInfo source settings")
 
-    >**NOTE**: We have left the sampling set to disabled. This is because the sampling will cause the join failures later in this exercise. For very large datasets you would want to enable sampling to improve the performance of the debugging process.
+    >**Note**: We have left the sampling set to disabled. This is because the sampling will cause the join failures later in this exercise. For very large datasets you would want to enable sampling to improve the performance of the debugging process.
 
 6.  Select the Projection tab. The projection tab allows you to specify the data types in the dataset. For this dataset we will specify the data types manually. For the columns listed below, make the following data type modifications.
 
     - CustomerKey: **integer**
     - NameStyle: **boolean**
-    - BirthDate: **date** format: **yyy-MM-dd**
+    - BirthDate: **date** format: **yyyy-MM-dd**
 
     ![THe projection settings tab with the above columns set to the specified values.](images/2019-08-25-15-11-47.png "Projection settings for data type mapping")
 
@@ -984,7 +984,7 @@ In this exercise, you will leverage Mapping Data Flow in Azure Data Factory to b
 
 10. Click **Publish All** to publish and save your work.
 
-    >**NOTE**: If you have errors in your data flow it will cause publishing to fail.
+    >**Note**: If you have errors in your data flow it will cause publishing to fail.
 
 ### Task 6: Create and run the pipeline 
 
