@@ -771,7 +771,7 @@ In this exercise, you will leverage Mapping Data Flow in Azure Data Factory to b
 
     ![The coho360staging container with the upload button highlighted.](images/2019-08-25-10-22-19.png "Initiate an upload to your container")
 
-7.  Select the **C:\\LabFiles\\CustomerInfoData.csv**, **C:\\LabFiles\\CustomerMrktResearchData.csv** and **C:\\LabFiles\\CustomerInfoData.csv** files and click the **Upload** button. 
+7.  Select the **C:\\LabFiles\\CustomerInfoData.csv**, **C:\\LabFiles\\CustomerMrktResearchData.csv** and **C:\\LabFiles\\CustomerTransData.csv** files and click the **Upload** button. 
 
     ![The upload blob window with the files selected.](images/2019-08-25-10-22-36.png "Upload blob")
 
