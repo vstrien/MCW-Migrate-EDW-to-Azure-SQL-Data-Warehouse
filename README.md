@@ -2,7 +2,7 @@
 
 Coho, a retail company focusing on consumer electronics, is modernizing their data architecture. Critical to this effort is migrating their existing enterprise data warehouse to the cloud for better integration with their cloud native customer 360 project and self-service business intelligence for their people in the field.
 
-August 2019
+October 2019
 
 # Target audience
 

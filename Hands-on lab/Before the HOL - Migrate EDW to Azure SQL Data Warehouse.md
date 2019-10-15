@@ -9,7 +9,7 @@ Before the hands-on lab setup guide
 </div>
 
 <div class="MCWHeader3">
-August 2019
+October 2019
 </div>
 
 
@@ -48,7 +48,7 @@ In this exercise, you will deploy the source environment for this lab. The sourc
 
 1.  Browse to the Azure Portal at <https://portal.azure.com> and verify that you are logged in with the subscription that you wish to use for this lab.
 
-2.  Click **Deploy to Azure** button below. 
+2.  Select the **Deploy to Azure** button below. 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2FMCW-Migrate-EDW-to-Azure-SQL-Data-Warehouse%2Fmaster%2FHands-on%20lab%2Flabfiles%2Fazure-deploy.json" rel="nofollow">
     <img src="https://camo.githubusercontent.com/9285dd3998997a0835869065bb15e5d500475034/687474703a2f2f617a7572656465706c6f792e6e65742f6465706c6f79627574746f6e2e706e67" data-canonical-src="http://azuredeploy.net/deploybutton.png" style="max-width:100%;">
