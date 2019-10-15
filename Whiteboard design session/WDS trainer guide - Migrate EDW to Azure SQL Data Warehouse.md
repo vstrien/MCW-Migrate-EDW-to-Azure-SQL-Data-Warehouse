@@ -1,4 +1,4 @@
-![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png)
+![Microsoft Cloud Workshops](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png)
 
 
 <div class="MCWHeader1">
@@ -10,7 +10,7 @@ Whiteboard design session  trainer guide
 </div>
 
 <div class="MCWHeader3">
-August 2019
+October 2019
 </div>
 
 
@@ -379,7 +379,7 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 |    |            |
 |----------|:-------------:|
 | **Description** | **Links** |
-|  Azure SQL Data Warehouse  |  <https://azure.microsoft.com/en-us/documentation/articles/site-recovery-overview/>   |
+|  Azure SQL Data Warehouse  |  <https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is>   |
 |  Migrate your solution to SQL Data Warehouse | <https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-migrate/>  |
 |  Load data into Azure SQL Data Warehouse | <https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-load/>  |
 |  Manage tables and indexes in Azure SQL Data Warehouse |  <https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-manage-tables-indexes/>  |
