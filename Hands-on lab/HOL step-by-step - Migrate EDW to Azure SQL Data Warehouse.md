@@ -1159,35 +1159,31 @@ In this exercise, you will setup integration with Power BI Desktop.
 
     ![Screenshot of the Power BI Download Free webpage.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image112.png "Download free")
 
-5. Select on the second page **Download** link.
+4. Check the box next to **PBIDesktopSetup_x64.exe** and select the **Next** button.
 
-   ![Screenshot of the Power BI Download link.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-06-14_15-30-21.png "Download Power BI")
+    ![Screenshot of the Power BI Download link.](images/2019-10-14-20-48-41.png "Download Power BI")
 
-7. Check the box next to **PBIDesktopSetup.exe** and select the **Next** button.
-
-   ![Choose the PBIDesktop.msi Option and select next.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-06-14_15-35-12.png "Choose the Power Installation Options")
-
-8.  Run the installer.
+5.  Run the installer.
 
     ![Screenshot of second page Power BI Download Link.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image113.png "Second Download Power BI Page")
 
-8.  Select **Next** on the welcome screen.
+6.  Select **Next** on the welcome screen.
 
     ![The Microsoft Power BI Setup wizard displays, and the Next button is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image114.png "Select next on the information screen")
 
-9.  Accept the license agreement, and select **Next**.
+7.  Accept the license agreement, and select **Next**.
 
     ![On the Microsoft Software License Terms page, the check box is selected for I accept the terms in the License Agreement, and the Next button at the bottom is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image115.png "Accept license terms")
 
-10. Leave the default destination folder, and select **Next**.
+8.  Leave the default destination folder, and select **Next**.
 
     ![In the Microsoft Power BI Setup wizard, on the Destination Folder page, the Next button is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image116.png "Destination folder")
 
-11. Make sure the Create a desktop shortcut box is checked, and select **Install**.
+9.  Make sure the Create a desktop shortcut box is checked, and select **Install**.
 
     ![On the Ready to install page, the Create desktop shortcut check box is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image117.png "Create shortcut")
 
-12. Verify that Launch Microsoft Power BI Desktop is checked, and select **Finish**.
+10. Verify that Launch Microsoft Power BI Desktop is checked, and select **Finish**.
 
     ![On the Microsoft Power BI Setup wizard Completed page, the Finish button is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image118.png "Launch Microsoft Power BI Desktop")
 
