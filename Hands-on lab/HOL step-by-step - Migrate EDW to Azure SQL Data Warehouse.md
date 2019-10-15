@@ -1,4 +1,4 @@
-![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
+![Microsoft Cloud Workshops](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
 
 <div class="MCWHeader1">
 Migrate EDW to Azure SQL Data Warehouse
@@ -1061,7 +1061,7 @@ In this exercise, you will configure backup, restore for Analysis Services, and 
 
     ![In the Containers blade, in the Name field, backups is typed, and the OK button is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image95.png "New backups container")
 
-6.  On the **Containers** blade, select on the newly created **backups** Container, then select **Select**.
+6.  On the **Containers** blade, select on the newly created **backups** Container, then choose **Select**.
 
     ![Containers blade picture and backups is selected and select select button is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image96.png "Select backups container")    
 
@@ -1205,7 +1205,7 @@ In this exercise, you will setup integration with Power BI Desktop.
 
 5.  On the **SQL Server Analysis Services database** screen, provide the name of your Analysis Server service, type **,** make sure that **Connect live** is selected, and select **OK**.
 
-    ![On the SQL Server Analysis Services database page, the following two fields and their settings are circled: Server, asazure://southcentralus.asazure.windows.net/ssadw1; Database (optional), coho-data-model; The radio button for Connect live is selected. ](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image123.png "Connect live to SQL Server Analysis Services database")
+    ![On the SQL Server Analysis Services database page, the following two fields and their settings are circled: Server, asazure://southcentralus.asazure.windows.net/ssadw1; Database (optional), coho-data-model; the radio button for Connect live is selected.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image123.png "Connect live to SQL Server Analysis Services database")
 
 6.  Login with your **asadmin** Active Directory Azure credentials that you created earlier.
 
