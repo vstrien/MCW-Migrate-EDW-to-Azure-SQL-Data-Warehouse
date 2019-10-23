@@ -29,6 +29,7 @@ At the end of this whiteboard design session, you will be better able to plan an
 ## Hands-on Lab
 
 [Hands-on Lab preparation](01-Preparation-before-HOL.md)
+
 [Hands-on Lab step-by-step](02-HOL-step-by-step.md)
 
 In this hands-on lab you will migrate an existing on-premises enterprise data warehouse to the cloud. You will investigate the current data warehouse to identify any incompatibilities, export the data from the on-premises data warehouse, and transfer it to an Azure Blob Storage. You will then load the data into the warehouse using Polybase. Finally, you will integrate the warehouse by migrating ETL to Azure Data Factory and supporting ad-hoc access by implementing Azure Analysis Services. 
