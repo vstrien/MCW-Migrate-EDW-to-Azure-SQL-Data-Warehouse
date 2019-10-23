@@ -20,11 +20,16 @@ At the end of this workshop, you will be better able to plan and implement a mig
 
 ## Whiteboard Design Session
 
+[Whiteboard Design Session documentation](00-Whiteboard-Design-Session.md)
+
 This whiteboard design session will look at the process of migrating an on-premises data warehouse to Azure SQL Data Warehouse. The design session will cover planning for a data warehouse migration, data and schema preparation, data loading, optimizing the data distribution, building a solution to support ad-hoc queries, migrating existing ETL packages and visualizing data with Power BI. 
 
 At the end of this whiteboard design session, you will be better able to plan and implement a migration of your existing on-premises enterprise data warehouse to Azure SQL Data Warehouse and integrating it with both cloud-based and on-premises services and data sources.
 
 ## Hands-on Lab
+
+[Hands-on Lab preparation](01-Preparation-before-HOL.md)
+[Hands-on Lab step-by-step](02-HOL-step-by-step.md)
 
 In this hands-on lab you will migrate an existing on-premises enterprise data warehouse to the cloud. You will investigate the current data warehouse to identify any incompatibilities, export the data from the on-premises data warehouse, and transfer it to an Azure Blob Storage. You will then load the data into the warehouse using Polybase. Finally, you will integrate the warehouse by migrating ETL to Azure Data Factory and supporting ad-hoc access by implementing Azure Analysis Services. 
 
@@ -40,20 +45,9 @@ At the end of this hands-on lab, you will be better able to plan and implement a
 
 
 ## Azure solutions
+
 Cloud Scale Analytics
 
 ## Related references
+
 - [MCW](https://github.com/Microsoft/MCW)
-
-## Help & Support
-
-We welcome feedback and comments from Microsoft SMEs & learning partners who deliver MCWs.  
-
-***Having trouble?***
-- First, verify you have followed all written lab instructions (including the Before the Hands-on lab document).
-- Next, submit an issue with a detailed description of the problem.
-- Do not submit pull requests. Our content authors will make all changes and submit pull requests for approval.  
-
-If you are planning to present a workshop, *review and test the materials early*! We recommend at least two weeks prior.
-
-### Please allow 5 - 10 business days for review and resolution of issues.
