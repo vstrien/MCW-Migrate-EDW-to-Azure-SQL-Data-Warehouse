@@ -4,7 +4,7 @@
     "parameters": {
         "region": {
             "type": "string",
-            "defaultValue": "South Central US",
+            "defaultValue": "West Europe",
             "allowedValues": [
                 "East US",
                 "East US 2",

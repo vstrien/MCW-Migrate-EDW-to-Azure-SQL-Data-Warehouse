@@ -247,9 +247,9 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
         ![Screenshot of the SQL Data Warehouse new server blade with configuration options set.](images/2019-08-16-18-58-59.png "SQL Data Warehouse configuration settings for new data warehouse")
 
-5.  Select the Performance level link, select the **Gen2** tab and set the performance to **DW400c,** and select **Apply**.
+5.  Select the Performance level link, select the **Gen2** tab and set the performance to **DW100c,** and select **Apply**.
 
-    ![In the Configure Performance blade, Gen2 tab is selected, the Scale your system sliding scale is at cDW400.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-01-22-11-58-40.png "Configure performance In the Configure Performance blade, The Scale your system sliding scale is at DW400")
+    ![In the Configure Performance blade, Gen2 tab is selected, the Scale your system sliding scale is at cDW100.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/2019-01-22-11-58-40.png "Configure performance In the Configure Performance blade, The Scale your system sliding scale is at DW100")
 
 6.  On the SQL Data Warehouse blade, select **Review + create**.  Verify your configuration your and select **Create**.
 
