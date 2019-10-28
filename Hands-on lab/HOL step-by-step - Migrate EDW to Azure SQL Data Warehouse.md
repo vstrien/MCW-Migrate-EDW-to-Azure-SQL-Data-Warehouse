@@ -110,7 +110,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     -   Server admin login: **demouser**
 
-    -   Password: **Demo\@pass123**
+    -   Password: **Demo@pass123**
 
     -   Location: ***Choose a region near you from the following regions which support the SSIS Integration Runtime***:
 
@@ -207,7 +207,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     -   Admin Username: **demouser**
 
-    -   Admin Password: **Demo\@pass123**
+    -   Admin Password: **Demo@pass123**
 
     -   Catalog Database Service Tier: **S1**
 
@@ -241,7 +241,7 @@ In this exercise, you will create and configure an Azure Storage Account, Azure 
 
     -   Server name: **Choose a unique server name**.
     -   Server admin login: **demouser**
-    -   Password: **Demo\@pass123**
+    -   Password: **Demo@pass123**
     -   Location: **Same location you created your logical SQL Server in**.
     -   Allow azure services: **checked** 
 
@@ -380,7 +380,7 @@ The first four steps of this task walk you through creating an organizational ac
 
     Open the **C:\\LabFiles\\CreateDataLoader.sql** script in SQL Server Management Studio.
 
-10. Connect to your Azure SQL Data Warehouse using the server name that you copied from the Azure portal. Change your authentication method to SQL Server Authentication and use the **demouser** account and password **Demo\@pass123**. 
+10. Connect to your Azure SQL Data Warehouse using the server name that you copied from the Azure portal. Change your authentication method to SQL Server Authentication and use the **demouser** account and password **Demo@pass123**. 
 
     ![The Connect to Server dialog box displays.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image41.png "Connect to Server")
 
@@ -626,7 +626,7 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
     ![On the SSISDB overview blade, the server name is circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image63.png "Copy the server name")
 
-6.  Open SQL Server Management Studio, and select the **Connect** button in Object Explorer. Paste the server name you just copied into the server name field, use **demouser** for the login and **Demo\@pass123** for the password. Then select on **Options \>\>**.
+6.  Open SQL Server Management Studio, and select the **Connect** button in Object Explorer. Paste the server name you just copied into the server name field, use **demouser** for the login and **Demo@pass123** for the password. Then select on **Options \>\>**.
 
     ![On the connect to server window, the server name and login credentials are circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image64.png "Fill in connection information")
 
@@ -652,7 +652,7 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
     ![Screenshot of the warning message popup.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image69.png "Bypass warning")
 
-13. On the Select Destination window, make sure the server name of your SSISDB database server is set correctly, use demouser and Demo\@pass123 for authentication, select **Connect** to verify your credentials, then select Next.
+13. On the Select Destination window, make sure the server name of your SSISDB database server is set correctly, use demouser and Demo@pass123 for authentication, select **Connect** to verify your credentials, then select Next.
 
     ![In the integration services deployment wizard, select destination is highlighted on the left, on the right, the servername is set to the name of your SSISDB logical server, authentication is set to SQL Server Authentication, login is set to demouser, the password is set to Demo@pass123, and the path is set to /SSISDB/Azure-SSIS/DataLoad.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image70.png "Connect to destination")
 
@@ -668,7 +668,7 @@ In this exercise, you will use the SSIS Integration Runtime in Azure Data Factor
 
     ![In object explorer, the packages are expanded, and configure is circled in the sub-menu.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image73.png "Configure package")
 
-17. Select the **Connection Managers** tab, for the DestinationDW connection, edit the values the **ConnectionString**, **Password** and **ServerName** properties to reflect the name of your Azure SQL Data Warehouse server, then set the password to Demo\@pass123.
+17. Select the **Connection Managers** tab, for the DestinationDW connection, edit the values the **ConnectionString**, **Password** and **ServerName** properties to reflect the name of your Azure SQL Data Warehouse server, then set the password to Demo@pass123.
 
     ![In the configuration window, the connection managers tab is selected, DestinationDW is highlighted, and ConnectionString, Password, and Servername are circled.](images/Hands-onlabstep-by-step-MigrateEDWtoAzureSQLDataWarehouseimages/media/image74.png "Set connection information for destinationDW")
 
