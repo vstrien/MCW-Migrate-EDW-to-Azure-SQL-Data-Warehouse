@@ -380,7 +380,7 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 |----------|:-------------:|
 | **Description** | **Links** |
 |  Azure SQL Data Warehouse  |  <https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is>   |
-|  Migrate your solution to SQL Data Warehouse | <https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-migrate/>  |
+|  Azure Database Migration Guide | <https://datamigration.microsoft.com/scenario/sql-to-sqldw?step=1>  |
 |  Load data into Azure SQL Data Warehouse | <https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-load/>  |
 |  Manage tables and indexes in Azure SQL Data Warehouse |  <https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-manage-tables-indexes/>  |
 | Leverage other services with SQL Data Warehouse   | <https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-integrate/>      |
